@@ -10,27 +10,22 @@
   <meta property="og:description" content="Твій режим сили, ритму і щоденного апдейту.">
   <meta property="og:type" content="website">
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@500;600;700;800&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700;800;900&family=Barlow+Condensed:wght@600;700;800;900&display=swap");
 
     :root {
-      color-scheme: dark;
-      --bg: #050505;
-      --bg-soft: #0a0909;
-      --panel: #101010;
-      --panel-2: #171313;
-      --text: #f5f1eb;
-      --muted: #b3aaa2;
-      --muted-2: #7e746e;
-      --red: #ff2a1f;
-      --red-deep: #7a0908;
-      --red-dark: #2a0505;
-      --amber: #ffad4f;
-      --line: rgb(255 255 255 / 12%);
-      --line-strong: rgb(255 255 255 / 22%);
-      --shadow-red: 0 0 28px rgb(255 42 31 / 38%);
-      --shadow-deep: 0 28px 90px rgb(0 0 0 / 70%);
+      color-scheme: light;
+      --white: #f7f5ef;
+      --paper: #fffdf7;
+      --black: #030303;
+      --black-soft: #111;
+      --red: #ed111b;
+      --red-dark: #570306;
+      --red-deep: #210001;
+      --gray: #777;
+      --line: rgb(3 3 3 / 18%);
+      --page: min(100vw, 450px);
+      --side: 14px;
       --radius: 8px;
-      --page: min(100vw - 24px, 430px);
       font-family: Barlow, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
@@ -40,294 +35,242 @@
 
     html {
       min-width: 320px;
-      background: var(--bg);
-      color: var(--text);
+      background: var(--black);
+      color: var(--black);
       scroll-behavior: smooth;
     }
 
     body {
-      margin: 0;
       min-width: 320px;
+      margin: 0;
       overflow-x: hidden;
       background:
-        radial-gradient(circle at 12% 8%, rgb(255 42 31 / 20%), transparent 32%),
-        radial-gradient(circle at 85% 0%, rgb(122 9 8 / 34%), transparent 30%),
-        linear-gradient(180deg, #050505 0%, #090707 52%, #050505 100%);
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -3;
-      pointer-events: none;
-      background:
-        linear-gradient(90deg, rgb(255 255 255 / 5%) 1px, transparent 1px),
-        linear-gradient(0deg, rgb(255 255 255 / 4%) 1px, transparent 1px);
-      background-size: 34px 34px;
-      mask-image: linear-gradient(180deg, black 0%, transparent 78%);
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
-      opacity: .42;
-      background:
-        repeating-linear-gradient(0deg, rgb(255 255 255 / 5%) 0 1px, transparent 1px 5px),
-        radial-gradient(circle at 50% 34%, transparent 0 24%, rgb(0 0 0 / 70%) 76%);
-      mix-blend-mode: screen;
+        radial-gradient(circle at 50% 0%, rgb(237 17 27 / 24%), transparent 34%),
+        linear-gradient(180deg, #030303 0%, #070000 100%);
     }
 
     a {
       color: inherit;
       text-decoration: none;
-    }
-
-    button,
-    a {
       -webkit-tap-highlight-color: transparent;
     }
 
-    .page {
+    .phone {
       width: var(--page);
+      min-height: 100svh;
       margin: 0 auto;
-      padding: max(14px, env(safe-area-inset-top)) 0 max(28px, env(safe-area-inset-bottom));
+      background: var(--paper);
+      box-shadow: 0 0 0 1px rgb(255 255 255 / 8%), 0 24px 90px rgb(0 0 0 / 72%);
     }
 
-    .topbar {
+    .poster {
+      position: relative;
+      isolation: isolate;
+      min-height: 100svh;
+      overflow: hidden;
+      padding: max(14px, env(safe-area-inset-top)) var(--side) max(24px, env(safe-area-inset-bottom));
+      background:
+        linear-gradient(90deg, transparent 0 calc(var(--side) + 1px), rgb(3 3 3 / 96%) calc(var(--side) + 1px) calc(var(--side) + 4px), transparent calc(var(--side) + 4px)),
+        linear-gradient(90deg, transparent 0 calc(100% - var(--side) - 4px), rgb(3 3 3 / 96%) calc(100% - var(--side) - 4px) calc(100% - var(--side) - 1px), transparent calc(100% - var(--side) - 1px)),
+        var(--paper);
+    }
+
+    .brand-row {
+      position: relative;
+      z-index: 10;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
-      height: 44px;
-      margin-bottom: 10px;
-      letter-spacing: 0;
+      gap: 12px;
+      min-height: 42px;
+      padding: 0 7px;
     }
 
     .brand {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      min-width: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--white);
       font-family: "Barlow Condensed", Barlow, sans-serif;
       font-size: 22px;
-      font-weight: 800;
+      font-weight: 900;
       line-height: 1;
+      letter-spacing: 0;
       text-transform: uppercase;
     }
 
     .brand span {
       color: var(--red);
-      text-shadow: 0 0 16px rgb(255 42 31 / 64%);
+      text-shadow: 0 0 13px rgb(237 17 27 / 44%);
     }
 
-    .top-pill {
-      flex: 0 0 auto;
+    .ig {
       display: inline-flex;
+      min-height: 30px;
       align-items: center;
       justify-content: center;
-      min-height: 30px;
-      padding: 0 10px;
-      border: 1px solid rgb(255 42 31 / 42%);
+      padding: 0 13px;
+      border: 2px solid var(--black);
       border-radius: 999px;
-      color: #fff6f1;
-      background: linear-gradient(180deg, rgb(255 42 31 / 18%), rgb(80 7 7 / 20%));
-      box-shadow: inset 0 0 18px rgb(255 42 31 / 8%);
+      color: var(--white);
+      background: var(--black);
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 900;
       text-transform: uppercase;
     }
 
-    .hero-shell {
+    .media-field {
       position: relative;
-      isolation: isolate;
-      min-height: calc(100svh - 16px);
-      padding-bottom: 22px;
-    }
-
-    .video-card {
-      position: relative;
+      z-index: 1;
+      height: min(43svh, 395px);
+      min-height: 315px;
+      margin: -44px calc(var(--side) * -1) 0;
       overflow: hidden;
-      width: 100%;
-      aspect-ratio: 9 / 16;
-      max-height: min(49svh, 560px);
-      border: 1px solid rgb(255 255 255 / 14%);
-      border-radius: var(--radius);
-      background: #070707;
-      box-shadow: var(--shadow-deep), 0 0 0 1px rgb(255 42 31 / 12%);
+      background: #d7d4cf;
+      clip-path: polygon(7% 0, 100% 0, 96% 92%, 80% 86%, 53% 100%, 23% 88%, 0 96%, 0 18%);
     }
 
-    .video-card::before,
-    .video-card::after {
+    .media-field video {
+      position: absolute;
+      inset: -8% -4%;
+      width: 108%;
+      height: 116%;
+      object-fit: cover;
+      filter: grayscale(1) contrast(1.42) brightness(1.08);
+      opacity: .58;
+      mix-blend-mode: multiply;
+      transform: scale(1.03);
+    }
+
+    .media-field::before {
       content: "";
       position: absolute;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .video-card::before {
       inset: 0;
+      z-index: 2;
       background:
-        linear-gradient(180deg, rgb(0 0 0 / 28%) 0%, transparent 22%, transparent 58%, rgb(0 0 0 / 64%) 100%),
-        radial-gradient(circle at 0% 0%, rgb(255 42 31 / 22%), transparent 34%);
-    }
-
-    .video-card::after {
-      inset: 12px;
-      border-top: 2px solid rgb(255 42 31 / 82%);
-      border-right: 2px solid rgb(255 42 31 / 64%);
-      border-radius: 4px;
-      filter: drop-shadow(0 0 12px rgb(255 42 31 / 74%));
-      clip-path: polygon(42% 0, 100% 0, 100% 38%, calc(100% - 2px) 38%, calc(100% - 2px) 2px, 42% 2px);
-    }
-
-    video {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: scale(1.01);
-    }
-
-    .video-label {
-      position: absolute;
-      z-index: 3;
-      top: 14px;
-      left: 14px;
-      right: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
+        repeating-linear-gradient(126deg, transparent 0 22px, rgb(3 3 3 / 36%) 23px 28px, transparent 29px 46px),
+        linear-gradient(180deg, rgb(255 253 247 / 22%), rgb(255 253 247 / 8));
+      mix-blend-mode: multiply;
       pointer-events: none;
     }
 
-    .micro {
+    .red-slab {
+      position: absolute;
+      z-index: 4;
+      top: 10px;
+      left: 108px;
+      width: 83%;
+      height: 58%;
+      border-radius: 0 0 28px 16px;
+      background:
+        linear-gradient(135deg, var(--red) 0 58%, #a80309 100%);
+      box-shadow: 0 0 28px rgb(237 17 27 / 36%);
+      clip-path: polygon(0 0, 73% 0, 100% 28%, 91% 79%, 53% 70%, 35% 100%, 0 42%);
+      pointer-events: none;
+    }
+
+    .black-slab {
+      position: absolute;
+      z-index: 6;
+      top: 10px;
+      left: 40px;
+      width: 58%;
+      height: 58px;
+      border-radius: 999px 999px 26px 999px;
+      background: var(--black);
+      box-shadow: 0 10px 24px rgb(3 3 3 / 44%);
+      pointer-events: none;
+    }
+
+    .field-tag {
+      position: absolute;
+      z-index: 7;
+      right: 26px;
+      bottom: 48px;
       display: inline-flex;
-      min-width: 0;
       min-height: 28px;
       align-items: center;
-      gap: 7px;
-      padding: 0 9px;
-      border: 1px solid rgb(255 255 255 / 16%);
+      padding: 0 10px;
+      border: 2px solid var(--black);
       border-radius: 999px;
-      background: rgb(5 5 5 / 55%);
-      backdrop-filter: blur(12px);
-      color: #fff7f2;
+      color: var(--black);
+      background: rgb(255 253 247 / 74%);
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 900;
       text-transform: uppercase;
+      backdrop-filter: blur(6px);
     }
 
-    .micro::before {
-      content: "";
-      flex: 0 0 auto;
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--red);
-      box-shadow: 0 0 12px var(--red);
-    }
-
-    .video-mark {
-      position: absolute;
-      z-index: 3;
-      left: 14px;
-      right: 14px;
-      bottom: 14px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 12px;
-      pointer-events: none;
-    }
-
-    .video-mark strong {
-      font-family: "Barlow Condensed", Barlow, sans-serif;
-      font-size: clamp(36px, 12vw, 58px);
-      line-height: .88;
-      font-weight: 800;
-      text-transform: uppercase;
-      text-shadow: 0 4px 24px rgb(0 0 0 / 76%);
-    }
-
-    .video-mark strong span {
-      color: var(--red);
-      text-shadow: 0 0 16px rgb(255 42 31 / 62%);
-    }
-
-    .video-mark small {
-      max-width: 104px;
-      color: rgb(255 246 241 / 78%);
-      font-size: 10px;
-      font-weight: 700;
-      line-height: 1.05;
-      text-align: right;
-      text-transform: uppercase;
-    }
-
-    .copy-block {
+    .cut-line {
       position: relative;
-      z-index: 4;
-      margin-top: 14px;
-      padding: 0 2px;
+      z-index: 8;
+      height: 4px;
+      margin: -3px calc(var(--side) * -1) 0;
+      background: var(--black);
+      transform: rotate(2.3deg);
+      box-shadow: 0 0 0 1px var(--black);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 9;
+      padding: 34px 8px 0;
+      color: var(--black);
     }
 
     .eyebrow {
       display: flex;
       align-items: center;
       gap: 9px;
-      margin: 0 0 8px;
+      margin: 0 0 12px;
       color: var(--red);
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 900;
+      line-height: 1;
       text-transform: uppercase;
     }
 
     .eyebrow::before {
       content: "";
-      width: 34px;
-      height: 2px;
+      width: 42px;
+      height: 4px;
       background: var(--red);
-      box-shadow: var(--shadow-red);
+      box-shadow: 0 0 16px rgb(237 17 27 / 50%);
     }
 
     h1 {
+      max-width: 380px;
       margin: 0;
-      max-width: 390px;
       font-family: "Barlow Condensed", Barlow, sans-serif;
-      font-size: clamp(42px, 13.2vw, 62px);
-      font-weight: 800;
-      line-height: .86;
+      font-size: clamp(58px, 18vw, 82px);
+      font-weight: 900;
+      line-height: .78;
       letter-spacing: 0;
       text-transform: uppercase;
     }
 
     h1 .red {
+      display: block;
       color: var(--red);
-      text-shadow: 0 0 18px rgb(255 42 31 / 54%);
+      text-shadow: 0 0 17px rgb(237 17 27 / 38%);
     }
 
     .lead {
-      margin: 10px 0 0;
-      max-width: 390px;
-      color: var(--muted);
-      font-size: 15px;
-      font-weight: 500;
-      line-height: 1.28;
+      max-width: 385px;
+      margin: 16px 0 0;
+      color: #242424;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.25;
     }
 
     .lead strong {
-      color: var(--text);
-      font-weight: 700;
+      font-weight: 900;
     }
 
     .actions {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(94px, .8fr);
+      grid-template-columns: minmax(0, 1.2fr) minmax(104px, .8fr);
       gap: 10px;
       margin-top: 18px;
     }
@@ -335,167 +278,154 @@
     .btn {
       position: relative;
       display: inline-flex;
-      min-width: 0;
-      min-height: 48px;
+      min-height: 52px;
       align-items: center;
       justify-content: center;
-      gap: 9px;
       overflow: hidden;
       border-radius: var(--radius);
-      border: 1px solid transparent;
-      padding: 0 14px;
+      border: 2px solid var(--black);
+      padding: 0 13px;
       font-size: 14px;
-      font-weight: 800;
+      font-weight: 900;
       line-height: 1;
       text-align: center;
       text-transform: uppercase;
-      transition: transform .18s ease, border-color .18s ease, background .18s ease;
     }
 
     .btn:focus-visible {
-      outline: 2px solid var(--red);
+      outline: 3px solid var(--red);
       outline-offset: 3px;
     }
 
     .btn-primary {
-      color: #fff9f2;
-      background:
-        linear-gradient(135deg, var(--red), #a00d0b 52%, #450707),
-        #d71913;
-      border-color: rgb(255 167 131 / 38%);
-      box-shadow: 0 12px 34px rgb(255 42 31 / 30%), inset 0 0 22px rgb(255 255 255 / 10%);
-    }
-
-    .btn-primary::after {
-      content: "";
-      position: absolute;
-      inset: -80% -30%;
-      background: linear-gradient(90deg, transparent, rgb(255 255 255 / 24%), transparent);
-      transform: translateX(-55%) rotate(16deg);
-      animation: light-pass 4.4s ease-in-out infinite;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--red), var(--red-dark));
+      border-color: var(--red-deep);
+      box-shadow: 0 0 22px rgb(237 17 27 / 30%);
     }
 
     .btn-secondary {
-      color: #fff4ef;
-      background: linear-gradient(180deg, rgb(255 255 255 / 9%), rgb(255 255 255 / 3%));
-      border-color: rgb(255 255 255 / 15%);
-    }
-
-    .btn span {
-      position: relative;
-      z-index: 1;
-      white-space: nowrap;
+      color: var(--black);
+      background: var(--paper);
     }
 
     .quick-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 8px;
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     .quick {
-      min-height: 58px;
-      padding: 9px 9px;
-      border: 1px solid rgb(255 255 255 / 10%);
+      min-height: 62px;
+      padding: 9px 8px;
+      border: 2px solid var(--black);
       border-radius: var(--radius);
-      background: linear-gradient(180deg, rgb(255 255 255 / 6%), rgb(255 255 255 / 2%));
+      background: var(--white);
     }
 
     .quick b {
       display: block;
-      color: var(--text);
+      color: var(--black);
       font-size: 11px;
-      font-weight: 800;
-      line-height: 1.05;
+      font-weight: 900;
+      line-height: 1;
       text-transform: uppercase;
     }
 
     .quick small {
       display: block;
       margin-top: 7px;
-      color: var(--muted-2);
+      color: var(--red-dark);
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 900;
       line-height: 1.1;
       text-transform: uppercase;
     }
 
     .ticker {
       position: relative;
+      z-index: 10;
       overflow: hidden;
-      margin: 14px calc((100vw - var(--page)) / -2) 0;
-      border-block: 1px solid rgb(255 42 31 / 26%);
-      background: linear-gradient(90deg, rgb(255 42 31 / 8%), transparent 34%, rgb(255 42 31 / 9%));
+      margin: 18px calc(var(--side) * -1) 0;
+      border-block: 3px solid var(--black);
+      color: var(--white);
+      background: var(--black);
     }
 
     .ticker-track {
       display: flex;
       width: max-content;
-      animation: ticker 22s linear infinite;
+      animation: ticker 20s linear infinite;
     }
 
     .ticker span {
       display: inline-flex;
       align-items: center;
-      min-height: 34px;
-      padding: 0 15px;
-      color: rgb(255 246 241 / 82%);
+      min-height: 36px;
+      padding: 0 16px;
       font-family: "Barlow Condensed", Barlow, sans-serif;
-      font-size: 15px;
-      font-weight: 800;
+      font-size: 16px;
+      font-weight: 900;
       text-transform: uppercase;
       white-space: nowrap;
     }
 
     .ticker span::after {
       content: "";
-      width: 5px;
-      height: 5px;
-      margin-left: 15px;
+      width: 7px;
+      height: 7px;
+      margin-left: 16px;
       border-radius: 999px;
       background: var(--red);
-      box-shadow: var(--shadow-red);
+      box-shadow: 0 0 11px var(--red);
     }
 
     .section {
-      margin-top: 26px;
-      padding-top: 6px;
+      padding: 28px calc(var(--side) + 8px);
+      color: var(--white);
+      background: var(--black);
+      border-top: 3px solid var(--black);
+    }
+
+    .section + .section {
+      padding-top: 8px;
     }
 
     .section h2 {
       margin: 0;
       font-family: "Barlow Condensed", Barlow, sans-serif;
-      font-size: 32px;
-      line-height: .95;
-      font-weight: 800;
+      font-size: 36px;
+      font-weight: 900;
+      line-height: .9;
       text-transform: uppercase;
     }
 
     .section p {
-      margin: 9px 0 0;
-      color: var(--muted);
+      margin: 10px 0 0;
+      color: #d5d0c8;
       font-size: 15px;
-      line-height: 1.35;
+      font-weight: 600;
+      line-height: 1.3;
     }
 
     .service-list,
     .price-panel {
       margin-top: 14px;
-      border: 1px solid rgb(255 255 255 / 10%);
+      border: 2px solid rgb(255 255 255 / 18%);
       border-radius: var(--radius);
-      background: linear-gradient(180deg, rgb(255 255 255 / 6%), rgb(255 255 255 / 2%));
       overflow: hidden;
+      background: #080808;
     }
 
     .row {
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
-      gap: 14px;
-      min-height: 56px;
+      gap: 12px;
+      min-height: 58px;
       padding: 13px 14px;
-      border-bottom: 1px solid rgb(255 255 255 / 8%);
+      border-bottom: 1px solid rgb(255 255 255 / 12%);
     }
 
     .row:last-child {
@@ -504,14 +434,16 @@
 
     .row b {
       font-size: 14px;
+      font-weight: 900;
       line-height: 1;
       text-transform: uppercase;
     }
 
     .row small {
-      color: var(--muted-2);
+      color: #a79e96;
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 800;
+      text-align: right;
       text-transform: uppercase;
     }
 
@@ -521,10 +453,10 @@
 
     .price-panel strong {
       display: block;
-      color: var(--text);
       font-family: "Barlow Condensed", Barlow, sans-serif;
-      font-size: 26px;
-      line-height: .95;
+      font-size: 28px;
+      font-weight: 900;
+      line-height: .92;
       text-transform: uppercase;
     }
 
@@ -540,56 +472,46 @@
       margin-top: 12px;
     }
 
-    .meta-actions .btn {
-      min-height: 46px;
-      font-size: 12px;
+    .section .btn-secondary {
+      color: var(--white);
+      background: transparent;
+      border-color: rgb(255 255 255 / 28%);
     }
 
     @media (hover: hover) {
-      .btn:hover {
-        transform: translateY(-1px);
+      .btn {
+        transition: transform .18s ease, box-shadow .18s ease;
       }
 
-      .btn-secondary:hover {
-        border-color: rgb(255 42 31 / 42%);
-        background: linear-gradient(180deg, rgb(255 42 31 / 12%), rgb(255 255 255 / 4%));
+      .btn:hover {
+        transform: translateY(-1px);
       }
     }
 
     @media (min-width: 760px) {
-      body {
-        background:
-          radial-gradient(circle at 50% 0%, rgb(255 42 31 / 17%), transparent 34%),
-          linear-gradient(180deg, #050505 0%, #090707 52%, #050505 100%);
-      }
-
-      .page {
-        --page: min(100vw - 44px, 480px);
-      }
-
-      .hero-shell {
-        min-height: auto;
-        padding-top: 8px;
+      .phone {
+        --page: 450px;
       }
     }
 
     @media (max-width: 370px) {
-      .page {
-        --page: min(100vw - 18px, 430px);
+      :root {
+        --side: 10px;
+      }
+
+      .media-field {
+        min-height: 286px;
       }
 
       h1 {
-        font-size: 44px;
+        font-size: 52px;
       }
 
       .lead {
         font-size: 15px;
       }
 
-      .actions {
-        grid-template-columns: 1fr;
-      }
-
+      .actions,
       .quick-grid {
         grid-template-columns: 1fr;
       }
@@ -605,11 +527,11 @@
         transition-duration: .01ms !important;
       }
 
-      video {
+      .media-field video {
         display: none;
       }
 
-      .video-card {
+      .media-field {
         background: url("assets/hero-poster.jpg") center / cover no-repeat;
       }
     }
@@ -618,39 +540,29 @@
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
     }
-
-    @keyframes light-pass {
-      0%, 58% { transform: translateX(-55%) rotate(16deg); }
-      78%, 100% { transform: translateX(78%) rotate(16deg); }
-    }
   </style>
 </head>
 <body>
-  <main class="page">
-    <header class="topbar" aria-label="REGYM MARSHALL">
-      <a class="brand" href="#top" aria-label="REGYM MARSHALL"><span>RE</span>GYM</a>
-      <a class="top-pill" href="https://www.instagram.com/regym.hub/" target="_blank" rel="noreferrer">Instagram</a>
-    </header>
+  <main class="phone">
+    <section class="poster" id="top" aria-labelledby="hero-title">
+      <header class="brand-row" aria-label="REGYM MARSHALL">
+        <a class="brand" href="#top" aria-label="REGYM MARSHALL"><span>RE</span>GYM</a>
+        <a class="ig" href="https://www.instagram.com/regym.hub/" target="_blank" rel="noreferrer">Instagram</a>
+      </header>
 
-    <section class="hero-shell" id="top" aria-labelledby="hero-title">
-      <div class="video-card" aria-label="Відео REGYM MARSHALL">
+      <div class="media-field" aria-label="Фонове відео REGYM MARSHALL">
         <video autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg">
           <source src="assets/hero-regym-mobile-v9.webm" type="video/webm">
           <source src="assets/hero-regym-mobile-v9-web.mp4" type="video/mp4">
         </video>
-
-        <div class="video-label">
-          <span class="micro">Dnipro / Marshall</span>
-          <span class="micro">Live rhythm</span>
-        </div>
-
-        <div class="video-mark">
-          <strong><span>RE</span>GYM<br>MARSHALL</strong>
-          <small>train hard recover smart</small>
-        </div>
+        <div class="red-slab"></div>
+        <div class="black-slab"></div>
+        <span class="field-tag">Dnipro / Marshall</span>
       </div>
 
-      <div class="copy-block">
+      <div class="cut-line"></div>
+
+      <div class="hero-copy">
         <p class="eyebrow">Спортхаб нового ритму</p>
         <h1 id="hero-title">Обери свій <span class="red">режим</span></h1>
         <p class="lead">
@@ -659,8 +571,8 @@
         </p>
 
         <nav class="actions" aria-label="Основні дії">
-          <a class="btn btn-primary" href="#services"><span>Показати послуги</span></a>
-          <a class="btn btn-secondary" href="#price"><span>Прайс</span></a>
+          <a class="btn btn-primary" href="#services">Показати послуги</a>
+          <a class="btn btn-secondary" href="#price">Прайс</a>
         </nav>
 
         <div class="quick-grid" aria-label="Напрями REGYM">
@@ -723,12 +635,12 @@
       <div class="price-panel">
         <strong>Абонементи, разові візити та персональні формати</strong>
         <p>На повній версії сайту цей блок веде до актуального прайсу, консультації або Telegram-бота REGYM.</p>
-        <a class="btn btn-primary" href="https://www.instagram.com/regym.hub/" target="_blank" rel="noreferrer"><span>Запитати в Direct</span></a>
+        <a class="btn btn-primary" href="https://www.instagram.com/regym.hub/" target="_blank" rel="noreferrer">Запитати в Direct</a>
       </div>
 
       <div class="meta-actions">
-        <a class="btn btn-secondary" href="https://www.google.com/maps/place/REGYM+sport+hub+MARSHALL/@48.4160105,35.0696778,17z" target="_blank" rel="noreferrer"><span>Маршрут</span></a>
-        <a class="btn btn-secondary" href="tel:+380738835005"><span>Подзвонити</span></a>
+        <a class="btn btn-secondary" href="https://www.google.com/maps/place/REGYM+sport+hub+MARSHALL/@48.4160105,35.0696778,17z" target="_blank" rel="noreferrer">Маршрут</a>
+        <a class="btn btn-secondary" href="tel:+380738835005">Подзвонити</a>
       </div>
     </section>
   </main>
