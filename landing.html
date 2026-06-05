@@ -153,6 +153,70 @@
       box-shadow: 0 0 18px rgb(255 24 36 / 72%);
     }
 
+    .hero-rig {
+      position: absolute;
+      top: 58px;
+      left: var(--pad);
+      right: var(--pad);
+      z-index: 1;
+      height: 126px;
+      pointer-events: none;
+    }
+
+    .rig-panel {
+      position: absolute;
+      top: 0;
+      left: 18px;
+      width: min(265px, 68%);
+      height: 48px;
+      border: 1px solid rgb(255 255 255 / 10%);
+      border-radius: 999px 999px 24px 999px;
+      background:
+        linear-gradient(90deg, rgb(3 3 3 / 92%), rgb(13 10 10 / 78%)),
+        #050505;
+      box-shadow:
+        0 14px 34px rgb(0 0 0 / 62%),
+        inset 0 0 18px rgb(255 255 255 / 5%);
+      backdrop-filter: blur(10px);
+    }
+
+    .rig-panel::after {
+      content: "";
+      position: absolute;
+      left: 28px;
+      right: 22px;
+      bottom: -1px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgb(255 24 36 / 72%), transparent);
+      box-shadow: 0 0 16px rgb(255 24 36 / 64%);
+    }
+
+    .rig-chevron {
+      position: absolute;
+      top: 18px;
+      right: 16px;
+      width: min(158px, 43%);
+      height: 96px;
+      opacity: .9;
+      background:
+        radial-gradient(circle at 50% 10%, rgb(255 255 255 / 16%), transparent 24%),
+        linear-gradient(180deg, #ff1d27, #a5060d 72%, #4a0105);
+      clip-path: polygon(8% 0, 100% 0, 72% 45%, 52% 100%, 32% 45%);
+      filter: drop-shadow(0 0 18px rgb(255 24 36 / 52%));
+      mix-blend-mode: screen;
+    }
+
+    .rig-rail {
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgb(255 24 36 / 60%) 22%, rgb(255 255 255 / 14%) 50%, transparent 82%);
+      box-shadow: 0 0 18px rgb(255 24 36 / 34%);
+      transform: skewY(-5deg);
+    }
+
     .topbar {
       position: relative;
       z-index: 5;
@@ -569,6 +633,11 @@
         </video>
       </div>
       <div class="frame-glow" aria-hidden="true"></div>
+      <div class="hero-rig" aria-hidden="true">
+        <div class="rig-panel"></div>
+        <div class="rig-chevron"></div>
+        <div class="rig-rail"></div>
+      </div>
 
       <header class="topbar" aria-label="REGYM MARSHALL">
         <a class="brand" href="#top" aria-label="REGYM MARSHALL"><span>RE</span>GYM</a>
