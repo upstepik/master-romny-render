@@ -2,39 +2,47 @@
 <html lang="uk">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Сервісний центр "Майстер" — ремонт телефонів у Ромнах</title>
-  <meta name="description" content="Сервісний центр Майстер у Ромнах: діагностика, ремонт телефонів, зарядка, акумулятори, екрани та аксесуари. Соборна, 7.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>REGYM MARSHALL - спортхаб у Дніпрі</title>
+  <meta name="description" content="REGYM MARSHALL - спортхаб у Дніпрі: тренажерний зал, групові напрями, єдиноборства, RE'BAR та відновлення.">
+  <meta name="theme-color" content="#050505">
+  <meta property="og:title" content="REGYM MARSHALL">
+  <meta property="og:description" content="Твій режим сили, ритму і щоденного апдейту.">
+  <meta property="og:type" content="website">
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@500;600;700;800&display=swap");
+
     :root {
       color-scheme: dark;
-      --bg: #090b0d;
-      --bg-2: #101417;
-      --panel: #151a1e;
-      --panel-2: #1b2227;
-      --steel: #8a949b;
-      --muted: #a4adb3;
-      --text: #eef2f3;
+      --bg: #050505;
+      --bg-soft: #0a0909;
+      --panel: #101010;
+      --panel-2: #171313;
+      --text: #f5f1eb;
+      --muted: #b3aaa2;
+      --muted-2: #7e746e;
+      --red: #ff2a1f;
+      --red-deep: #7a0908;
+      --red-dark: #2a0505;
+      --amber: #ffad4f;
       --line: rgb(255 255 255 / 12%);
       --line-strong: rgb(255 255 255 / 22%);
-      --amber: #d99a2b;
-      --amber-2: #f3c15b;
-      --green: #2fc487;
-      --red: #d25145;
-      --page: min(1180px, calc(100vw - 32px));
+      --shadow-red: 0 0 28px rgb(255 42 31 / 38%);
+      --shadow-deep: 0 28px 90px rgb(0 0 0 / 70%);
       --radius: 8px;
-      --shadow: 0 28px 90px rgb(0 0 0 / 38%);
-      --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      --page: min(100vw - 24px, 430px);
+      font-family: Barlow, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html {
-      scroll-behavior: smooth;
+      min-width: 320px;
       background: var(--bg);
       color: var(--text);
-      font-family: var(--font);
+      scroll-behavior: smooth;
     }
 
     body {
@@ -42,1026 +50,548 @@
       min-width: 320px;
       overflow-x: hidden;
       background:
-        linear-gradient(180deg, rgb(9 11 13 / 96%), rgb(13 17 20 / 98%) 42%, #0a0c0e),
-        radial-gradient(circle at 18% 0%, rgb(217 154 43 / 18%), transparent 34%),
-        radial-gradient(circle at 80% 18%, rgb(47 196 135 / 11%), transparent 36%);
+        radial-gradient(circle at 12% 8%, rgb(255 42 31 / 20%), transparent 32%),
+        radial-gradient(circle at 85% 0%, rgb(122 9 8 / 34%), transparent 30%),
+        linear-gradient(180deg, #050505 0%, #090707 52%, #050505 100%);
     }
 
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      z-index: -2;
+      z-index: -3;
       pointer-events: none;
-      background-image:
-        radial-gradient(circle at 50% 50%, rgb(243 193 91 / 22%) 1px, transparent 1.5px),
-        linear-gradient(to right, rgb(255 255 255 / 8%) 1px, transparent 1px),
-        linear-gradient(to bottom, rgb(255 255 255 / 8%) 1px, transparent 1px),
-        linear-gradient(135deg, transparent 0 48%, rgb(255 255 255 / 5%) 49% 51%, transparent 52% 100%);
-      background-size: 26px 26px, 88px 88px, 88px 88px, 44px 44px;
-      mask-image: linear-gradient(180deg, black, black 70%, transparent);
-      animation: grid-drive 28s linear infinite;
+      background:
+        linear-gradient(90deg, rgb(255 255 255 / 5%) 1px, transparent 1px),
+        linear-gradient(0deg, rgb(255 255 255 / 4%) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(180deg, black 0%, transparent 78%);
     }
 
     body::after {
       content: "";
       position: fixed;
       inset: 0;
-      z-index: -1;
+      z-index: -2;
       pointer-events: none;
-      opacity: .22;
-      background-image:
-        repeating-linear-gradient(0deg, transparent 0 7px, rgb(255 255 255 / 7%) 8px),
-        radial-gradient(circle at 50% 20%, transparent 0 28%, rgb(0 0 0 / 64%) 72%);
+      opacity: .42;
+      background:
+        repeating-linear-gradient(0deg, rgb(255 255 255 / 5%) 0 1px, transparent 1px 5px),
+        radial-gradient(circle at 50% 34%, transparent 0 24%, rgb(0 0 0 / 70%) 76%);
       mix-blend-mode: screen;
     }
 
-    a { color: inherit; }
-
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      background: #111;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     button,
-    textarea {
-      font: inherit;
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .page {
+      width: var(--page);
+      margin: 0 auto;
+      padding: max(14px, env(safe-area-inset-top)) 0 max(28px, env(safe-area-inset-bottom));
     }
 
     .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      border-bottom: 1px solid var(--line);
-      background: rgb(8 10 12 / 82%);
-      backdrop-filter: blur(18px) saturate(130%);
-    }
-
-    .topbar-inner {
-      width: var(--page);
-      min-height: 72px;
-      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      gap: 14px;
+      height: 44px;
+      margin-bottom: 10px;
+      letter-spacing: 0;
     }
 
     .brand {
       display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-      text-decoration: none;
-    }
-
-    .mark {
-      width: 42px;
-      height: 42px;
-      position: relative;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgb(243 193 91 / 52%);
-      border-radius: 8px;
-      color: #15100a;
-      background:
-        linear-gradient(135deg, #f7d67f, #bb7a22);
-      box-shadow:
-        inset 0 0 0 1px rgb(255 255 255 / 28%),
-        0 0 32px rgb(217 154 43 / 20%);
-      flex: 0 0 auto;
-    }
-
-    .mark svg {
-      width: 22px;
-      height: 22px;
-      stroke-width: 2.2;
-    }
-
-    .brand strong {
-      display: block;
-      font-size: 15px;
-      line-height: 1.1;
-      white-space: nowrap;
-    }
-
-    .brand span span {
-      display: block;
-      margin-top: 4px;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
+      align-items: baseline;
       gap: 8px;
-    }
-
-    .nav a,
-    .lang button {
-      min-height: 38px;
-      border: 1px solid transparent;
-      border-radius: var(--radius);
-      padding: 9px 12px;
-      color: var(--muted);
-      text-decoration: none;
-      background: transparent;
-      cursor: pointer;
-    }
-
-    .nav a:hover,
-    .nav a:focus-visible,
-    .lang button:hover,
-    .lang button:focus-visible {
-      border-color: var(--line-strong);
-      color: var(--text);
-      outline: none;
-      background: rgb(255 255 255 / 6%);
-    }
-
-    .lang {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-      padding: 3px;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: rgb(255 255 255 / 5%);
-    }
-
-    .lang button {
-      min-height: 32px;
-      padding: 6px 9px;
+      min-width: 0;
+      font-family: "Barlow Condensed", Barlow, sans-serif;
+      font-size: 22px;
       font-weight: 800;
-      font-size: 13px;
-    }
-
-    .lang button[aria-pressed="true"] {
-      background: var(--amber);
-      color: #140e07;
-    }
-
-    .hero {
-      width: var(--page);
-      margin: 0 auto;
-      min-height: calc(100svh - 72px);
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(360px, .78fr);
-      gap: clamp(28px, 4vw, 64px);
-      align-items: center;
-      padding: clamp(46px, 7vw, 92px) 0 clamp(52px, 7vw, 86px);
-    }
-
-    .kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      min-height: 34px;
-      margin: 0 0 20px;
-      padding: 7px 11px;
-      border: 1px solid rgb(47 196 135 / 30%);
-      border-radius: 999px;
-      color: #c8f9df;
-      background: rgb(47 196 135 / 8%);
-      font-family: var(--mono);
-      font-size: 12px;
-      letter-spacing: .05em;
+      line-height: 1;
       text-transform: uppercase;
     }
 
-    .pulse {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 0 0 rgb(47 196 135 / 50%);
-      animation: pulse 1.8s ease-out infinite;
+    .brand span {
+      color: var(--red);
+      text-shadow: 0 0 16px rgb(255 42 31 / 64%);
     }
 
-    h1,
-    h2,
-    h3 {
-      margin: 0;
-      letter-spacing: -.035em;
-      text-wrap: balance;
-    }
-
-    h1 {
-      max-width: 840px;
-      font-size: clamp(48px, 7.6vw, 104px);
-      line-height: .86;
-      text-transform: uppercase;
-    }
-
-    .cut {
-      display: inline-block;
-      color: transparent;
-      -webkit-text-stroke: 1px rgb(238 242 243 / 72%);
-      text-stroke: 1px rgb(238 242 243 / 72%);
-    }
-
-    .lead {
-      max-width: 680px;
-      margin: 24px 0 0;
-      color: #c2cbd0;
-      font-size: clamp(18px, 1.6vw, 22px);
-      line-height: 1.48;
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 30px;
-    }
-
-    .button {
-      min-height: 52px;
+    .top-pill {
+      flex: 0 0 auto;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--line-strong);
-      border-radius: var(--radius);
-      padding: 13px 16px;
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 900;
-      letter-spacing: -.01em;
-      background:
-        linear-gradient(180deg, rgb(255 255 255 / 8%), rgb(255 255 255 / 2%)),
-        #14191d;
-      cursor: pointer;
-      box-shadow:
-        inset 0 1px 0 rgb(255 255 255 / 12%),
-        0 14px 38px rgb(0 0 0 / 24%);
-      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease, background .18s ease;
-    }
-
-    .button > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .button svg,
-    .icon svg {
-      width: 18px;
-      height: 18px;
-      stroke-width: 2.2;
-      flex: 0 0 auto;
-    }
-
-    .button.primary {
-      border-color: rgb(243 193 91 / 70%);
-      color: #160f07;
-      background:
-        linear-gradient(180deg, #f6d879, #d49528);
-    }
-
-    .button.primary::after {
-      content: "";
-      position: absolute;
-      inset: -140% auto -140% -55%;
-      width: 46%;
-      transform: rotate(18deg);
-      background: linear-gradient(90deg, transparent, rgb(255 255 255 / 52%), transparent);
-      animation: button-sweep 4.8s ease-in-out infinite;
-    }
-
-    .button:hover,
-    .button:focus-visible {
-      transform: translateY(-2px);
-      border-color: var(--amber-2);
-      outline: none;
-      box-shadow:
-        inset 0 1px 0 rgb(255 255 255 / 18%),
-        0 20px 54px rgb(0 0 0 / 34%),
-        0 0 0 4px rgb(243 193 91 / 8%);
-    }
-
-    .button.motion-pop.is-visible {
-      animation: button-pop .7s cubic-bezier(.18, .9, .18, 1) both;
-      animation-delay: var(--motion-delay, 0ms);
-    }
-
-    .instrument {
-      position: relative;
-      min-height: 570px;
-      border: 1px solid var(--line-strong);
-      border-radius: 14px;
-      padding: 18px;
-      background:
-        linear-gradient(180deg, rgb(255 255 255 / 7%), rgb(255 255 255 / 2%)),
-        linear-gradient(135deg, rgb(217 154 43 / 8%), transparent 42%),
-        #101519;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .instrument::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      opacity: .58;
-      background-image:
-        radial-gradient(circle, rgb(255 255 255 / 14%) 1px, transparent 1.4px),
-        linear-gradient(90deg, transparent 49%, rgb(243 193 91 / 10%) 50%, transparent 51%);
-      background-size: 18px 18px, 100% 100%;
-      animation: grid-drive 18s linear infinite reverse;
-    }
-
-    .instrument-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 12px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .status-leds {
-      display: flex;
-      gap: 7px;
-    }
-
-    .status-leds span {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 18px rgb(47 196 135 / 70%);
-    }
-
-    .status-leds span:nth-child(2) {
-      background: var(--amber);
-      box-shadow: 0 0 18px rgb(217 154 43 / 70%);
-    }
-
-    .status-leds span:nth-child(3) {
-      background: #65717a;
-      box-shadow: none;
-    }
-
-    .phone-rig {
-      position: relative;
-      width: min(290px, 74%);
-      margin: 50px auto 32px;
-      aspect-ratio: 9 / 16;
-      border: 2px solid #65717a;
-      border-radius: 24px;
-      background:
-        linear-gradient(135deg, rgb(255 255 255 / 10%), transparent 30%),
-        radial-gradient(circle at 50% 16%, rgb(47 196 135 / 13%), transparent 24%),
-        #080a0c;
-      box-shadow:
-        inset 0 0 0 7px #15191d,
-        inset 0 0 60px rgb(47 196 135 / 8%),
-        0 0 0 1px rgb(0 0 0 / 60%),
-        0 30px 80px rgb(0 0 0 / 50%);
-      animation: rig-float 7s ease-in-out infinite;
-    }
-
-    .phone-rig::before,
-    .phone-rig::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+      min-height: 30px;
+      padding: 0 10px;
+      border: 1px solid rgb(255 42 31 / 42%);
       border-radius: 999px;
-      background: #263039;
-    }
-
-    .phone-rig::before {
-      top: 14px;
-      width: 58px;
-      height: 7px;
-    }
-
-    .phone-rig::after {
-      bottom: 17px;
-      width: 44px;
-      height: 4px;
-    }
-
-    .scan {
-      position: absolute;
-      left: 10%;
-      right: 10%;
-      top: 22%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--green), transparent);
-      box-shadow: 0 0 22px rgb(47 196 135 / 90%);
-      animation: scan-line 3.6s ease-in-out infinite;
-    }
-
-    .chip-board {
-      position: absolute;
-      inset: 28% 18% auto;
-      height: 36%;
-      border: 1px solid rgb(47 196 135 / 28%);
-      background:
-        linear-gradient(to right, rgb(47 196 135 / 18%) 1px, transparent 1px),
-        linear-gradient(to bottom, rgb(47 196 135 / 18%) 1px, transparent 1px);
-      background-size: 16px 16px;
-      opacity: .75;
-    }
-
-    .gear {
-      position: absolute;
-      width: 150px;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      border: 1px dashed rgb(243 193 91 / 36%);
-      background:
-        radial-gradient(circle, transparent 0 31%, rgb(217 154 43 / 10%) 32% 39%, transparent 40%),
-        conic-gradient(from 0deg, rgb(243 193 91 / 0) 0 8deg, rgb(243 193 91 / 28%) 8deg 13deg, transparent 13deg 30deg);
-      animation: gear-spin 22s linear infinite;
-    }
-
-    .gear.one { right: -42px; top: 92px; }
-    .gear.two {
-      left: -50px;
-      bottom: 76px;
-      width: 120px;
-      animation-duration: 18s;
-      animation-direction: reverse;
-    }
-
-    .rig-readout {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--line);
-    }
-
-    .rig-readout div {
-      min-height: 86px;
-      padding: 14px;
-      background: rgb(255 255 255 / 5%);
-    }
-
-    .rig-readout b {
-      display: block;
-      color: var(--amber-2);
-      font-family: var(--mono);
-      font-size: 20px;
-    }
-
-    .rig-readout span {
-      display: block;
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.35;
-    }
-
-    section {
-      width: var(--page);
-      margin: 0 auto;
-      padding: clamp(54px, 8vw, 98px) 0;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 24px;
-    }
-
-    .section-head h2 {
-      max-width: 760px;
-      font-size: clamp(32px, 5vw, 64px);
-      line-height: .92;
-      text-transform: uppercase;
-    }
-
-    .section-head p {
-      max-width: 460px;
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .service-card,
-    .step,
-    .contact-panel,
-    .map-card,
-    .repair-panel,
-    .photo-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background:
-        linear-gradient(180deg, rgb(255 255 255 / 7%), rgb(255 255 255 / 2%)),
-        var(--panel);
-      box-shadow: inset 0 1px 0 rgb(255 255 255 / 8%);
-    }
-
-    .service-card {
-      min-height: 210px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 28px;
-      padding: 20px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .service-card::after {
-      content: "";
-      position: absolute;
-      right: 14px;
-      top: 14px;
-      width: 58px;
-      height: 2px;
-      background: var(--amber);
-      opacity: .7;
-    }
-
-    .icon {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgb(243 193 91 / 28%);
-      border-radius: 6px;
-      color: var(--amber-2);
-      background: rgb(217 154 43 / 10%);
-    }
-
-    .service-card h3 {
-      font-size: 22px;
-      line-height: 1.05;
-    }
-
-    .service-card p,
-    .step p,
-    .contact-item span,
-    .contact-item a {
-      margin: 10px 0 0;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .process {
-      display: grid;
-      grid-template-columns: .88fr 1.12fr;
-      gap: 14px;
-      align-items: stretch;
-    }
-
-    .repair-panel {
-      padding: clamp(20px, 3vw, 28px);
-      background:
-        linear-gradient(135deg, rgb(47 196 135 / 9%), transparent 44%),
-        var(--panel);
-    }
-
-    .repair-panel h2,
-    .contact-panel h2 {
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: .95;
-      text-transform: uppercase;
-    }
-
-    .repair-panel p {
-      margin: 14px 0 22px;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .issue-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .chip {
-      min-height: 38px;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      padding: 9px 11px;
-      color: var(--text);
-      background: #0d1114;
-      cursor: pointer;
-      font-weight: 800;
-    }
-
-    .chip[aria-pressed="true"] {
-      border-color: var(--amber);
-      color: #130e07;
-      background: var(--amber);
-    }
-
-    .message-box {
-      margin-top: 16px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #0b0e10;
-    }
-
-    textarea {
-      width: 100%;
-      min-height: 124px;
-      display: block;
-      resize: vertical;
-      border: 0;
-      padding: 15px;
-      color: var(--text);
-      background: transparent;
-      line-height: 1.5;
-      outline: none;
-    }
-
-    .message-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 0 12px 12px;
-    }
-
-    .message-actions .button,
-    .map-actions .button {
-      min-height: 44px;
-      padding: 10px 12px;
-    }
-
-    .status {
-      min-height: 22px;
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--line);
-    }
-
-    .step {
-      min-height: 210px;
-      padding: 22px;
-      border: 0;
-      border-radius: 0;
-      background: var(--panel);
-    }
-
-    .step b {
-      display: inline-grid;
-      place-items: center;
-      width: 36px;
-      height: 36px;
-      border: 1px solid rgb(47 196 135 / 38%);
-      border-radius: 50%;
-      color: #bdf4d8;
-      background: rgb(47 196 135 / 10%);
-      font-family: var(--mono);
-      font-size: 12px;
-    }
-
-    .step h3 {
-      margin-top: 28px;
-      font-size: 24px;
-    }
-
-    .photo-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 12px;
-    }
-
-    .photo-stack {
-      display: grid;
-      gap: 12px;
-    }
-
-    .photo-card {
-      position: relative;
-      min-height: 360px;
-      overflow: hidden;
-      background: #101417;
-    }
-
-    .photo-stack .photo-card {
-      min-height: 210px;
-    }
-
-    .photo-card img {
-      filter: saturate(.82) contrast(1.08);
-      transition: transform .65s ease, filter .65s ease;
-    }
-
-    .photo-card:hover img {
-      transform: scale(1.035);
-      filter: saturate(.98) contrast(1.1);
-    }
-
-    .photo-card figcaption {
-      position: absolute;
-      left: 12px;
-      right: 12px;
-      bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 11px 12px;
-      border: 1px solid rgb(255 255 255 / 16%);
-      border-radius: 6px;
-      color: var(--text);
-      background: rgb(8 10 12 / 74%);
-      backdrop-filter: blur(12px);
-      font-weight: 900;
-    }
-
-    .photo-card figcaption span {
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 12px;
+      color: #fff6f1;
+      background: linear-gradient(180deg, rgb(255 42 31 / 18%), rgb(80 7 7 / 20%));
+      box-shadow: inset 0 0 18px rgb(255 42 31 / 8%);
+      font-size: 11px;
       font-weight: 700;
-      white-space: nowrap;
+      text-transform: uppercase;
     }
 
-    .contact {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 14px;
-      align-items: stretch;
+    .hero-shell {
+      position: relative;
+      isolation: isolate;
+      min-height: calc(100svh - 16px);
+      padding-bottom: 22px;
     }
 
-    .contact-panel {
-      padding: clamp(22px, 4vw, 34px);
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 10px;
-      margin: 24px 0;
-    }
-
-    .contact-item {
-      display: grid;
-      grid-template-columns: 44px 1fr;
-      gap: 12px;
-      align-items: center;
-      padding: 13px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #0d1114;
-    }
-
-    .contact-item strong {
-      display: block;
-    }
-
-    .map-card {
-      overflow: hidden;
-      background: var(--panel);
-    }
-
-    .map-visual {
-      min-height: 330px;
+    .video-card {
       position: relative;
       overflow: hidden;
-      background:
-        linear-gradient(180deg, rgb(10 12 14 / 8%), rgb(10 12 14 / 76%)),
-        url("mpno0e2n-fresh-04-2019.jpg") center / cover;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      max-height: min(49svh, 560px);
+      border: 1px solid rgb(255 255 255 / 14%);
+      border-radius: var(--radius);
+      background: #070707;
+      box-shadow: var(--shadow-deep), 0 0 0 1px rgb(255 42 31 / 12%);
     }
 
-    .map-visual::before {
+    .video-card::before,
+    .video-card::after {
       content: "";
       position: absolute;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .video-card::before {
       inset: 0;
-      background-image:
-        linear-gradient(to right, rgb(243 193 91 / 18%) 1px, transparent 1px),
-        linear-gradient(to bottom, rgb(243 193 91 / 18%) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mix-blend-mode: screen;
+      background:
+        linear-gradient(180deg, rgb(0 0 0 / 28%) 0%, transparent 22%, transparent 58%, rgb(0 0 0 / 64%) 100%),
+        radial-gradient(circle at 0% 0%, rgb(255 42 31 / 22%), transparent 34%);
     }
 
-    .pin {
-      position: absolute;
-      left: 50%;
-      top: 46%;
-      width: 28px;
-      height: 28px;
-      transform: translate(-50%, -50%);
-      border: 6px solid rgb(12 14 16 / 72%);
-      border-radius: 50%;
-      background: var(--amber-2);
-      box-shadow: 0 0 0 12px rgb(243 193 91 / 16%), 0 0 40px rgb(243 193 91 / 60%);
-      animation: pin-pulse 2.4s ease-out infinite;
+    .video-card::after {
+      inset: 12px;
+      border-top: 2px solid rgb(255 42 31 / 82%);
+      border-right: 2px solid rgb(255 42 31 / 64%);
+      border-radius: 4px;
+      filter: drop-shadow(0 0 12px rgb(255 42 31 / 74%));
+      clip-path: polygon(42% 0, 100% 0, 100% 38%, calc(100% - 2px) 38%, calc(100% - 2px) 2px, 42% 2px);
     }
 
-    .map-label {
+    video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.01);
+    }
+
+    .video-label {
       position: absolute;
+      z-index: 3;
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      pointer-events: none;
+    }
+
+    .micro {
+      display: inline-flex;
+      min-width: 0;
+      min-height: 28px;
+      align-items: center;
+      gap: 7px;
+      padding: 0 9px;
+      border: 1px solid rgb(255 255 255 / 16%);
+      border-radius: 999px;
+      background: rgb(5 5 5 / 55%);
+      backdrop-filter: blur(12px);
+      color: #fff7f2;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .micro::before {
+      content: "";
+      flex: 0 0 auto;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--red);
+      box-shadow: 0 0 12px var(--red);
+    }
+
+    .video-mark {
+      position: absolute;
+      z-index: 3;
       left: 14px;
       right: 14px;
       bottom: 14px;
       display: flex;
+      align-items: flex-end;
       justify-content: space-between;
       gap: 12px;
-      padding: 12px 14px;
-      border: 1px solid rgb(255 255 255 / 18%);
-      border-radius: var(--radius);
-      background: rgb(8 10 12 / 78%);
-      backdrop-filter: blur(12px);
-      font-family: var(--mono);
-      font-size: 12px;
+      pointer-events: none;
     }
 
-    .map-body {
-      padding: 20px;
+    .video-mark strong {
+      font-family: "Barlow Condensed", Barlow, sans-serif;
+      font-size: clamp(36px, 12vw, 58px);
+      line-height: .88;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-shadow: 0 4px 24px rgb(0 0 0 / 76%);
     }
 
-    .map-body h3 {
-      font-size: clamp(26px, 3vw, 38px);
-      line-height: .98;
+    .video-mark strong span {
+      color: var(--red);
+      text-shadow: 0 0 16px rgb(255 42 31 / 62%);
+    }
+
+    .video-mark small {
+      max-width: 104px;
+      color: rgb(255 246 241 / 78%);
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.05;
+      text-align: right;
       text-transform: uppercase;
     }
 
-    .map-body p {
+    .copy-block {
+      position: relative;
+      z-index: 4;
+      margin-top: 14px;
+      padding: 0 2px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 8px;
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--red);
+      box-shadow: var(--shadow-red);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 390px;
+      font-family: "Barlow Condensed", Barlow, sans-serif;
+      font-size: clamp(42px, 13.2vw, 62px);
+      font-weight: 800;
+      line-height: .86;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 .red {
+      color: var(--red);
+      text-shadow: 0 0 18px rgb(255 42 31 / 54%);
+    }
+
+    .lead {
       margin: 10px 0 0;
+      max-width: 390px;
       color: var(--muted);
-      line-height: 1.5;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.28;
     }
 
-    .map-actions {
-      display: flex;
-      flex-wrap: wrap;
+    .lead strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(94px, .8fr);
       gap: 10px;
-      margin-top: 16px;
+      margin-top: 18px;
     }
 
-    .footer {
-      width: var(--page);
-      margin: 0 auto;
-      padding: 30px 0 42px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
+    .btn {
+      position: relative;
+      display: inline-flex;
+      min-width: 0;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      padding: 0 14px;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1;
+      text-align: center;
+      text-transform: uppercase;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--red);
+      outline-offset: 3px;
+    }
+
+    .btn-primary {
+      color: #fff9f2;
+      background:
+        linear-gradient(135deg, var(--red), #a00d0b 52%, #450707),
+        #d71913;
+      border-color: rgb(255 167 131 / 38%);
+      box-shadow: 0 12px 34px rgb(255 42 31 / 30%), inset 0 0 22px rgb(255 255 255 / 10%);
+    }
+
+    .btn-primary::after {
+      content: "";
+      position: absolute;
+      inset: -80% -30%;
+      background: linear-gradient(90deg, transparent, rgb(255 255 255 / 24%), transparent);
+      transform: translateX(-55%) rotate(16deg);
+      animation: light-pass 4.4s ease-in-out infinite;
+    }
+
+    .btn-secondary {
+      color: #fff4ef;
+      background: linear-gradient(180deg, rgb(255 255 255 / 9%), rgb(255 255 255 / 3%));
+      border-color: rgb(255 255 255 / 15%);
+    }
+
+    .btn span {
+      position: relative;
+      z-index: 1;
+      white-space: nowrap;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .quick {
+      min-height: 58px;
+      padding: 9px 9px;
+      border: 1px solid rgb(255 255 255 / 10%);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgb(255 255 255 / 6%), rgb(255 255 255 / 2%));
+    }
+
+    .quick b {
+      display: block;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    .quick small {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted-2);
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .ticker {
+      position: relative;
+      overflow: hidden;
+      margin: 14px calc((100vw - var(--page)) / -2) 0;
+      border-block: 1px solid rgb(255 42 31 / 26%);
+      background: linear-gradient(90deg, rgb(255 42 31 / 8%), transparent 34%, rgb(255 42 31 / 9%));
+    }
+
+    .ticker-track {
       display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      font-size: 13px;
-      line-height: 1.45;
+      width: max-content;
+      animation: ticker 22s linear infinite;
     }
 
-    @keyframes grid-drive {
-      from { background-position: 0 0, 0 0, 0 0, 0 0; }
-      to { background-position: 52px 52px, 88px 0, 0 88px, 44px 44px; }
+    .ticker span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 15px;
+      color: rgb(255 246 241 / 82%);
+      font-family: "Barlow Condensed", Barlow, sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: uppercase;
+      white-space: nowrap;
     }
 
-    @keyframes pulse {
-      to { box-shadow: 0 0 0 12px rgb(47 196 135 / 0); }
+    .ticker span::after {
+      content: "";
+      width: 5px;
+      height: 5px;
+      margin-left: 15px;
+      border-radius: 999px;
+      background: var(--red);
+      box-shadow: var(--shadow-red);
     }
 
-    @keyframes rig-float {
-      0%, 100% { transform: translateY(0) rotate(-.3deg); }
-      50% { transform: translateY(-12px) rotate(.35deg); }
+    .section {
+      margin-top: 26px;
+      padding-top: 6px;
     }
 
-    @keyframes scan-line {
-      0%, 100% { transform: translateY(0); opacity: .25; }
-      45%, 55% { opacity: 1; }
-      50% { transform: translateY(230px); }
+    .section h2 {
+      margin: 0;
+      font-family: "Barlow Condensed", Barlow, sans-serif;
+      font-size: 32px;
+      line-height: .95;
+      font-weight: 800;
+      text-transform: uppercase;
     }
 
-    @keyframes gear-spin {
-      to { transform: rotate(360deg); }
+    .section p {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.35;
     }
 
-    @keyframes button-sweep {
-      0%, 46% { transform: translateX(0) rotate(18deg); }
-      78%, 100% { transform: translateX(420%) rotate(18deg); }
+    .service-list,
+    .price-panel {
+      margin-top: 14px;
+      border: 1px solid rgb(255 255 255 / 10%);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgb(255 255 255 / 6%), rgb(255 255 255 / 2%));
+      overflow: hidden;
     }
 
-    @keyframes button-pop {
-      0% { opacity: .3; transform: translateY(22px) scale(.94); filter: blur(5px); }
-      62% { opacity: 1; transform: translateY(-3px) scale(1.016); filter: blur(0); }
-      100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 14px;
+      min-height: 56px;
+      padding: 13px 14px;
+      border-bottom: 1px solid rgb(255 255 255 / 8%);
     }
 
-    @keyframes pin-pulse {
-      to { box-shadow: 0 0 0 28px rgb(243 193 91 / 0), 0 0 40px rgb(243 193 91 / 60%); }
+    .row:last-child {
+      border-bottom: 0;
     }
 
-    @media (max-width: 980px) {
-      .hero,
-      .process,
-      .contact,
-      .photo-grid {
-        grid-template-columns: 1fr;
+    .row b {
+      font-size: 14px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .row small {
+      color: var(--muted-2);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .price-panel {
+      padding: 14px;
+    }
+
+    .price-panel strong {
+      display: block;
+      color: var(--text);
+      font-family: "Barlow Condensed", Barlow, sans-serif;
+      font-size: 26px;
+      line-height: .95;
+      text-transform: uppercase;
+    }
+
+    .price-panel .btn {
+      width: 100%;
+      margin-top: 14px;
+    }
+
+    .meta-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .meta-actions .btn {
+      min-height: 46px;
+      font-size: 12px;
+    }
+
+    @media (hover: hover) {
+      .btn:hover {
+        transform: translateY(-1px);
       }
 
-      .instrument {
-        min-height: 520px;
-      }
-
-      .service-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .btn-secondary:hover {
+        border-color: rgb(255 42 31 / 42%);
+        background: linear-gradient(180deg, rgb(255 42 31 / 12%), rgb(255 255 255 / 4%));
       }
     }
 
-    @media (max-width: 700px) {
-      :root { --page: min(100vw - 24px, 640px); }
-
-      .topbar-inner {
-        min-height: 64px;
+    @media (min-width: 760px) {
+      body {
+        background:
+          radial-gradient(circle at 50% 0%, rgb(255 42 31 / 17%), transparent 34%),
+          linear-gradient(180deg, #050505 0%, #090707 52%, #050505 100%);
       }
 
-      .nav a {
-        display: none;
+      .page {
+        --page: min(100vw - 44px, 480px);
       }
 
-      .brand span span {
-        display: none;
-      }
-
-      .hero {
+      .hero-shell {
         min-height: auto;
-        padding-top: 36px;
-      }
-
-      .instrument {
-        min-height: 480px;
-        padding: 14px;
-      }
-
-      .phone-rig {
-        width: min(250px, 80%);
-        margin-top: 38px;
-      }
-
-      .cta-row,
-      .message-actions,
-      .map-actions {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-
-      .rig-readout,
-      .service-grid,
-      .steps-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section-head {
-        display: grid;
-      }
-
-      .footer {
-        display: grid;
+        padding-top: 8px;
       }
     }
 
-    @media (max-width: 420px) {
+    @media (max-width: 370px) {
+      .page {
+        --page: min(100vw - 18px, 430px);
+      }
+
       h1 {
-        font-size: clamp(42px, 14vw, 58px);
+        font-size: 44px;
       }
 
-      .kicker {
-        font-size: 11px;
+      .lead {
+        font-size: 15px;
       }
 
-      .service-card,
-      .step {
-        min-height: auto;
+      .actions {
+        grid-template-columns: 1fr;
       }
 
-      .photo-card,
-      .photo-stack .photo-card {
-        min-height: 260px;
+      .quick-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1069,317 +599,138 @@
       *,
       *::before,
       *::after {
-        animation-duration: .001ms !important;
-        transition-duration: .001ms !important;
         scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
       }
+
+      video {
+        display: none;
+      }
+
+      .video-card {
+        background: url("assets/hero-poster.jpg") center / cover no-repeat;
+      }
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    @keyframes light-pass {
+      0%, 58% { transform: translateX(-55%) rotate(16deg); }
+      78%, 100% { transform: translateX(78%) rotate(16deg); }
     }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="#top" aria-label="Сервісний центр Майстер">
-        <span class="mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M7 7h10v10H7z"></path>
-            <path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"></path>
-          </svg>
-        </span>
-        <span>
-          <strong data-ua='СЦ "Майстер"' data-ru='СЦ "Мастер"'>СЦ "Майстер"</strong>
-          <span data-ua="mechanical phone repair" data-ru="mechanical phone repair">mechanical phone repair</span>
-        </span>
-      </a>
+  <main class="page">
+    <header class="topbar" aria-label="REGYM MARSHALL">
+      <a class="brand" href="#top" aria-label="REGYM MARSHALL"><span>RE</span>GYM</a>
+      <a class="top-pill" href="https://www.instagram.com/regym.hub/" target="_blank" rel="noreferrer">Instagram</a>
+    </header>
 
-      <nav class="nav" aria-label="Основна навігація">
-        <a href="#services" data-ua="Послуги" data-ru="Услуги">Послуги</a>
-        <a href="#process" data-ua="Процес" data-ru="Процесс">Процес</a>
-        <a href="#contact" data-ua="Контакти" data-ru="Контакты">Контакти</a>
-        <div class="lang" aria-label="Перемикач мови">
-          <button type="button" data-set-lang="uk" aria-pressed="true">UA</button>
-          <button type="button" data-set-lang="ru" aria-pressed="false">RU</button>
+    <section class="hero-shell" id="top" aria-labelledby="hero-title">
+      <div class="video-card" aria-label="Відео REGYM MARSHALL">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg">
+          <source src="assets/hero-regym-mobile-v9.webm" type="video/webm">
+          <source src="assets/hero-regym-mobile-v9-web.mp4" type="video/mp4">
+        </video>
+
+        <div class="video-label">
+          <span class="micro">Dnipro / Marshall</span>
+          <span class="micro">Live rhythm</span>
         </div>
-      </nav>
-    </div>
-  </header>
 
-  <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
-      <div>
-        <p class="kicker">
-          <span class="pulse" aria-hidden="true"></span>
-          <span data-ua="діагностика / пайка / модулі / живлення" data-ru="диагностика / пайка / модули / питание">діагностика / пайка / модулі / живлення</span>
+        <div class="video-mark">
+          <strong><span>RE</span>GYM<br>MARSHALL</strong>
+          <small>train hard recover smart</small>
+        </div>
+      </div>
+
+      <div class="copy-block">
+        <p class="eyebrow">Спортхаб нового ритму</p>
+        <h1 id="hero-title">Обери свій <span class="red">режим</span></h1>
+        <p class="lead">
+          <strong>REGYM MARSHALL</strong> - простір для сили, групових тренувань,
+          єдиноборств і відновлення в одному темпі.
         </p>
-        <h1 id="hero-title">
-          <span data-ua="Ремонт телефону" data-ru="Ремонт телефона">Ремонт телефону</span>
-          <span class="cut" data-ua="як точний механізм" data-ru="как точный механизм">як точний механізм</span>
-        </h1>
-        <p class="lead" data-ua='Сервісний центр "Майстер" у Ромнах: без глянцю й зайвих обіцянок. Описуєте симптом, майстер дивиться пристрій, узгоджує деталі й тільки потім бере в роботу.' data-ru='Сервисный центр "Мастер" в Ромнах: без глянца и лишних обещаний. Описываете симптом, мастер смотрит устройство, согласует детали и только потом берет в работу.'>Сервісний центр "Майстер" у Ромнах: без глянцю й зайвих обіцянок. Описуєте симптом, майстер дивиться пристрій, узгоджує деталі й тільки потім бере в роботу.</p>
 
-        <div class="cta-row">
-          <a class="button primary" href="tel:+380960072600">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.11 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.21a2 2 0 0 1 2.11-.45c.9.31 1.84.53 2.8.66A2 2 0 0 1 22 16.92Z"></path></svg>
-            <span data-ua="Подзвонити" data-ru="Позвонить">Подзвонити</span>
-          </a>
-          <a class="button" href="https://www.google.com/maps/place/%D0%A1%D0%B5%D1%80%D0%B2%D1%96%D1%81%D0%BD%D0%B8%D0%B9+%D1%86%D0%B5%D0%BD%D1%82%D1%80+%22%D0%9C%D0%B0%D0%B9%D1%81%D1%82%D0%B5%D1%80%22/@50.7497758,33.4858826,17z/data=!4m16!1m9!3m8!1s0x4129f128ca947177:0x25a465b3b3efb81d!2z0KHQtdGA0LLRltGB0L3QuNC5INGG0LXQvdGC0YAgItCc0LDQudGB0YLQtdGAIg!8m2!3d50.7497199!4d33.4851847!9m1!1b1!16s%2Fg%2F11h2496crt!3m5!1s0x4129f128ca947177:0x25a465b3b3efb81d!8m2!3d50.7497199!4d33.4851847!16s%2Fg%2F11h2496crt?entry=ttu" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            <span data-ua="Маршрут" data-ru="Маршрут">Маршрут</span>
-          </a>
-          <button class="button" type="button" data-jump-repair>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.66 5.66l-6.36 6.36a2 2 0 1 0 2.83 2.83l6.36-6.36A4 4 0 0 0 17.54 9.1l-2.12 2.12-2.83-2.83 2.12-2.12Z"></path></svg>
-            <span data-ua="Описати поломку" data-ru="Описать поломку">Описати поломку</span>
-          </button>
-        </div>
-      </div>
+        <nav class="actions" aria-label="Основні дії">
+          <a class="btn btn-primary" href="#services"><span>Показати послуги</span></a>
+          <a class="btn btn-secondary" href="#price"><span>Прайс</span></a>
+        </nav>
 
-      <aside class="instrument" aria-label="Діагностичний модуль">
-        <div class="instrument-top">
-          <span>MASTER / SERVICE BENCH</span>
-          <span class="status-leds" aria-hidden="true"><span></span><span></span><span></span></span>
-        </div>
-        <div class="gear one" aria-hidden="true"></div>
-        <div class="gear two" aria-hidden="true"></div>
-        <div class="phone-rig" aria-hidden="true">
-          <div class="scan"></div>
-          <div class="chip-board"></div>
-        </div>
-        <div class="rig-readout">
-          <div><b>096</b><span data-ua="007 2600 — зв'язок з майстром" data-ru="007 2600 — связь с мастером">007 2600 — зв'язок з майстром</span></div>
-          <div><b>5.0</b><span data-ua="рейтинг у Google Maps" data-ru="рейтинг в Google Maps">рейтинг у Google Maps</span></div>
-          <div><b>7</b><span data-ua="Соборна, ТЦ «Антуріум»" data-ru="Соборная, ТЦ «Антуриум»">Соборна, ТЦ «Антуріум»</span></div>
-        </div>
-      </aside>
-    </section>
-
-    <section id="services" aria-labelledby="services-title">
-      <div class="section-head">
-        <h2 id="services-title" data-ua="Типові вузли ремонту" data-ru="Типовые узлы ремонта">Типові вузли ремонту</h2>
-        <p data-ua="Не обіцяємо ціну без огляду. Спершу симптом, діагностика, наявність деталі, потім рішення." data-ru="Не обещаем цену без осмотра. Сначала симптом, диагностика, наличие детали, потом решение.">Не обіцяємо ціну без огляду. Спершу симптом, діагностика, наявність деталі, потім рішення.</p>
-      </div>
-      <div class="service-grid">
-        <article class="service-card">
-          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="7" y="2" width="10" height="20" rx="2"></rect><path d="M11 18h2M8 6l8 8M16 6l-8 8"></path></svg></span>
-          <div><h3 data-ua="Екранний модуль" data-ru="Экранный модуль">Екранний модуль</h3><p data-ua="Тріщини, сенсор, зображення, плями або чорний дисплей після удару." data-ru="Трещины, сенсор, изображение, пятна или черный дисплей после удара.">Тріщини, сенсор, зображення, плями або чорний дисплей після удару.</p></div>
-        </article>
-        <article class="service-card">
-          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="7" width="16" height="10" rx="2"></rect><path d="M21 11v2M7 11v2M11 11v2"></path></svg></span>
-          <div><h3 data-ua="Акумулятор" data-ru="Аккумулятор">Акумулятор</h3><p data-ua="Швидко сідає, гріється, вимикається або не тримає заряд." data-ru="Быстро садится, греется, выключается или не держит заряд.">Швидко сідає, гріється, вимикається або не тримає заряд.</p></div>
-        </article>
-        <article class="service-card">
-          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 2v8M17 2v8M9 10h6v4a4 4 0 0 1-8 0v-4h2ZM12 18v4"></path></svg></span>
-          <div><h3 data-ua="Роз'єм зарядки" data-ru="Разъем зарядки">Роз'єм зарядки</h3><p data-ua="Кабель люфтить, заряд йде ривками або телефон не бачить адаптер." data-ru="Кабель люфтит, заряд идет рывками или телефон не видит адаптер.">Кабель люфтить, заряд йде ривками або телефон не бачить адаптер.</p></div>
-        </article>
-        <article class="service-card">
-          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M11 5 6 9H3v6h3l5 4V5Z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"></path></svg></span>
-          <div><h3 data-ua="Звук і мікрофон" data-ru="Звук и микрофон">Звук і мікрофон</h3><p data-ua="Погано чути, не записує голос, хрипить динамік або зник звук." data-ru="Плохо слышно, не пишет голос, хрипит динамик или пропал звук.">Погано чути, не записує голос, хрипить динамік або зник звук.</p></div>
-        </article>
-        <article class="service-card">
-          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m21 21-4.3-4.3"></path><circle cx="11" cy="11" r="7"></circle><path d="M8 11h6M11 8v6"></path></svg></span>
-          <div><h3 data-ua="Діагностика" data-ru="Диагностика">Діагностика</h3><p data-ua="Після падіння, вологи, зависань, циклічних перезавантажень або помилок." data-ru="После падения, влаги, зависаний, циклических перезагрузок или ошибок.">Після падіння, вологи, зависань, циклічних перезавантажень або помилок.</p></div>
-        </article>
-        <article class="service-card">
-          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 7h12l1 14H5L6 7Z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg></span>
-          <div><h3 data-ua="Аксесуари" data-ru="Аксессуары">Аксесуари</h3><p data-ua="Кабелі, зарядні пристрої, чохли, батареї та інші позиції — наявність уточнюйте." data-ru="Кабели, зарядные устройства, чехлы, батареи и другие позиции — наличие уточняйте.">Кабелі, зарядні пристрої, чохли, батареї та інші позиції — наявність уточнюйте.</p></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="process" id="process" aria-label="Процес ремонту">
-      <div class="repair-panel" id="repair">
-        <h2 data-ua="Сформулюйте симптом" data-ru="Сформулируйте симптом">Сформулюйте симптом</h2>
-        <p data-ua="Виберіть проблему — нижче збереться коротке повідомлення для дзвінка або копіювання." data-ru="Выберите проблему — ниже соберется короткое сообщение для звонка или копирования.">Виберіть проблему — нижче збереться коротке повідомлення для дзвінка або копіювання.</p>
-        <div class="issue-list">
-          <button class="chip" type="button" aria-pressed="true" data-issue="screen" data-label-ua="Екран" data-label-ru="Экран">Екран</button>
-          <button class="chip" type="button" aria-pressed="false" data-issue="battery" data-label-ua="Батарея" data-label-ru="Батарея">Батарея</button>
-          <button class="chip" type="button" aria-pressed="false" data-issue="charge" data-label-ua="Не заряджається" data-label-ru="Не заряжается">Не заряджається</button>
-          <button class="chip" type="button" aria-pressed="false" data-issue="sound" data-label-ua="Звук / мікрофон" data-label-ru="Звук / микрофон">Звук / мікрофон</button>
-          <button class="chip" type="button" aria-pressed="false" data-issue="unknown" data-label-ua="Потрібна діагностика" data-label-ru="Нужна диагностика">Потрібна діагностика</button>
-        </div>
-        <div class="message-box">
-          <textarea id="repair-message" aria-label="Повідомлення для майстра"></textarea>
-          <div class="message-actions">
-            <button class="button" type="button" data-copy-message>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-              <span data-ua="Копіювати" data-ru="Копировать">Копіювати</span>
-            </button>
-            <a class="button primary" href="tel:+380960072600" data-ua="Подзвонити 096 007 2600" data-ru="Позвонить 096 007 2600">Подзвонити 096 007 2600</a>
+        <div class="quick-grid" aria-label="Напрями REGYM">
+          <div class="quick">
+            <b>Тренажерний зал</b>
+            <small>сила та форма</small>
+          </div>
+          <div class="quick">
+            <b>Групові напрями</b>
+            <small>ритм команди</small>
+          </div>
+          <div class="quick">
+            <b>Єдиноборства</b>
+            <small>дисципліна</small>
           </div>
         </div>
-        <div class="status" aria-live="polite" data-copy-status></div>
       </div>
 
-      <div class="steps-grid">
-        <article class="step"><b>01</b><h3 data-ua="Симптом" data-ru="Симптом">Симптом</h3><p data-ua="Коротко описуєте, що сталося і як поводиться телефон." data-ru="Коротко описываете, что случилось и как ведет себя телефон.">Коротко описуєте, що сталося і як поводиться телефон.</p></article>
-        <article class="step"><b>02</b><h3 data-ua="Огляд" data-ru="Осмотр">Огляд</h3><p data-ua="Майстер перевіряє вузли, живлення, екран, звук або зарядку." data-ru="Мастер проверяет узлы, питание, экран, звук или зарядку.">Майстер перевіряє вузли, живлення, екран, звук або зарядку.</p></article>
-        <article class="step"><b>03</b><h3 data-ua="Узгодження" data-ru="Согласование">Узгодження</h3><p data-ua="Ціна, деталь і термін узгоджуються до початку робіт." data-ru="Цена, деталь и срок согласуются до начала работ.">Ціна, деталь і термін узгоджуються до початку робіт.</p></article>
-        <article class="step"><b>04</b><h3 data-ua="Перевірка" data-ru="Проверка">Перевірка</h3><p data-ua="Після ремонту пристрій перевіряють на місці." data-ru="После ремонта устройство проверяют на месте.">Після ремонту пристрій перевіряють на місці.</p></article>
-      </div>
-    </section>
-
-    <section aria-labelledby="proof-title">
-      <div class="section-head">
-        <h2 id="proof-title" data-ua="Фото — тільки як доказ точки" data-ru="Фото — только как доказательство точки">Фото — тільки як доказ точки</h2>
-        <p data-ua="Hero не будується на випадковому фасаді. Фото залишаються нижче: адреса, вітрина, робочі кадри." data-ru="Hero не строится на случайном фасаде. Фото остаются ниже: адрес, витрина, рабочие кадры.">Hero не будується на випадковому фасаді. Фото залишаються нижче: адреса, вітрина, робочі кадри.</p>
-      </div>
-      <div class="photo-grid">
-        <figure class="photo-card">
-          <img src="mpno0e2n-fresh-04-2019.jpg" alt="Фасад торгового центру Антуріум з вивіскою сервісу Майстер">
-          <figcaption><strong data-ua="Фасад і вхід" data-ru="Фасад и вход">Фасад і вхід</strong><span data-ua="Соборна, 7" data-ru="Соборная, 7">Соборна, 7</span></figcaption>
-        </figure>
-        <div class="photo-stack">
-          <figure class="photo-card">
-            <img src="mpno0e31-fresh-05-2019.jpg" alt="Вітрина з телефонами та аксесуарами">
-            <figcaption><strong data-ua="Вітрина" data-ru="Витрина">Вітрина</strong><span data-ua="аксесуари" data-ru="аксессуары">аксесуари</span></figcaption>
-          </figure>
-          <figure class="photo-card">
-            <img src="mpno0e3f-fresh-08-2018.jpg" alt="Майстер працює з телефоном">
-            <figcaption><strong data-ua="Робочий кадр" data-ru="Рабочий кадр">Робочий кадр</strong><span data-ua="ремонт" data-ru="ремонт">ремонт</span></figcaption>
-          </figure>
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <span>REGYM MARSHALL</span>
+          <span>RE'BAR</span>
+          <span>TRAIN HARD</span>
+          <span>RECOVER SMART</span>
+          <span>TELEGRAM ЗАПИС</span>
+          <span>REGYM MARSHALL</span>
+          <span>RE'BAR</span>
+          <span>TRAIN HARD</span>
+          <span>RECOVER SMART</span>
+          <span>TELEGRAM ЗАПИС</span>
         </div>
       </div>
     </section>
 
-    <section class="contact" id="contact" aria-label="Контакти">
-      <div class="contact-panel">
-        <h2 data-ua="Потрібен майстер, а не чат-бот?" data-ru="Нужен мастер, а не чат-бот?">Потрібен майстер, а не чат-бот?</h2>
-        <div class="contact-list">
-          <div class="contact-item"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.11 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.8a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.21a2 2 0 0 1 2.11-.45c.9.31 1.84.53 2.8.66A2 2 0 0 1 22 16.92Z"></path></svg></span><span><strong data-ua="Телефон" data-ru="Телефон">Телефон</strong><a href="tel:+380960072600">096 007 2600</a></span></div>
-          <div class="contact-item"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg></span><span><strong data-ua="Адреса" data-ru="Адрес">Адреса</strong><span data-ua="вулиця Соборна, 7, Ромни, Сумська область, 42000" data-ru="улица Соборная, 7, Ромны, Сумская область, 42000">вулиця Соборна, 7, Ромни, Сумська область, 42000</span></span></div>
-          <div class="contact-item"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="9"></circle></svg></span><span><strong data-ua="Графік" data-ru="График">Графік</strong><span data-ua="Актуальний час роботи краще уточнити телефоном." data-ru="Актуальное время работы лучше уточнить по телефону.">Актуальний час роботи краще уточнити телефоном.</span></span></div>
+    <section class="section" id="services" aria-labelledby="services-title">
+      <h2 id="services-title">Послуги</h2>
+      <p>Демо-блок для швидкого переходу: тут можна розкрити напрями, тренерів, розклад і запис.</p>
+      <div class="service-list">
+        <div class="row">
+          <b>Персональні тренування</b>
+          <small>match з тренером</small>
         </div>
-        <div class="cta-row">
-          <a class="button primary" href="tel:+380960072600" data-ua="Подзвонити" data-ru="Позвонить">Подзвонити</a>
-          <button class="button" type="button" data-jump-repair data-ua="Описати поломку" data-ru="Описать поломку">Описати поломку</button>
+        <div class="row">
+          <b>Групові програми</b>
+          <small>сила / mobility / cardio</small>
+        </div>
+        <div class="row">
+          <b>Бокс та функціонал</b>
+          <small>характер і темп</small>
+        </div>
+        <div class="row">
+          <b>RE'BAR / відновлення</b>
+          <small>після тренування</small>
         </div>
       </div>
+    </section>
 
-      <aside class="map-card">
-        <div class="map-visual">
-          <span class="pin" aria-hidden="true"></span>
-          <div class="map-label"><strong>Google Maps</strong><span>50.7497199, 33.4851847</span></div>
-        </div>
-        <div class="map-body">
-          <h3 data-ua="ТЦ «Антуріум», Соборна, 7" data-ru="ТЦ «Антуриум», Соборная, 7">ТЦ «Антуріум», Соборна, 7</h3>
-          <p data-ua="Відкрийте маршрут у Google Maps або подзвоніть майстру перед візитом." data-ru="Откройте маршрут в Google Maps или позвоните мастеру перед визитом.">Відкрийте маршрут у Google Maps або подзвоніть майстру перед візитом.</p>
-          <div class="map-actions">
-            <a class="button primary" href="https://www.google.com/maps/place/%D0%A1%D0%B5%D1%80%D0%B2%D1%96%D1%81%D0%BD%D0%B8%D0%B9+%D1%86%D0%B5%D0%BD%D1%82%D1%80+%22%D0%9C%D0%B0%D0%B9%D1%81%D1%82%D0%B5%D1%80%22/@50.7497758,33.4858826,17z/data=!4m16!1m9!3m8!1s0x4129f128ca947177:0x25a465b3b3efb81d!2z0KHQtdGA0LLRltGB0L3QuNC5INGG0LXQvdGC0YAgItCc0LDQudGB0YLQtdGAIg!8m2!3d50.7497199!4d33.4851847!9m1!1b1!16s%2Fg%2F11h2496crt!3m5!1s0x4129f128ca947177:0x25a465b3b3efb81d!8m2!3d50.7497199!4d33.4851847!16s%2Fg%2F11h2496crt?entry=ttu" target="_blank" rel="noopener" data-ua="Відкрити маршрут" data-ru="Открыть маршрут">Відкрити маршрут</a>
-            <a class="button" href="tel:+380960072600" data-ua="Подзвонити" data-ru="Позвонить">Подзвонити</a>
-          </div>
-        </div>
-      </aside>
+    <section class="section" id="price" aria-labelledby="price-title">
+      <h2 id="price-title">Прайс</h2>
+      <div class="price-panel">
+        <strong>Абонементи, разові візити та персональні формати</strong>
+        <p>На повній версії сайту цей блок веде до актуального прайсу, консультації або Telegram-бота REGYM.</p>
+        <a class="btn btn-primary" href="https://www.instagram.com/regym.hub/" target="_blank" rel="noreferrer"><span>Запитати в Direct</span></a>
+      </div>
+
+      <div class="meta-actions">
+        <a class="btn btn-secondary" href="https://www.google.com/maps/place/REGYM+sport+hub+MARSHALL/@48.4160105,35.0696778,17z" target="_blank" rel="noreferrer"><span>Маршрут</span></a>
+        <a class="btn btn-secondary" href="tel:+380738835005"><span>Подзвонити</span></a>
+      </div>
     </section>
   </main>
-
-  <footer class="footer">
-    <span data-ua='Сервісний центр "Майстер" • ремонт телефонів у Ромнах' data-ru='Сервисный центр "Мастер" • ремонт телефонов в Ромнах'>Сервісний центр "Майстер" • ремонт телефонів у Ромнах</span>
-    <span data-ua="Ціни, строки, гарантію та наявність деталей потрібно уточнювати напряму." data-ru="Цены, сроки, гарантию и наличие деталей нужно уточнять напрямую.">Ціни, строки, гарантію та наявність деталей потрібно уточнювати напряму.</span>
-  </footer>
-
-  <script>
-    const repairMessages = {
-      uk: {
-        screen: 'Доброго дня! Потрібна консультація щодо ремонту екрана телефона. Можу підійти на діагностику за адресою Соборна, 7. Підкажіть, будь ласка, що потрібно уточнити перед візитом?',
-        battery: 'Доброго дня! Телефон швидко розряджається або вимикається. Хочу уточнити діагностику батареї та можливий ремонт. Коли краще звернутися?',
-        charge: 'Доброго дня! Телефон погано заряджається або не бачить зарядний пристрій. Потрібна діагностика роз’єму/живлення. Підкажіть, чи можна підійти?',
-        sound: 'Доброго дня! Є проблема зі звуком, динаміком або мікрофоном телефона. Хочу уточнити діагностику і подальший ремонт.',
-        unknown: 'Доброго дня! Потрібна діагностика телефона, причина поломки поки незрозуміла. Можу підійти до сервісного центру на Соборній, 7.'
-      },
-      ru: {
-        screen: 'Здравствуйте! Нужна консультация по ремонту экрана телефона. Могу подойти на диагностику по адресу Соборная, 7. Подскажите, пожалуйста, что нужно уточнить перед визитом?',
-        battery: 'Здравствуйте! Телефон быстро разряжается или выключается. Хочу уточнить диагностику батареи и возможный ремонт. Когда лучше обратиться?',
-        charge: 'Здравствуйте! Телефон плохо заряжается или не видит зарядное устройство. Нужна диагностика разъема/питания. Подскажите, можно ли подойти?',
-        sound: 'Здравствуйте! Есть проблема со звуком, динамиком или микрофоном телефона. Хочу уточнить диагностику и дальнейший ремонт.',
-        unknown: 'Здравствуйте! Нужна диагностика телефона, причина поломки пока непонятна. Могу подойти в сервисный центр на Соборной, 7.'
-      }
-    };
-
-    const state = {
-      lang: localStorage.getItem('master-mech-lang') || 'uk',
-      issue: 'screen'
-    };
-
-    const message = document.querySelector('#repair-message');
-    const status = document.querySelector('[data-copy-status]');
-    const chips = Array.from(document.querySelectorAll('.chip'));
-    const langButtons = Array.from(document.querySelectorAll('[data-set-lang]'));
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    function localize(lang) {
-      document.documentElement.lang = lang;
-      document.querySelectorAll('[data-ua][data-ru]').forEach((node) => {
-        node.textContent = node.dataset[lang === 'uk' ? 'ua' : 'ru'];
-      });
-      chips.forEach((chip) => {
-        chip.textContent = lang === 'uk' ? chip.dataset.labelUa : chip.dataset.labelRu;
-      });
-      langButtons.forEach((button) => {
-        button.setAttribute('aria-pressed', String(button.dataset.setLang === lang));
-      });
-      message.value = repairMessages[lang][state.issue];
-      status.textContent = '';
-      localStorage.setItem('master-mech-lang', lang);
-    }
-
-    function setIssue(issue) {
-      state.issue = issue;
-      chips.forEach((chip) => {
-        chip.setAttribute('aria-pressed', String(chip.dataset.issue === issue));
-      });
-      message.value = repairMessages[state.lang][issue];
-      status.textContent = '';
-    }
-
-    langButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        state.lang = button.dataset.setLang;
-        localize(state.lang);
-      });
-    });
-
-    chips.forEach((chip) => {
-      chip.addEventListener('click', () => setIssue(chip.dataset.issue));
-    });
-
-    document.querySelectorAll('[data-jump-repair]').forEach((button) => {
-      button.addEventListener('click', () => {
-        const target = document.querySelector('#repair');
-        const y = target.getBoundingClientRect().top + window.pageYOffset - 84;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-        window.setTimeout(() => message.focus({ preventScroll: true }), 420);
-      });
-    });
-
-    document.querySelector('[data-copy-message]').addEventListener('click', async () => {
-      const copiedText = state.lang === 'uk' ? 'Повідомлення скопійовано.' : 'Сообщение скопировано.';
-      const fallbackText = state.lang === 'uk' ? 'Скопіюйте текст вручну.' : 'Скопируйте текст вручную.';
-      try {
-        await navigator.clipboard.writeText(message.value);
-        status.textContent = copiedText;
-      } catch (error) {
-        message.select();
-        status.textContent = fallbackText;
-      }
-    });
-
-    if (!reduceMotion && 'IntersectionObserver' in window) {
-      const buttons = Array.from(document.querySelectorAll('.process .button, .contact .button'));
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.25, rootMargin: '0px 0px -8% 0px' });
-      buttons.forEach((button, index) => {
-        button.classList.add('motion-pop');
-        button.style.setProperty('--motion-delay', `${Math.min(index % 3, 2) * 90}ms`);
-        observer.observe(button);
-      });
-    }
-
-    localize(state.lang);
-  </script>
 </body>
 </html>
