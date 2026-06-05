@@ -630,9 +630,9 @@
   <main class="phone">
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="hero-video" aria-hidden="true">
-        <video autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg">
-          <source src="assets/hero-regym-mobile-v9.webm" type="video/webm">
+        <video class="hero-bg-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/hero-poster.jpg">
           <source src="assets/hero-regym-mobile-v9-web.mp4" type="video/mp4">
+          <source src="assets/hero-regym-mobile-v9.webm" type="video/webm">
         </video>
       </div>
       <div class="frame-glow" aria-hidden="true"></div>
@@ -734,5 +734,35 @@
       </div>
     </section>
   </main>
+  <script>
+    (() => {
+      const video = document.querySelector(".hero-bg-video");
+      if (!video) return;
+
+      video.muted = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+
+      const start = () => {
+        const attempt = video.play();
+        if (attempt && typeof attempt.catch === "function") {
+          attempt.catch(() => {});
+        }
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", start, { once: true });
+      } else {
+        start();
+      }
+
+      window.addEventListener("pageshow", start);
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) start();
+      });
+      document.addEventListener("touchstart", start, { once: true, passive: true });
+      document.addEventListener("pointerdown", start, { once: true });
+    })();
+  </script>
 </body>
 </html>
