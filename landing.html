@@ -13,18 +13,21 @@
     @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700;800;900&family=Barlow+Condensed:wght@600;700;800;900&display=swap");
 
     :root {
-      color-scheme: light;
-      --white: #f7f5ef;
-      --paper: #fffdf7;
-      --black: #030303;
-      --black-soft: #111;
-      --red: #ed111b;
-      --red-dark: #570306;
-      --red-deep: #210001;
-      --gray: #777;
-      --line: rgb(3 3 3 / 18%);
+      color-scheme: dark;
+      --bg: #030303;
+      --black: #050505;
+      --black-2: #0b0909;
+      --panel: #100c0c;
+      --text: #f8f5f0;
+      --muted: #b8aea8;
+      --dim: #756d68;
+      --red: #ff1824;
+      --red-deep: #5c0207;
+      --red-dark: #1a0002;
+      --line: rgb(255 255 255 / 12%);
+      --line-red: rgb(255 24 36 / 42%);
       --page: min(100vw, 450px);
-      --side: 14px;
+      --pad: 16px;
       --radius: 8px;
       font-family: Barlow, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
@@ -35,8 +38,8 @@
 
     html {
       min-width: 320px;
-      background: var(--black);
-      color: var(--black);
+      background: var(--bg);
+      color: var(--text);
       scroll-behavior: smooth;
     }
 
@@ -45,8 +48,8 @@
       margin: 0;
       overflow-x: hidden;
       background:
-        radial-gradient(circle at 50% 0%, rgb(237 17 27 / 24%), transparent 34%),
-        linear-gradient(180deg, #030303 0%, #070000 100%);
+        radial-gradient(circle at 50% -8%, rgb(255 24 36 / 20%), transparent 34%),
+        linear-gradient(180deg, #030303 0%, #070505 46%, #030303 100%);
     }
 
     a {
@@ -59,231 +62,254 @@
       width: var(--page);
       min-height: 100svh;
       margin: 0 auto;
-      background: var(--paper);
-      box-shadow: 0 0 0 1px rgb(255 255 255 / 8%), 0 24px 90px rgb(0 0 0 / 72%);
+      background: var(--black);
+      box-shadow: 0 24px 90px rgb(0 0 0 / 70%);
     }
 
-    .poster {
+    .hero {
       position: relative;
       isolation: isolate;
       min-height: 100svh;
       overflow: hidden;
-      padding: max(14px, env(safe-area-inset-top)) var(--side) max(24px, env(safe-area-inset-bottom));
-      background:
-        linear-gradient(90deg, transparent 0 calc(var(--side) + 1px), rgb(3 3 3 / 96%) calc(var(--side) + 1px) calc(var(--side) + 4px), transparent calc(var(--side) + 4px)),
-        linear-gradient(90deg, transparent 0 calc(100% - var(--side) - 4px), rgb(3 3 3 / 96%) calc(100% - var(--side) - 4px) calc(100% - var(--side) - 1px), transparent calc(100% - var(--side) - 1px)),
-        var(--paper);
+      padding: max(14px, env(safe-area-inset-top)) var(--pad) max(22px, env(safe-area-inset-bottom));
+      background: #050505;
     }
 
-    .brand-row {
+    .hero-video {
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: -4;
+      height: 66svh;
+      min-height: 510px;
+      overflow: hidden;
+      background: #070707;
+    }
+
+    .hero-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(.26) saturate(.64) contrast(1.2) brightness(.7);
+      transform: scale(1.02);
+    }
+
+    .hero-video::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgb(0 0 0 / 26%) 0%, rgb(0 0 0 / 8%) 22%, rgb(0 0 0 / 62%) 70%, #050505 100%),
+        radial-gradient(circle at 76% 15%, rgb(255 24 36 / 30%), transparent 28%),
+        radial-gradient(circle at 8% 52%, rgb(255 24 36 / 16%), transparent 34%);
+      pointer-events: none;
+    }
+
+    .hero-video::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 120px;
+      background: linear-gradient(180deg, transparent, #050505 70%);
+      pointer-events: none;
+    }
+
+    .frame-glow {
+      position: absolute;
+      inset: 74px var(--pad) auto;
+      z-index: -2;
+      height: min(47svh, 430px);
+      border: 1px solid rgb(255 255 255 / 10%);
+      border-radius: var(--radius);
+      pointer-events: none;
+      box-shadow:
+        inset 0 0 0 1px rgb(255 24 36 / 8%),
+        0 0 42px rgb(255 24 36 / 14%);
+    }
+
+    .frame-glow::before,
+    .frame-glow::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .frame-glow::before {
+      top: -1px;
+      right: -1px;
+      width: 42%;
+      height: 2px;
+      background: var(--red);
+      box-shadow: 0 0 18px rgb(255 24 36 / 72%);
+    }
+
+    .frame-glow::after {
+      top: -1px;
+      right: -1px;
+      width: 2px;
+      height: 34%;
+      background: var(--red);
+      box-shadow: 0 0 18px rgb(255 24 36 / 72%);
+    }
+
+    .topbar {
       position: relative;
-      z-index: 10;
+      z-index: 5;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
       min-height: 42px;
-      padding: 0 7px;
     }
 
     .brand {
       display: inline-flex;
-      align-items: center;
+      align-items: baseline;
       gap: 7px;
-      color: var(--white);
       font-family: "Barlow Condensed", Barlow, sans-serif;
       font-size: 22px;
       font-weight: 900;
       line-height: 1;
-      letter-spacing: 0;
       text-transform: uppercase;
+      text-shadow: 0 4px 18px rgb(0 0 0 / 72%);
     }
 
     .brand span {
       color: var(--red);
-      text-shadow: 0 0 13px rgb(237 17 27 / 44%);
+      text-shadow: 0 0 14px rgb(255 24 36 / 70%);
     }
 
-    .ig {
+    .top-link {
+      display: inline-flex;
+      min-height: 32px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 12px;
+      border: 1px solid rgb(255 255 255 / 16%);
+      border-radius: 999px;
+      background: rgb(5 5 5 / 54%);
+      backdrop-filter: blur(12px);
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .video-badges {
+      position: relative;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .badge {
       display: inline-flex;
       min-height: 30px;
       align-items: center;
-      justify-content: center;
-      padding: 0 13px;
-      border: 2px solid var(--black);
-      border-radius: 999px;
-      color: var(--white);
-      background: var(--black);
-      font-size: 11px;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .media-field {
-      position: relative;
-      z-index: 1;
-      height: min(43svh, 395px);
-      min-height: 315px;
-      margin: -44px calc(var(--side) * -1) 0;
-      overflow: hidden;
-      background: #d7d4cf;
-      clip-path: polygon(7% 0, 100% 0, 96% 92%, 80% 86%, 53% 100%, 23% 88%, 0 96%, 0 18%);
-    }
-
-    .media-field video {
-      position: absolute;
-      inset: -8% -4%;
-      width: 108%;
-      height: 116%;
-      object-fit: cover;
-      filter: grayscale(1) contrast(1.42) brightness(1.08);
-      opacity: .58;
-      mix-blend-mode: multiply;
-      transform: scale(1.03);
-    }
-
-    .media-field::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      background:
-        repeating-linear-gradient(126deg, transparent 0 22px, rgb(3 3 3 / 36%) 23px 28px, transparent 29px 46px),
-        linear-gradient(180deg, rgb(255 253 247 / 22%), rgb(255 253 247 / 8));
-      mix-blend-mode: multiply;
-      pointer-events: none;
-    }
-
-    .red-slab {
-      position: absolute;
-      z-index: 4;
-      top: 10px;
-      left: 108px;
-      width: 83%;
-      height: 58%;
-      border-radius: 0 0 28px 16px;
-      background:
-        linear-gradient(135deg, var(--red) 0 58%, #a80309 100%);
-      box-shadow: 0 0 28px rgb(237 17 27 / 36%);
-      clip-path: polygon(0 0, 73% 0, 100% 28%, 91% 79%, 53% 70%, 35% 100%, 0 42%);
-      pointer-events: none;
-    }
-
-    .black-slab {
-      position: absolute;
-      z-index: 6;
-      top: 10px;
-      left: 40px;
-      width: 58%;
-      height: 58px;
-      border-radius: 999px 999px 26px 999px;
-      background: var(--black);
-      box-shadow: 0 10px 24px rgb(3 3 3 / 44%);
-      pointer-events: none;
-    }
-
-    .field-tag {
-      position: absolute;
-      z-index: 7;
-      right: 26px;
-      bottom: 48px;
-      display: inline-flex;
-      min-height: 28px;
-      align-items: center;
+      gap: 7px;
       padding: 0 10px;
-      border: 2px solid var(--black);
+      border: 1px solid rgb(255 255 255 / 14%);
       border-radius: 999px;
-      color: var(--black);
-      background: rgb(255 253 247 / 74%);
+      color: rgb(248 245 240 / 92%);
+      background: rgb(5 5 5 / 48%);
+      backdrop-filter: blur(12px);
       font-size: 11px;
       font-weight: 900;
       text-transform: uppercase;
-      backdrop-filter: blur(6px);
     }
 
-    .cut-line {
-      position: relative;
-      z-index: 8;
-      height: 4px;
-      margin: -3px calc(var(--side) * -1) 0;
-      background: var(--black);
-      transform: rotate(2.3deg);
-      box-shadow: 0 0 0 1px var(--black);
+    .badge::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--red);
+      box-shadow: 0 0 12px var(--red);
     }
 
     .hero-copy {
       position: relative;
-      z-index: 9;
-      padding: 34px 8px 0;
-      color: var(--black);
+      z-index: 3;
+      display: flex;
+      min-height: calc(100svh - 56px);
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-top: 40svh;
     }
 
     .eyebrow {
       display: flex;
       align-items: center;
       gap: 9px;
-      margin: 0 0 12px;
+      margin: 0 0 10px;
       color: var(--red);
       font-size: 12px;
       font-weight: 900;
       line-height: 1;
       text-transform: uppercase;
+      text-shadow: 0 0 15px rgb(255 24 36 / 44%);
     }
 
     .eyebrow::before {
       content: "";
-      width: 42px;
-      height: 4px;
+      width: 38px;
+      height: 2px;
       background: var(--red);
-      box-shadow: 0 0 16px rgb(237 17 27 / 50%);
+      box-shadow: 0 0 16px rgb(255 24 36 / 78%);
     }
 
     h1 {
-      max-width: 380px;
+      max-width: 390px;
       margin: 0;
       font-family: "Barlow Condensed", Barlow, sans-serif;
-      font-size: clamp(58px, 18vw, 82px);
+      font-size: clamp(57px, 17.3vw, 82px);
       font-weight: 900;
       line-height: .78;
       letter-spacing: 0;
       text-transform: uppercase;
+      text-shadow: 0 5px 28px rgb(0 0 0 / 78%);
     }
 
     h1 .red {
       display: block;
       color: var(--red);
-      text-shadow: 0 0 17px rgb(237 17 27 / 38%);
+      text-shadow:
+        0 0 16px rgb(255 24 36 / 72%),
+        0 0 34px rgb(255 24 36 / 34%);
     }
 
     .lead {
-      max-width: 385px;
-      margin: 16px 0 0;
-      color: #242424;
+      max-width: 390px;
+      margin: 14px 0 0;
+      color: var(--muted);
       font-size: 16px;
-      font-weight: 700;
-      line-height: 1.25;
+      font-weight: 600;
+      line-height: 1.28;
     }
 
     .lead strong {
+      color: var(--text);
       font-weight: 900;
     }
 
     .actions {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(104px, .8fr);
+      grid-template-columns: minmax(0, 1.18fr) minmax(100px, .82fr);
       gap: 10px;
       margin-top: 18px;
     }
 
     .btn {
-      position: relative;
       display: inline-flex;
       min-height: 52px;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
       border-radius: var(--radius);
-      border: 2px solid var(--black);
+      border: 1px solid transparent;
       padding: 0 13px;
       font-size: 14px;
       font-weight: 900;
@@ -293,20 +319,21 @@
     }
 
     .btn:focus-visible {
-      outline: 3px solid var(--red);
+      outline: 2px solid var(--red);
       outline-offset: 3px;
     }
 
     .btn-primary {
-      color: var(--white);
-      background: linear-gradient(135deg, var(--red), var(--red-dark));
-      border-color: var(--red-deep);
-      box-shadow: 0 0 22px rgb(237 17 27 / 30%);
+      color: #fff9f6;
+      border-color: rgb(255 91 99 / 34%);
+      background: linear-gradient(135deg, var(--red), #8d070d 62%, #310003);
+      box-shadow: 0 12px 36px rgb(255 24 36 / 26%), inset 0 0 18px rgb(255 255 255 / 10%);
     }
 
     .btn-secondary {
-      color: var(--black);
-      background: var(--paper);
+      color: var(--text);
+      border-color: rgb(255 255 255 / 15%);
+      background: linear-gradient(180deg, rgb(255 255 255 / 8%), rgb(255 255 255 / 3%));
     }
 
     .quick-grid {
@@ -319,14 +346,14 @@
     .quick {
       min-height: 62px;
       padding: 9px 8px;
-      border: 2px solid var(--black);
+      border: 1px solid rgb(255 255 255 / 12%);
       border-radius: var(--radius);
-      background: var(--white);
+      background: linear-gradient(180deg, rgb(255 255 255 / 7%), rgb(255 255 255 / 2%));
     }
 
     .quick b {
       display: block;
-      color: var(--black);
+      color: var(--text);
       font-size: 11px;
       font-weight: 900;
       line-height: 1;
@@ -336,7 +363,7 @@
     .quick small {
       display: block;
       margin-top: 7px;
-      color: var(--red-dark);
+      color: rgb(255 24 36 / 82%);
       font-size: 10px;
       font-weight: 900;
       line-height: 1.1;
@@ -345,25 +372,24 @@
 
     .ticker {
       position: relative;
-      z-index: 10;
       overflow: hidden;
-      margin: 18px calc(var(--side) * -1) 0;
-      border-block: 3px solid var(--black);
-      color: var(--white);
-      background: var(--black);
+      margin: 18px calc(var(--pad) * -1) 0;
+      border-block: 1px solid rgb(255 24 36 / 28%);
+      background: linear-gradient(90deg, rgb(255 24 36 / 12%), rgb(255 255 255 / 3%), rgb(255 24 36 / 10%));
     }
 
     .ticker-track {
       display: flex;
       width: max-content;
-      animation: ticker 20s linear infinite;
+      animation: ticker 22s linear infinite;
     }
 
     .ticker span {
       display: inline-flex;
-      align-items: center;
       min-height: 36px;
+      align-items: center;
       padding: 0 16px;
+      color: var(--text);
       font-family: "Barlow Condensed", Barlow, sans-serif;
       font-size: 16px;
       font-weight: 900;
@@ -373,23 +399,20 @@
 
     .ticker span::after {
       content: "";
-      width: 7px;
-      height: 7px;
+      width: 6px;
+      height: 6px;
       margin-left: 16px;
       border-radius: 999px;
       background: var(--red);
-      box-shadow: 0 0 11px var(--red);
+      box-shadow: 0 0 12px var(--red);
     }
 
     .section {
-      padding: 28px calc(var(--side) + 8px);
-      color: var(--white);
-      background: var(--black);
-      border-top: 3px solid var(--black);
-    }
-
-    .section + .section {
-      padding-top: 8px;
+      padding: 28px var(--pad);
+      background:
+        radial-gradient(circle at 100% 0%, rgb(255 24 36 / 12%), transparent 30%),
+        linear-gradient(180deg, #050505, #080606);
+      border-top: 1px solid rgb(255 255 255 / 8%);
     }
 
     .section h2 {
@@ -403,7 +426,7 @@
 
     .section p {
       margin: 10px 0 0;
-      color: #d5d0c8;
+      color: var(--muted);
       font-size: 15px;
       font-weight: 600;
       line-height: 1.3;
@@ -412,10 +435,10 @@
     .service-list,
     .price-panel {
       margin-top: 14px;
-      border: 2px solid rgb(255 255 255 / 18%);
-      border-radius: var(--radius);
       overflow: hidden;
-      background: #080808;
+      border: 1px solid rgb(255 255 255 / 12%);
+      border-radius: var(--radius);
+      background: rgb(255 255 255 / 4%);
     }
 
     .row {
@@ -425,7 +448,7 @@
       gap: 12px;
       min-height: 58px;
       padding: 13px 14px;
-      border-bottom: 1px solid rgb(255 255 255 / 12%);
+      border-bottom: 1px solid rgb(255 255 255 / 10%);
     }
 
     .row:last-child {
@@ -440,7 +463,7 @@
     }
 
     .row small {
-      color: #a79e96;
+      color: var(--dim);
       font-size: 11px;
       font-weight: 800;
       text-align: right;
@@ -472,19 +495,17 @@
       margin-top: 12px;
     }
 
-    .section .btn-secondary {
-      color: var(--white);
-      background: transparent;
-      border-color: rgb(255 255 255 / 28%);
-    }
-
     @media (hover: hover) {
       .btn {
-        transition: transform .18s ease, box-shadow .18s ease;
+        transition: transform .18s ease, border-color .18s ease;
       }
 
       .btn:hover {
         transform: translateY(-1px);
+      }
+
+      .btn-secondary:hover {
+        border-color: var(--line-red);
       }
     }
 
@@ -496,11 +517,7 @@
 
     @media (max-width: 370px) {
       :root {
-        --side: 10px;
-      }
-
-      .media-field {
-        min-height: 286px;
+        --pad: 12px;
       }
 
       h1 {
@@ -527,11 +544,11 @@
         transition-duration: .01ms !important;
       }
 
-      .media-field video {
+      .hero-video video {
         display: none;
       }
 
-      .media-field {
+      .hero-video {
         background: url("assets/hero-poster.jpg") center / cover no-repeat;
       }
     }
@@ -544,23 +561,24 @@
 </head>
 <body>
   <main class="phone">
-    <section class="poster" id="top" aria-labelledby="hero-title">
-      <header class="brand-row" aria-label="REGYM MARSHALL">
-        <a class="brand" href="#top" aria-label="REGYM MARSHALL"><span>RE</span>GYM</a>
-        <a class="ig" href="https://www.instagram.com/regym.hub/" target="_blank" rel="noreferrer">Instagram</a>
-      </header>
-
-      <div class="media-field" aria-label="Фонове відео REGYM MARSHALL">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-video" aria-hidden="true">
         <video autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg">
           <source src="assets/hero-regym-mobile-v9.webm" type="video/webm">
           <source src="assets/hero-regym-mobile-v9-web.mp4" type="video/mp4">
         </video>
-        <div class="red-slab"></div>
-        <div class="black-slab"></div>
-        <span class="field-tag">Dnipro / Marshall</span>
       </div>
+      <div class="frame-glow" aria-hidden="true"></div>
 
-      <div class="cut-line"></div>
+      <header class="topbar" aria-label="REGYM MARSHALL">
+        <a class="brand" href="#top" aria-label="REGYM MARSHALL"><span>RE</span>GYM</a>
+        <a class="top-link" href="https://www.instagram.com/regym.hub/" target="_blank" rel="noreferrer">Instagram</a>
+      </header>
+
+      <div class="video-badges" aria-label="Локація та ритм">
+        <span class="badge">Dnipro / Marshall</span>
+        <span class="badge">Live rhythm</span>
+      </div>
 
       <div class="hero-copy">
         <p class="eyebrow">Спортхаб нового ритму</p>
@@ -589,20 +607,20 @@
             <small>дисципліна</small>
           </div>
         </div>
-      </div>
 
-      <div class="ticker" aria-hidden="true">
-        <div class="ticker-track">
-          <span>REGYM MARSHALL</span>
-          <span>RE'BAR</span>
-          <span>TRAIN HARD</span>
-          <span>RECOVER SMART</span>
-          <span>TELEGRAM ЗАПИС</span>
-          <span>REGYM MARSHALL</span>
-          <span>RE'BAR</span>
-          <span>TRAIN HARD</span>
-          <span>RECOVER SMART</span>
-          <span>TELEGRAM ЗАПИС</span>
+        <div class="ticker" aria-hidden="true">
+          <div class="ticker-track">
+            <span>REGYM MARSHALL</span>
+            <span>RE'BAR</span>
+            <span>TRAIN HARD</span>
+            <span>RECOVER SMART</span>
+            <span>TELEGRAM ЗАПИС</span>
+            <span>REGYM MARSHALL</span>
+            <span>RE'BAR</span>
+            <span>TRAIN HARD</span>
+            <span>RECOVER SMART</span>
+            <span>TELEGRAM ЗАПИС</span>
+          </div>
         </div>
       </div>
     </section>
