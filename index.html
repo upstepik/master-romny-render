@@ -116,23 +116,23 @@
                 margin-right: auto;
             }
             .desktop-hero {
-                min-height: 590px !important;
+                min-height: 630px !important;
                 height: 66vh !important;
-                max-height: 700px;
+                max-height: 720px;
                 overflow: hidden;
             }
             .desktop-hero-video {
-                top: 62px;
+                top: 82px;
                 left: 38%;
                 width: 62%;
-                height: calc(100% - 62px);
+                height: calc(100% - 82px);
                 background: radial-gradient(circle at 72% 50%, rgba(255, 85, 64, .12), transparent 38%), #050505;
                 mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.2) 10%, black 23%, black 100%);
                 -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.2) 10%, black 23%, black 100%);
             }
             .desktop-hero-video video {
                 object-fit: contain;
-                object-position: 72% 58%;
+                object-position: 72% 66%;
                 opacity: .82;
             }
             .desktop-hero-shade {
@@ -142,14 +142,14 @@
                     linear-gradient(0deg, #050505 0%, rgba(5, 5, 5, .48) 38%, rgba(5, 5, 5, .18) 100%);
             }
             .desktop-hero-content {
-                width: min(660px, 50vw) !important;
+                width: min(700px, 52vw) !important;
                 margin-left: max(56px, calc((100vw - 1180px) / 2)) !important;
-                margin-bottom: 74px !important;
+                margin-bottom: 86px !important;
                 padding-left: 0 !important;
                 padding-right: 0 !important;
             }
             .desktop-hero-content h1 {
-                font-size: clamp(58px, 5.6vw, 82px) !important;
+                font-size: clamp(62px, 5.5vw, 86px) !important;
                 line-height: .9 !important;
             }
             .desktop-topbar {
@@ -275,18 +275,20 @@
 <!-- Content -->
 <div class="desktop-hero-content relative z-10 px-container-margin flex flex-col gap-4 md:gap-6 md:w-2/3 lg:w-1/2 mb-5 md:mb-8">
 <h1 class="text-[48px] sm:text-display-xl font-display-xl text-on-surface uppercase leading-[0.92] sm:leading-none drop-shadow-2xl">
-                Обери свій <br/><span class="text-primary-container text-glow">режим</span> тренувань
+<span class="md:hidden">Обери свій <br/><span class="text-primary-container text-glow">режим</span> тренувань</span>
+<span class="hidden md:inline">Обери свій <br/><span class="text-primary-container text-glow">режим</span></span>
 </h1>
 <p class="text-body-md font-body-md text-tertiary max-w-md border-l-2 border-primary-container pl-4">
-                Тренажерний зал, групові класи, єдиноборства та відновлення в одному спортхабі.
+<span class="md:hidden">Тренажерний зал, групові класи, єдиноборства та відновлення в одному спортхабі.</span>
+<span class="hidden md:inline">Простір для сили, групових тренувань, єдиноборств і відновлення в одному темпі.</span>
             </p>
 <div class="flex flex-col sm:flex-row gap-4 mt-2 md:mt-4">
 <a class="focus-ring bg-primary-container hover:bg-red-600 text-deep-void text-cta-text font-cta-text uppercase tracking-widest py-4 px-8 rounded-none transition-all duration-300 hover:box-glow active:scale-95 flex items-center justify-center gap-2" href="#services">
-                    Обрати напрям
+<span class="md:hidden">Обрати напрям</span><span class="hidden md:inline">Показати послуги</span>
                     <span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
 </a>
 <a class="focus-ring bg-transparent border-2 border-on-surface text-on-surface text-cta-text font-cta-text uppercase tracking-widest py-4 px-8 rounded-none transition-all duration-300 hover:border-primary-container hover:text-primary-container active:scale-95 text-center" href="#price">
-                    Подивитись прайс
+<span class="md:hidden">Подивитись прайс</span><span class="hidden md:inline">Прайс</span>
                 </a>
 </div>
 <a class="focus-ring text-label-sm font-label-sm uppercase tracking-widest text-tertiary hover:text-on-surface transition-colors w-max" href="#contact">Написати адміністратору</a>
