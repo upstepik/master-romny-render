@@ -116,19 +116,21 @@
                 margin-right: auto;
             }
             .desktop-hero {
-                min-height: 640px !important;
-                height: 72vh !important;
-                max-height: 760px;
+                min-height: 590px !important;
+                height: 66vh !important;
+                max-height: 700px;
                 overflow: hidden;
             }
             .desktop-hero-video {
+                top: 36px;
                 left: 38%;
                 width: 62%;
+                height: calc(100% - 36px);
                 mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.2) 10%, black 23%, black 100%);
                 -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.2) 10%, black 23%, black 100%);
             }
             .desktop-hero-video video {
-                object-position: center center;
+                object-position: 50% 36%;
                 opacity: .82;
             }
             .desktop-hero-shade {
@@ -138,14 +140,14 @@
                     linear-gradient(0deg, #050505 0%, rgba(5, 5, 5, .48) 38%, rgba(5, 5, 5, .18) 100%);
             }
             .desktop-hero-content {
-                width: min(560px, 46vw) !important;
+                width: min(660px, 50vw) !important;
                 margin-left: max(56px, calc((100vw - 1180px) / 2)) !important;
-                margin-bottom: 88px !important;
+                margin-bottom: 74px !important;
                 padding-left: 0 !important;
                 padding-right: 0 !important;
             }
             .desktop-hero-content h1 {
-                font-size: clamp(64px, 6.6vw, 96px) !important;
+                font-size: clamp(58px, 5.6vw, 82px) !important;
                 line-height: .9 !important;
             }
             .desktop-topbar {
@@ -162,6 +164,20 @@
                 grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
                 grid-auto-rows: 240px !important;
             }
+            .desktop-two-col {
+                grid-template-columns: minmax(0, 1fr) minmax(360px, 480px);
+            }
+        }
+        .mural-panel {
+            background-image:
+                linear-gradient(90deg, rgba(5, 5, 5, .96), rgba(5, 5, 5, .58) 48%, rgba(5, 5, 5, .18)),
+                url('assets/regym-mural-art.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .focus-ring:focus-visible {
+            outline: 2px solid #ff5540;
+            outline-offset: 4px;
         }
     </style>
 </head>
@@ -171,9 +187,9 @@
 <div class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg font-black text-on-surface tracking-tighter uppercase">
             REGYM MARSHALL
         </div>
-<button class="text-on-surface hover:text-primary transition-colors duration-300 scale-95 active:opacity-80 flex items-center justify-center p-2 rounded-full backdrop-blur-md bg-surface-dim/30 border border-outline-variant/30">
+<a aria-label="Контакт" class="focus-ring text-on-surface hover:text-primary transition-colors duration-300 scale-95 active:opacity-80 flex items-center justify-center p-2 rounded-full backdrop-blur-md bg-surface-dim/30 border border-outline-variant/30" href="#contact">
 <span class="material-symbols-outlined" data-icon="menu">menu</span>
-</button>
+</a>
 </header>
 <!-- Hero Section -->
 <section class="desktop-hero relative w-full h-[50dvh] min-h-[500px] md:min-h-[520px] flex flex-col justify-end pb-8 md:pb-12">
@@ -194,18 +210,18 @@
                 Простір для сили, групових тренувань, єдиноборств і відновлення в одному темпі.
             </p>
 <div class="flex flex-col sm:flex-row gap-4 mt-2 md:mt-4">
-<button class="bg-primary-container hover:bg-red-600 text-deep-void text-cta-text font-cta-text uppercase tracking-widest py-4 px-8 rounded-none transition-all duration-300 hover:box-glow active:scale-95 flex items-center justify-center gap-2">
+<a class="focus-ring bg-primary-container hover:bg-red-600 text-deep-void text-cta-text font-cta-text uppercase tracking-widest py-4 px-8 rounded-none transition-all duration-300 hover:box-glow active:scale-95 flex items-center justify-center gap-2" href="#services">
                     Показати послуги
                     <span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
-</button>
-<button class="bg-transparent border-2 border-on-surface text-on-surface text-cta-text font-cta-text uppercase tracking-widest py-4 px-8 rounded-none transition-all duration-300 hover:border-primary-container hover:text-primary-container active:scale-95 text-center">
+</a>
+<a class="focus-ring bg-transparent border-2 border-on-surface text-on-surface text-cta-text font-cta-text uppercase tracking-widest py-4 px-8 rounded-none transition-all duration-300 hover:border-primary-container hover:text-primary-container active:scale-95 text-center" href="#price">
                     Прайс
-                </button>
+                </a>
 </div>
 </div>
 </section>
 <!-- Services Categories Hint (Bento Grid) -->
-<section class="relative z-20 px-container-margin py-section-gap bg-deep-void border-t border-outline-variant/20">
+<section id="services" class="relative z-20 px-container-margin py-section-gap bg-deep-void border-t border-outline-variant/20 scroll-mt-24">
 <div class="desktop-section">
 <div class="flex items-center gap-4 mb-8">
 <div class="h-px w-8 bg-primary-container drop-shadow-[0_0_5px_rgba(255,0,0,0.8)]"></div>
@@ -240,7 +256,7 @@
 </div>
 </div>
 <!-- Category Card 4 (Recovery) -->
-<div class="relative group overflow-hidden bg-surface-container-low border-t border-white/10 md:col-span-2 flex items-center justify-center backdrop-blur-xl">
+<div class="relative group overflow-hidden bg-surface-container-low border-t border-white/10 md:col-span-4 flex items-center justify-center backdrop-blur-xl">
 <!-- Abstract tech pattern instead of image for variety -->
 <div class="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-container via-deep-void to-deep-void"></div>
 <div class="relative z-10 text-center flex flex-col items-center gap-4 p-6">
@@ -254,21 +270,100 @@
 </div>
 </div>
 </section>
+<!-- Price Preview -->
+<section id="price" class="relative z-20 px-container-margin py-section-gap bg-[#090909] border-t border-outline-variant/20 scroll-mt-24">
+<div class="desktop-section grid desktop-two-col gap-6 md:gap-8 items-stretch">
+<div class="mural-panel min-h-[360px] md:min-h-[420px] relative overflow-hidden border border-outline-variant/30">
+<div class="absolute inset-0 bg-gradient-to-t from-deep-void via-transparent to-transparent"></div>
+<div class="relative z-10 h-full flex flex-col justify-end p-6 md:p-8 gap-4">
+<div class="flex items-center gap-4">
+<div class="h-px w-10 bg-primary-container drop-shadow-[0_0_8px_rgba(255,0,0,0.9)]"></div>
+<span class="text-label-sm font-label-sm text-tertiary uppercase tracking-widest">Demo price</span>
+</div>
+<h2 class="text-[38px] md:text-[56px] leading-[0.95] font-display-xl uppercase text-on-surface max-w-2xl">
+                    Прайс як окремий екран
+                </h2>
+<p class="text-body-md font-body-md text-tertiary max-w-xl">
+                    Тут буде фото або таблиця тарифів. Для демо залишено стильний placeholder, щоб власник одразу бачив майбутній блок продажу.
+                </p>
+</div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant/30 p-6 md:p-8 flex flex-col justify-between gap-8">
+<div class="space-y-5">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-4">
+<span class="text-label-sm font-label-sm uppercase tracking-widest text-tertiary">Абонемент</span>
+<span class="text-label-sm font-label-sm uppercase tracking-widest text-primary-container">Заглушка</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between gap-4">
+<span class="text-on-surface font-bold uppercase">Gym access</span>
+<span class="text-tertiary text-sm text-right">ціну додамо</span>
+</div>
+<div class="flex items-center justify-between gap-4">
+<span class="text-on-surface font-bold uppercase">Group classes</span>
+<span class="text-tertiary text-sm text-right">ціну додамо</span>
+</div>
+<div class="flex items-center justify-between gap-4">
+<span class="text-on-surface font-bold uppercase">Combat zone</span>
+<span class="text-tertiary text-sm text-right">ціну додамо</span>
+</div>
+</div>
+</div>
+<a class="focus-ring bg-primary-container hover:bg-red-600 text-deep-void text-cta-text font-cta-text uppercase tracking-widest py-4 px-6 transition-all duration-300 hover:box-glow active:scale-95 flex items-center justify-center gap-2" href="#contact">
+                Запитати в Telegram
+                <span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Contact Stub -->
+<section id="contact" class="relative z-20 px-container-margin py-section-gap bg-deep-void border-t border-outline-variant/20 scroll-mt-24">
+<div class="desktop-section grid md:grid-cols-3 gap-4">
+<div class="md:col-span-1 flex flex-col justify-between gap-6 border border-outline-variant/30 bg-surface-dim p-6 md:p-8 min-h-[260px]">
+<div>
+<div class="flex items-center gap-4 mb-6">
+<div class="h-px w-8 bg-primary-container drop-shadow-[0_0_5px_rgba(255,0,0,0.8)]"></div>
+<span class="text-label-sm font-label-sm text-tertiary uppercase tracking-widest">Контакт</span>
+</div>
+<h2 class="text-[34px] md:text-[44px] leading-none font-display-xl uppercase text-on-surface">
+                    Залишити заявку
+                </h2>
+</div>
+<p class="text-body-md font-body-md text-tertiary">
+                Для демо кнопки ведуть на заглушки. Потім можна підключити Telegram, Instagram Direct або CRM-форму.
+            </p>
+</div>
+<a class="focus-ring group border border-outline-variant/30 bg-graphite-surface p-6 md:p-8 min-h-[260px] flex flex-col justify-between hover:border-primary-container/80 transition-colors" href="https://www.instagram.com/regym.hub/">
+<span class="material-symbols-outlined text-4xl text-primary-container" data-icon="photo_camera">photo_camera</span>
+<div>
+<h3 class="text-headline-lg-mobile font-headline-lg-mobile uppercase text-on-surface mb-2">Instagram</h3>
+<p class="text-tertiary text-sm">Перехід на профіль REGYM як робоча соціальна точка.</p>
+</div>
+</a>
+<a class="focus-ring group border border-outline-variant/30 bg-graphite-surface p-6 md:p-8 min-h-[260px] flex flex-col justify-between hover:border-primary-container/80 transition-colors" href="https://www.google.com/maps/place/REGYM+sport+hub+MARSHALL/@48.4160105,35.0696778,15z">
+<span class="material-symbols-outlined text-4xl text-primary-container" data-icon="location_on">location_on</span>
+<div>
+<h3 class="text-headline-lg-mobile font-headline-lg-mobile uppercase text-on-surface mb-2">Маршрут</h3>
+<p class="text-tertiary text-sm">Google Maps для швидкого переходу до локації.</p>
+</div>
+</a>
+</div>
+</section>
 <!-- BottomNavBar (Mobile Only) -->
 <nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-20 pb-safe-area-bottom bg-surface-dim/80 backdrop-blur-xl border-t border-outline-variant/30 z-50">
 <a class="text-primary drop-shadow-[0_0_8px_rgba(255,180,168,0.6)] flex flex-col items-center gap-1 tap-highlight-none active:scale-90 transition-transform" href="#">
 <span class="material-symbols-outlined" data-icon="home" data-weight="fill">home</span>
 <span class="text-[10px] font-label-sm uppercase tracking-wider">Home</span>
 </a>
-<a class="text-muted-silver hover:text-on-surface flex flex-col items-center gap-1 tap-highlight-none active:scale-90 transition-transform" href="#">
+<a class="text-muted-silver hover:text-on-surface flex flex-col items-center gap-1 tap-highlight-none active:scale-90 transition-transform" href="#services">
 <span class="material-symbols-outlined" data-icon="fitness_center">fitness_center</span>
 <span class="text-[10px] font-label-sm uppercase tracking-wider">Services</span>
 </a>
-<a class="text-muted-silver hover:text-on-surface flex flex-col items-center gap-1 tap-highlight-none active:scale-90 transition-transform" href="#">
+<a class="text-muted-silver hover:text-on-surface flex flex-col items-center gap-1 tap-highlight-none active:scale-90 transition-transform" href="#price">
 <span class="material-symbols-outlined" data-icon="payments">payments</span>
 <span class="text-[10px] font-label-sm uppercase tracking-wider">Pricing</span>
 </a>
-<a class="text-muted-silver hover:text-on-surface flex flex-col items-center gap-1 tap-highlight-none active:scale-90 transition-transform" href="#">
+<a class="text-muted-silver hover:text-on-surface flex flex-col items-center gap-1 tap-highlight-none active:scale-90 transition-transform" href="#contact">
 <span class="material-symbols-outlined" data-icon="call">call</span>
 <span class="text-[10px] font-label-sm uppercase tracking-wider">Contact</span>
 </a>
