@@ -133,13 +133,13 @@
             .desktop-hero-video video {
                 object-fit: cover;
                 object-position: 58% 38%;
-                opacity: .82;
+                opacity: .9;
             }
             .desktop-hero-shade {
                 background:
-                    radial-gradient(circle at 74% 18%, rgba(255, 85, 64, .22), transparent 28%),
-                    linear-gradient(90deg, #050505 0%, rgba(5, 5, 5, .96) 36%, rgba(5, 5, 5, .62) 62%, rgba(5, 5, 5, .28) 100%),
-                    linear-gradient(0deg, #050505 0%, rgba(5, 5, 5, .48) 38%, rgba(5, 5, 5, .18) 100%);
+                    radial-gradient(circle at 74% 18%, rgba(255, 85, 64, .18), transparent 28%),
+                    linear-gradient(90deg, #050505 0%, rgba(5, 5, 5, .92) 36%, rgba(5, 5, 5, .55) 62%, rgba(5, 5, 5, .2) 100%),
+                    linear-gradient(0deg, #050505 0%, rgba(5, 5, 5, .42) 38%, rgba(5, 5, 5, .1) 100%);
             }
             .desktop-hero-content {
                 width: min(700px, 52vw) !important;
@@ -156,6 +156,9 @@
                 left: 50%;
                 transform: translateX(-50%);
                 max-width: 1180px;
+            }
+            .brand-lockup {
+                transform: translateZ(0);
             }
             .desktop-section {
                 max-width: 1180px;
@@ -264,6 +267,36 @@
             background: rgba(12, 12, 12, .9);
             border: 1px solid rgba(255, 255, 255, .12);
         }
+        .brand-lockup {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 10px;
+            color: #f2f2f2;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 900;
+            letter-spacing: -0.045em;
+            line-height: .9;
+            text-transform: uppercase;
+            text-shadow: 0 8px 22px rgba(0, 0, 0, .55);
+        }
+        .brand-lockup .brand-main {
+            display: inline-flex;
+            align-items: baseline;
+            font-size: clamp(30px, 3.1vw, 44px);
+        }
+        .brand-lockup .brand-re {
+            color: #ff5540;
+            text-shadow: 0 0 12px rgba(255, 85, 64, .32);
+        }
+        .brand-lockup .brand-colon {
+            color: #ff5540;
+            margin: 0 .03em;
+        }
+        .brand-lockup .brand-branch {
+            font-size: clamp(12px, 1.05vw, 15px);
+            letter-spacing: .12em;
+            color: rgba(255, 255, 255, .72);
+        }
         @media (max-width: 767px) {
             .desktop-hero-video {
                 top: 0;
@@ -279,10 +312,11 @@
 </head>
 <body class="stitch-page bg-deep-void text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-white">
 <!-- TopAppBar -->
-<header class="desktop-topbar fixed top-0 z-50 w-full flex justify-between items-center px-container-margin py-gutter bg-transparent">
-<div class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg font-black text-on-surface tracking-tighter uppercase">
-            REGYM MARSHALL
-        </div>
+<header class="desktop-topbar absolute top-0 z-50 w-full flex justify-between items-center px-container-margin py-gutter bg-transparent">
+<a class="brand-lockup focus-ring" href="#" aria-label="REGYM MARSHALL">
+<span class="brand-main"><span class="brand-re">RE</span><span class="brand-colon">:</span><span>GYM</span></span>
+<span class="brand-branch">Marshall</span>
+</a>
 <nav class="hidden md:flex items-center gap-6 text-label-sm font-label-sm uppercase tracking-widest text-tertiary">
 <a class="focus-ring hover:text-on-surface transition-colors" href="#services">Напрямки</a>
 <a class="focus-ring hover:text-on-surface transition-colors" href="#price">Прайс</a>
