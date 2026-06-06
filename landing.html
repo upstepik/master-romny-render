@@ -109,11 +109,65 @@
         .box-glow {
             box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
         }
+        @media (min-width: 768px) {
+            .desktop-shell {
+                max-width: 1180px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .desktop-hero {
+                min-height: 640px !important;
+                height: 72vh !important;
+                max-height: 760px;
+                overflow: hidden;
+            }
+            .desktop-hero-video {
+                left: 38%;
+                width: 62%;
+                mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.2) 10%, black 23%, black 100%);
+                -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.2) 10%, black 23%, black 100%);
+            }
+            .desktop-hero-video video {
+                object-position: center center;
+                opacity: .82;
+            }
+            .desktop-hero-shade {
+                background:
+                    radial-gradient(circle at 74% 18%, rgba(255, 85, 64, .22), transparent 28%),
+                    linear-gradient(90deg, #050505 0%, rgba(5, 5, 5, .96) 36%, rgba(5, 5, 5, .62) 62%, rgba(5, 5, 5, .28) 100%),
+                    linear-gradient(0deg, #050505 0%, rgba(5, 5, 5, .48) 38%, rgba(5, 5, 5, .18) 100%);
+            }
+            .desktop-hero-content {
+                width: min(560px, 46vw) !important;
+                margin-left: max(56px, calc((100vw - 1180px) / 2)) !important;
+                margin-bottom: 88px !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            .desktop-hero-content h1 {
+                font-size: clamp(64px, 6.6vw, 96px) !important;
+                line-height: .9 !important;
+            }
+            .desktop-topbar {
+                left: 50%;
+                transform: translateX(-50%);
+                max-width: 1180px;
+            }
+            .desktop-section {
+                max-width: 1180px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .desktop-services {
+                grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+                grid-auto-rows: 240px !important;
+            }
+        }
     </style>
 </head>
 <body class="stitch-page bg-deep-void text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-white">
 <!-- TopAppBar -->
-<header class="fixed top-0 z-50 w-full flex justify-between items-center px-container-margin py-gutter bg-transparent">
+<header class="desktop-topbar fixed top-0 z-50 w-full flex justify-between items-center px-container-margin py-gutter bg-transparent">
 <div class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg font-black text-on-surface tracking-tighter uppercase">
             REGYM MARSHALL
         </div>
@@ -122,17 +176,17 @@
 </button>
 </header>
 <!-- Hero Section -->
-<section class="relative w-full h-[50dvh] min-h-[500px] md:min-h-[520px] flex flex-col justify-end pb-8 md:pb-12">
+<section class="desktop-hero relative w-full h-[50dvh] min-h-[500px] md:min-h-[520px] flex flex-col justify-end pb-8 md:pb-12">
 <!-- Background Video -->
-<div class="absolute inset-0 w-full h-full overflow-hidden z-0">
+<div class="desktop-hero-video absolute inset-0 w-full h-full overflow-hidden z-0">
 <video class="hero-bg-video object-cover w-full h-full opacity-60" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="assets/hero-poster.jpg"><source src="assets/hero-regym-mobile-v9-web.mp4" type="video/mp4"/><source src="assets/hero-regym-mobile-v9.webm" type="video/webm"/></video>
 <!-- Gradient Overlay for readability -->
-<div class="absolute inset-0 bg-gradient-to-t from-deep-void via-deep-void/60 to-transparent"></div>
+<div class="desktop-hero-shade absolute inset-0 bg-gradient-to-t from-deep-void via-deep-void/60 to-transparent"></div>
 <!-- Decorative LED Line -->
 <div class="absolute top-1/4 left-0 w-1/2 h-px bg-primary-container drop-shadow-[0_0_8px_rgba(255,0,0,0.8)] transform -rotate-45 -translate-x-1/4 opacity-30"></div>
 </div>
 <!-- Content -->
-<div class="relative z-10 px-container-margin flex flex-col gap-4 md:gap-6 md:w-2/3 lg:w-1/2 mb-5 md:mb-8">
+<div class="desktop-hero-content relative z-10 px-container-margin flex flex-col gap-4 md:gap-6 md:w-2/3 lg:w-1/2 mb-5 md:mb-8">
 <h1 class="text-[48px] sm:text-display-xl font-display-xl text-on-surface uppercase leading-[0.92] sm:leading-none drop-shadow-2xl">
                 Обери свій <br/><span class="text-primary-container text-glow">режим</span>
 </h1>
@@ -152,11 +206,12 @@
 </section>
 <!-- Services Categories Hint (Bento Grid) -->
 <section class="relative z-20 px-container-margin py-section-gap bg-deep-void border-t border-outline-variant/20">
+<div class="desktop-section">
 <div class="flex items-center gap-4 mb-8">
 <div class="h-px w-8 bg-primary-container drop-shadow-[0_0_5px_rgba(255,0,0,0.8)]"></div>
 <h2 class="text-label-sm font-label-sm text-tertiary uppercase tracking-widest">Напрямки</h2>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px] md:auto-rows-[250px]">
+<div class="desktop-services grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px] md:auto-rows-[250px]">
 <!-- Category Card 1 (Strength) -->
 <div class="relative group overflow-hidden bg-graphite-surface border-t border-white/10 md:col-span-2">
 <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity duration-700" data-alt="A dark, cinematic view of a premium gym interior focusing on heavy strength training equipment, squat racks, and weights. Lit by stark neon red LED strips on the black ceiling. Deep shadows, industrial graphite textures, high contrast." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3z2MIhMQnNWQWRgGjCM0NLRa4kMUH6eIg8jFLL1aUB9k2RXOBvLc4hNQykLghfUKS9F7u0ldTBD0DRA47Gi-6sV6iQuaq5UVkHn0c5uQmyFFc610U4ClmLrOFsCmXedQBMvY0uJnj-QnbgV4GC30RgXLHHUPC60FdsOiVsjEnbEIMkmFhVlslDeeyiIWDG_J7_uXdYg9QKo7xbrWOWRTkIWVrXmOlJw9awqKm7-jb6gsVQLrY7lRiaQoL8iX-0BbCUK3Jzm5YJ8Bj');"></div>
@@ -193,6 +248,7 @@
 <div>
 <h3 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface uppercase mb-1">Відновлення</h3>
 <p class="text-label-sm font-label-sm text-tertiary uppercase tracking-widest">Сауна • Масаж • Релакс</p>
+</div>
 </div>
 </div>
 </div>
