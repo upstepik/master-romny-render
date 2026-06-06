@@ -233,6 +233,37 @@
             font-weight: 900;
             letter-spacing: .04em;
         }
+        .service-card {
+            background: rgba(16, 17, 17, .86);
+            border: 1px solid rgba(255, 255, 255, .11);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, .28);
+        }
+        .service-card:hover,
+        .price-accordion:hover {
+            border-color: rgba(255, 85, 64, .45);
+        }
+        .price-accordion {
+            background: rgba(16, 17, 17, .9);
+            border: 1px solid rgba(255, 255, 255, .11);
+            overflow: hidden;
+        }
+        .price-accordion summary {
+            cursor: pointer;
+            list-style: none;
+        }
+        .price-accordion summary::-webkit-details-marker {
+            display: none;
+        }
+        .price-accordion summary .chevron {
+            transition: transform .2s ease;
+        }
+        .price-accordion[open] summary .chevron {
+            transform: rotate(90deg);
+        }
+        .summary-card {
+            background: rgba(12, 12, 12, .9);
+            border: 1px solid rgba(255, 255, 255, .12);
+        }
         @media (max-width: 767px) {
             .desktop-hero-video {
                 top: 0;
@@ -329,10 +360,10 @@
 </div>
 </div>
 </section>
-<!-- Services Categories Hint (Bento Grid) -->
+<!-- Training Directions -->
 <section id="services" class="relative z-20 px-container-margin py-section-gap bg-deep-void border-t border-outline-variant/20 scroll-mt-24">
 <div class="desktop-section">
-<div class="max-w-3xl mb-8">
+<div class="max-w-3xl mb-10">
 <div class="flex items-center gap-4 mb-5">
 <div class="h-px w-8 bg-primary-container drop-shadow-[0_0_5px_rgba(255,0,0,0.8)]"></div>
 <span class="text-label-sm font-label-sm text-tertiary uppercase tracking-widest">Напрямки</span>
@@ -340,260 +371,177 @@
 <h2 class="text-[34px] md:text-[52px] leading-none font-display-xl uppercase text-on-surface mb-4">Напрямки тренувань</h2>
 <p class="text-body-md font-body-md text-tertiary">Обери формат під свою ціль: сила, витривалість, техніка, функціонал або відновлення.</p>
 </div>
-<div class="desktop-services grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px] md:auto-rows-[250px]">
-<!-- Category Card 1 (Strength) -->
-<div class="relative group overflow-hidden bg-graphite-surface border-t border-white/10 md:col-span-2">
-<div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity duration-700" data-alt="A dark, cinematic view of a premium gym interior focusing on heavy strength training equipment, squat racks, and weights. Lit by stark neon red LED strips on the black ceiling. Deep shadows, industrial graphite textures, high contrast." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3z2MIhMQnNWQWRgGjCM0NLRa4kMUH6eIg8jFLL1aUB9k2RXOBvLc4hNQykLghfUKS9F7u0ldTBD0DRA47Gi-6sV6iQuaq5UVkHn0c5uQmyFFc610U4ClmLrOFsCmXedQBMvY0uJnj-QnbgV4GC30RgXLHHUPC60FdsOiVsjEnbEIMkmFhVlslDeeyiIWDG_J7_uXdYg9QKo7xbrWOWRTkIWVrXmOlJw9awqKm7-jb6gsVQLrY7lRiaQoL8iX-0BbCUK3Jzm5YJ8Bj');"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-deep-void to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-6 flex flex-col gap-2">
-<span class="text-label-sm font-label-sm text-deep-void bg-on-surface px-2 py-1 uppercase w-max border border-primary-container">Strength</span>
-<h3 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface uppercase">Тренажерний зал</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+<a class="service-card group relative overflow-hidden md:col-span-2 md:row-span-2 min-h-[340px] p-6 md:p-8 flex flex-col justify-end transition-colors" href="#contact">
+<div class="absolute inset-0 bg-cover bg-center opacity-34 group-hover:opacity-46 transition-opacity duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3z2MIhMQnNWQWRgGjCM0NLRa4kMUH6eIg8jFLL1aUB9k2RXOBvLc4hNQykLghfUKS9F7u0ldTBD0DRA47Gi-6sV6iQuaq5UVkHn0c5uQmyFFc610U4ClmLrOFsCmXedQBMvY0uJnj-QnbgV4GC30RgXLHHUPC60FdsOiVsjEnbEIMkmFhVlslDeeyiIWDG_J7_uXdYg9QKo7xbrWOWRTkIWVrXmOlJw9awqKm7-jb6gsVQLrY7lRiaQoL8iX-0BbCUK3Jzm5YJ8Bj');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-deep-void via-deep-void/75 to-transparent"></div>
+<div class="relative z-10 max-w-xl">
+<h3 class="text-[30px] md:text-[44px] leading-none font-display-xl uppercase text-on-surface mb-3">Тренажерний зал</h3>
+<p class="text-tertiary text-sm md:text-base mb-5">Силова зона, кардіо, вільні ваги та тренажери для самостійних тренувань.</p>
+<span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
 </div>
-</div>
-<!-- Category Card 2 (Group) -->
-<div class="relative group overflow-hidden bg-graphite-surface border-t border-white/10">
-<div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity duration-700" data-alt="A spacious gym area for group fitness and functional training. Black rubber flooring, rows of workout stations, dramatic top-down lighting with bright red neon accents cutting through the darkness. Premium, intense athletic mood." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB41nBvXVIIGlRw2xhYL_X8rBptHwdgt6qU85xfPEcxy9KbhIiYoSy3pMIjEyJCPBpToH71jHxFsCKyVy27VKjv-fdiuz1K_XljnUgXizcsF0KKAU8V8Q8d4DdO5GOsimlrdlEIR6Vt8lfpGxUdKlxpL1ZjaCpjI9yiapyavPA6Bbyd4f0iB3oDbesJCsAPixix1i00SJcqcmtup3lHlJMYetWSswkVDg6VSh6cqCnEqC6lfD1dVo0VUuKEJPtvCnBN95ZwzHgM2iId');"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-deep-void to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-6 flex flex-col gap-2">
-<span class="text-label-sm font-label-sm text-deep-void bg-on-surface px-2 py-1 uppercase w-max border border-primary-container">Group</span>
-<h3 class="text-body-md font-body-md font-bold text-on-surface uppercase">Групові класи</h3>
-</div>
-</div>
-<!-- Category Card 3 (Combat) -->
-<div class="relative group overflow-hidden bg-graphite-surface border-t border-white/10">
-<div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity duration-700" data-alt="A specialized martial arts and combat zone inside a high-end gym. Heavy punching bags, open mat space, surrounded by dark graphite walls and illuminated by aggressive red LED architectural lighting. Raw, focused energy." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDQB9uf9riQXRkzM6cqPneK6OcuW6brpTmP_dQjQCN20wZZXE40HW4xmr-W7csetkEGPmn0iJzLWgCHEX-cZVaJyrDphpBvFNF4PtCVPqNyDr0EFZdgz1_dZSx603bq_qX_vj0jZ28aj-E_xCpbTwFewu_n3dl_SU1I-vUDt6u1s5Eq1kpYMPK4OlJgYw7-mo5Fzo2QhxFIx5qIdb3bu-XzUfuUgHVjkc_yDGnMFbh8nGOZyhG7jCFUy4XwhR1I5_5ruW2rDGvEQ9d3');"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-deep-void to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-6 flex flex-col gap-2">
-<span class="text-label-sm font-label-sm text-deep-void bg-on-surface px-2 py-1 uppercase w-max border border-primary-container">Combat</span>
-<h3 class="text-body-md font-body-md font-bold text-on-surface uppercase">Єдиноборства</h3>
-</div>
-</div>
-<!-- Category Card 4 (Personal) -->
-<div class="relative group overflow-hidden bg-surface-container-low border-t border-white/10">
-<div class="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary-container via-deep-void to-deep-void"></div>
-<div class="relative z-10 h-full p-6 flex flex-col justify-between">
-<span class="text-label-sm font-label-sm text-deep-void bg-on-surface px-2 py-1 uppercase w-max border border-primary-container">Personal</span>
-<div>
-<h3 class="text-body-md font-body-md font-bold text-on-surface uppercase mb-2">Персональні тренування</h3>
-<p class="text-tertiary text-sm">Індивідуальний підхід, контроль техніки та програма під конкретну ціль.</p>
-</div>
-<a class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest" href="#contact">Детальніше</a>
-</div>
-</div>
-<!-- Category Card 5 (Functional) -->
-<div class="relative group overflow-hidden bg-surface-container-low border-t border-white/10">
-<div class="absolute inset-0 opacity-10 bg-[linear-gradient(135deg,_rgba(255,85,64,.35),_transparent_45%)]"></div>
-<div class="relative z-10 h-full p-6 flex flex-col justify-between">
-<span class="text-label-sm font-label-sm text-deep-void bg-on-surface px-2 py-1 uppercase w-max border border-primary-container">Functional</span>
-<div>
-<h3 class="text-body-md font-body-md font-bold text-on-surface uppercase mb-2">Функціональні тренування</h3>
-<p class="text-tertiary text-sm">TRX, mobility, core, робота з власною вагою та розвиток загальної форми.</p>
-</div>
-<a class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest" href="#contact">Детальніше</a>
-</div>
-</div>
-<!-- Category Card 4 (Recovery) -->
-<div class="relative group overflow-hidden bg-surface-container-low border-t border-white/10 md:col-span-2 flex items-center justify-center backdrop-blur-xl">
-<!-- Abstract tech pattern instead of image for variety -->
-<div class="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-container via-deep-void to-deep-void"></div>
-<div class="relative z-10 text-center flex flex-col items-center gap-4 p-6">
-<span class="material-symbols-outlined text-4xl text-primary-container" data-icon="spa" data-weight="fill">spa</span>
-<div>
-<h3 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface uppercase mb-1">Відновлення</h3>
-<p class="text-label-sm font-label-sm text-tertiary uppercase tracking-widest">Сауна • Масаж • Релакс</p>
-</div>
-</div>
-</div>
+</a>
+<a class="service-card min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
+<h3 class="text-on-surface uppercase font-bold text-lg mb-3">Групові класи</h3>
+<p class="text-tertiary text-sm mb-5">Тренування в ритмі команди, регулярність і різні формати навантаження.</p>
+<span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
+</a>
+<a class="service-card min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
+<h3 class="text-on-surface uppercase font-bold text-lg mb-3">Єдиноборства</h3>
+<p class="text-tertiary text-sm mb-5">Бокс, техніка, координація, витривалість і робота з тренером.</p>
+<span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
+</a>
+<a class="service-card min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
+<h3 class="text-on-surface uppercase font-bold text-lg mb-3">Персональні тренування</h3>
+<p class="text-tertiary text-sm mb-5">Індивідуальний підхід, контроль техніки та програма під ціль.</p>
+<span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
+</a>
+<a class="service-card min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
+<h3 class="text-on-surface uppercase font-bold text-lg mb-3">Функціональні тренування</h3>
+<p class="text-tertiary text-sm mb-5">TRX, mobility, core і робота з власною вагою.</p>
+<span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
+</a>
+<a class="service-card min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
+<h3 class="text-on-surface uppercase font-bold text-lg mb-3">Відновлення</h3>
+<p class="text-tertiary text-sm mb-5">Сауна, масаж і релакс після навантажень.</p>
+<span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
+</a>
 </div>
 </div>
 </section>
 <!-- Prices -->
 <section id="price" class="relative z-20 px-container-margin py-section-gap bg-[#090909] border-t border-outline-variant/20 scroll-mt-24">
 <div class="desktop-section space-y-8">
-<div class="grid desktop-two-col gap-6 md:gap-8 items-stretch">
-<div class="mural-panel min-h-[320px] md:min-h-[420px] relative overflow-hidden border border-outline-variant/30">
-<div class="absolute inset-0 bg-gradient-to-t from-deep-void via-transparent to-transparent"></div>
-<div class="relative z-10 h-full flex flex-col justify-end p-6 md:p-8 gap-4">
-<div class="flex items-center gap-4">
-<div class="h-px w-10 bg-primary-container drop-shadow-[0_0_8px_rgba(255,0,0,0.9)]"></div>
+<div class="max-w-3xl">
+<div class="flex items-center gap-4 mb-5">
+<div class="h-px w-8 bg-primary-container drop-shadow-[0_0_5px_rgba(255,0,0,0.8)]"></div>
 <span class="text-label-sm font-label-sm text-tertiary uppercase tracking-widest">Ціни REGYM</span>
 </div>
-<h2 class="text-[34px] md:text-[56px] leading-[0.95] font-display-xl uppercase text-on-surface max-w-2xl">
-                    Прайс та абонементи
-                </h2>
-<p class="text-body-md font-body-md text-tertiary max-w-xl">
-                    Вартість залежить від формату тренувань, терміну абонемента та обраної послуги. Актуальні умови підкаже адміністратор.
-                </p>
+<h2 class="text-[34px] md:text-[52px] leading-none font-display-xl uppercase text-on-surface mb-4">Прайс та абонементи</h2>
+<p class="text-body-md font-body-md text-tertiary">Короткий вибір зверху, детальні умови — у розділах нижче. Таблиці можна гортати горизонтально на телефоні.</p>
 </div>
-</div>
-<div class="bg-surface-container-low border border-outline-variant/30 p-6 md:p-8 flex flex-col justify-between gap-8">
-<div class="space-y-5">
-<div class="flex items-center justify-between border-b border-outline-variant/20 pb-4">
-<span class="text-label-sm font-label-sm uppercase tracking-widest text-tertiary">Швидкий вибір</span>
-<span class="text-label-sm font-label-sm uppercase tracking-widest text-primary-container">від 300 грн</span>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="summary-card p-5 md:p-6"><span class="text-tertiary text-label-sm font-label-sm uppercase tracking-widest">Разове відвідування</span><div class="text-primary-container text-2xl md:text-3xl font-black mt-3">300 грн</div></div>
+<div class="summary-card p-5 md:p-6"><span class="text-tertiary text-label-sm font-label-sm uppercase tracking-widest">Абонементи</span><div class="text-primary-container text-2xl md:text-3xl font-black mt-3">від 1850 грн</div></div>
+<div class="summary-card p-5 md:p-6"><span class="text-tertiary text-label-sm font-label-sm uppercase tracking-widest">Персональні</span><div class="text-primary-container text-2xl md:text-3xl font-black mt-3">від 450 грн</div></div>
+<div class="summary-card p-5 md:p-6"><span class="text-tertiary text-label-sm font-label-sm uppercase tracking-widest">Масаж та реабілітація</span><div class="text-primary-container text-2xl md:text-3xl font-black mt-3">від 200 грн</div></div>
 </div>
 <div class="space-y-4">
-<div class="flex items-center justify-between gap-4">
-<span class="text-on-surface font-bold uppercase">Разове відвідування</span>
-<span class="text-primary-container font-bold text-right">300 грн</span>
-</div>
-<div class="flex items-center justify-between gap-4">
-<span class="text-on-surface font-bold uppercase">Абонементи</span>
-<span class="text-primary-container font-bold text-right">1850-18900 грн</span>
-</div>
-<div class="flex items-center justify-between gap-4">
-<span class="text-on-surface font-bold uppercase">Персональні</span>
-<span class="text-primary-container font-bold text-right">від 450 грн</span>
-</div>
-<div class="flex items-center justify-between gap-4">
-<span class="text-on-surface font-bold uppercase">Масаж та реабілітація</span>
-<span class="text-primary-container font-bold text-right">від 200 грн</span>
-</div>
-</div>
-</div>
-<a class="focus-ring bg-primary-container hover:bg-red-600 text-deep-void text-cta-text font-cta-text uppercase tracking-widest py-4 px-6 transition-all duration-300 hover:box-glow active:scale-95 flex items-center justify-center gap-2" href="#contact">
-                Уточнити у адміністратора
-                <span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
-</a>
-</div>
-</div>
-<div class="price-card p-5 md:p-6">
-<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-5">
-<div>
-<span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Абонементи</span>
-<h3 class="text-[30px] md:text-[42px] leading-none font-display-xl uppercase text-on-surface mt-2">Основні формати</h3>
-</div>
-<p class="text-tertiary text-sm max-w-md">Разове відвідування - <span class="text-primary-container font-bold">300 грн</span>. Умови по часу, заморозці та додаткових опціях залежать від пакету.</p>
-</div>
+<details class="price-accordion" open>
+<summary class="p-5 md:p-6 flex items-center justify-between gap-4">
+<span class="text-on-surface uppercase font-bold tracking-wide">Основні абонементи</span>
+<span class="chevron material-symbols-outlined text-primary-container">chevron_right</span>
+</summary>
+<div class="px-5 md:px-6 pb-6">
 <div class="price-scroll">
 <table class="price-table">
-<thead><tr><th>Абонемент</th><th>Day</th><th>Optimal</th><th>Comfort</th><th>Activity</th><th>Activity 3</th><th>Activity 12</th></tr></thead>
+<thead><tr><th>Абонемент</th><th>Доступ</th><th>Відвідування</th><th>Тривалість</th><th>Опції</th><th>Вартість</th></tr></thead>
 <tbody>
-<tr><td class="row-head">Будні</td><td>до 17:00</td><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td></tr>
-<tr><td class="row-head">Вихідні</td><td>до 17:00</td><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td></tr>
-<tr><td class="row-head">Відвідування</td><td>без обмежень</td><td>8</td><td>12</td><td>без обмежень</td><td>без обмежень</td><td>без обмежень</td></tr>
-<tr><td class="row-head">Тренажерний зал</td><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td></tr>
-<tr><td class="row-head">Групові заняття</td><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td></tr>
-<tr><td class="row-head">Дитяча кімната</td><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td><td>*</td></tr>
-<tr><td class="row-head">Персональні заняття</td><td></td><td></td><td></td><td></td><td></td><td>-50% на 10 тренувань</td></tr>
-<tr><td class="row-head">Солярій / Appolo</td><td></td><td></td><td></td><td></td><td></td><td>-50% на 30 хвилин</td></tr>
-<tr><td class="row-head">Масаж</td><td></td><td></td><td></td><td></td><td></td><td>-50% на 10 сеансів</td></tr>
-<tr><td class="row-head">Гостьовий візит</td><td></td><td></td><td></td><td></td><td>3</td><td>5</td></tr>
-<tr><td class="row-head">Оренда рушника</td><td></td><td></td><td></td><td></td><td></td><td>*</td></tr>
-<tr><td class="row-head">Заморозка</td><td></td><td></td><td></td><td></td><td>14 днів</td><td>30 днів</td></tr>
-<tr><td class="row-head">Розтермінування</td><td></td><td></td><td></td><td></td><td></td><td>*</td></tr>
-<tr><td class="row-head">Тривалість</td><td>1 місяць</td><td>1 місяць</td><td>1 місяць</td><td>1 місяць</td><td>3 місяці</td><td>12 місяців</td></tr>
-<tr><td class="row-head">Вартість</td><td class="accent">1850</td><td class="accent">1850</td><td class="accent">2000</td><td class="accent">2200</td><td class="accent">5350</td><td class="accent">18900</td></tr>
+<tr><td class="row-head">Day</td><td>Будні та вихідні до 17:00</td><td>без обмежень</td><td>1 місяць</td><td>зал, групові, дитяча кімната</td><td class="accent">1850</td></tr>
+<tr><td class="row-head">Optimal</td><td>повний доступ</td><td>8</td><td>1 місяць</td><td>зал, групові, дитяча кімната</td><td class="accent">1850</td></tr>
+<tr><td class="row-head">Comfort</td><td>повний доступ</td><td>12</td><td>1 місяць</td><td>зал, групові, дитяча кімната</td><td class="accent">2000</td></tr>
+<tr><td class="row-head">Activity</td><td>повний доступ</td><td>без обмежень</td><td>1 місяць</td><td>зал, групові, дитяча кімната</td><td class="accent">2200</td></tr>
+<tr><td class="row-head">Activity 3</td><td>повний доступ</td><td>без обмежень</td><td>3 місяці</td><td>гостьові візити 3, заморозка 14 днів</td><td class="accent">5350</td></tr>
+<tr><td class="row-head">Activity 12</td><td>повний доступ</td><td>без обмежень</td><td>12 місяців</td><td>гостьові візити 5, заморозка 30 днів, розтермінування</td><td class="accent">18900</td></tr>
 </tbody>
 </table>
 </div>
+<p class="text-tertiary text-xs mt-4 uppercase">Додаткові знижки на персональні заняття, солярій та масаж доступні в окремих пакетах Activity 12.</p>
 </div>
-<div class="grid md:grid-cols-2 gap-6">
-<div class="price-card p-5 md:p-6">
-<span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Персональні тренування</span>
-<h3 class="text-[28px] md:text-[36px] leading-none font-display-xl uppercase text-on-surface mt-2 mb-5">1 / 8 / 12 занять</h3>
+</details>
+<details class="price-accordion">
+<summary class="p-5 md:p-6 flex items-center justify-between gap-4">
+<span class="text-on-surface uppercase font-bold tracking-wide">Персональні тренування</span>
+<span class="chevron material-symbols-outlined text-primary-container">chevron_right</span>
+</summary>
+<div class="px-5 md:px-6 pb-6">
 <div class="price-scroll">
 <table class="price-table">
-<thead><tr><th>Категорія</th><th>1</th><th>8</th><th>12</th></tr></thead>
+<thead><tr><th>Категорія</th><th>1 заняття</th><th>8 занять</th><th>12 занять</th><th>Термін дії</th></tr></thead>
 <tbody>
-<tr><td class="row-head">2 категорія</td><td class="accent">450*</td><td>3850</td><td>5700</td></tr>
-<tr><td class="row-head">1 категорія</td><td class="accent">500*</td><td>4250</td><td>6300</td></tr>
-<tr><td class="row-head">VIP категорія</td><td>700</td><td>5200</td><td>7600</td></tr>
-<tr><td class="row-head">Категорія Master</td><td>800</td><td>6200</td><td>9000</td></tr>
-<tr><td class="row-head">Термін дії</td><td colspan="3" class="accent">1 місяць</td></tr>
+<tr><td class="row-head">2 категорія</td><td class="accent">450</td><td>3850</td><td>5700</td><td>1 місяць</td></tr>
+<tr><td class="row-head">1 категорія</td><td class="accent">500</td><td>4250</td><td>6300</td><td>1 місяць</td></tr>
+<tr><td class="row-head">VIP категорія</td><td>700</td><td>5200</td><td>7600</td><td>1 місяць</td></tr>
+<tr><td class="row-head">Категорія Master</td><td>800</td><td>6200</td><td>9000</td><td>1 місяць</td></tr>
 </tbody>
 </table>
 </div>
-<p class="text-tertiary text-xs mt-4 uppercase">* Вартість разового тренування 1 і 2 категорії за наявності абонементу на відвідування залу.</p>
+<p class="text-tertiary text-xs mt-4 uppercase">Разова вартість 1 і 2 категорії діє за наявності абонементу на відвідування залу.</p>
 </div>
-<div class="price-card p-5 md:p-6">
-<span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Авторські групові</span>
-<h3 class="text-[28px] md:text-[36px] leading-none font-display-xl uppercase text-on-surface mt-2 mb-5">Групові тренування</h3>
+</details>
+<details class="price-accordion">
+<summary class="p-5 md:p-6 flex items-center justify-between gap-4">
+<span class="text-on-surface uppercase font-bold tracking-wide">Групові тренування</span>
+<span class="chevron material-symbols-outlined text-primary-container">chevron_right</span>
+</summary>
+<div class="px-5 md:px-6 pb-6">
 <div class="price-scroll">
 <table class="price-table">
-<thead><tr><th>Формат</th><th>Кількість</th><th>Ціна</th></tr></thead>
+<thead><tr><th>Формат</th><th>Кількість занять</th><th>Ціна</th></tr></thead>
 <tbody>
 <tr><td class="row-head">Авторські групові 1.0</td><td>1</td><td class="accent">400</td></tr>
-<tr><td class="row-head">Авторські групові 2.0</td><td>1 / 8 / 12</td><td class="accent">300 / 1900 / 2850</td></tr>
+<tr><td class="row-head">Авторські групові 2.0</td><td>1</td><td class="accent">300</td></tr>
+<tr><td class="row-head">Авторські групові 2.0</td><td>8</td><td class="accent">1900</td></tr>
+<tr><td class="row-head">Авторські групові 2.0</td><td>12</td><td class="accent">2850</td></tr>
 </tbody>
 </table>
 </div>
-<p class="text-tertiary text-xs mt-4 uppercase">Сірі та червоні клітинки в розкладі позначають відповідні формати занять.</p>
 </div>
-</div>
-<div class="price-card p-5 md:p-6">
-<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-5">
-<div>
-<span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Реабілітація та масаж</span>
-<h3 class="text-[30px] md:text-[42px] leading-none font-display-xl uppercase text-on-surface mt-2">Stroom / Marshall</h3>
-</div>
-<p class="text-tertiary text-sm max-w-md">Послуги реабілітації, масажу, корекції фігури та додаткові процедури.</p>
-</div>
+</details>
+<details class="price-accordion">
+<summary class="p-5 md:p-6 flex items-center justify-between gap-4">
+<span class="text-on-surface uppercase font-bold tracking-wide">Реабілітація та масаж</span>
+<span class="chevron material-symbols-outlined text-primary-container">chevron_right</span>
+</summary>
+<div class="px-5 md:px-6 pb-6">
 <div class="price-scroll">
 <table class="price-table">
 <thead><tr><th>Послуга</th><th>Спеціаліст / блок</th><th>Тривалість</th><th>Ціна</th></tr></thead>
 <tbody>
-<tr class="section-row"><td colspan="4">Реабілітаційні послуги | Stroom</td></tr>
-<tr><td class="row-head">Візуальна діагностика, м'язове тестування та консультація</td><td>Володимир Фьомін</td><td>30</td><td class="accent">600</td></tr>
+<tr><td class="row-head">Візуальна діагностика та консультація</td><td>Володимир Фьомін</td><td>30</td><td class="accent">600</td></tr>
 <tr><td class="row-head">Спортивний масаж, вакуумні банки, тейпи</td><td>Володимир Фьомін</td><td>40</td><td class="accent">800</td></tr>
-<tr><td class="row-head">Реабілітація, м'язовий тест, корекція, підбір вправ, консультація</td><td>Володимир Фьомін</td><td>60</td><td class="accent">1700</td></tr>
-<tr><td class="row-head">Реабілітація шийного відділу хребта</td><td>Сергій Ключковський</td><td>40</td><td class="accent">1200</td></tr>
+<tr><td class="row-head">Реабілітація, корекція, підбір вправ</td><td>Володимир Фьомін</td><td>60</td><td class="accent">1700</td></tr>
+<tr><td class="row-head">Реабілітація шийного відділу</td><td>Сергій Ключковський</td><td>40</td><td class="accent">1200</td></tr>
 <tr><td class="row-head">Реабілітація плечових суглобів</td><td>Сергій Ключковський</td><td>40</td><td class="accent">1200</td></tr>
 <tr><td class="row-head">Реабілітація відділів хребта</td><td>Сергій Ключковський</td><td>40</td><td class="accent">1200</td></tr>
 <tr><td class="row-head">Акупунктура</td><td>Володимир Фьомін</td><td>20</td><td class="accent">450</td></tr>
 <tr><td class="row-head">Тейпування</td><td>Володимир Фьомін</td><td>20</td><td class="accent">1000</td></tr>
-<tr class="section-row"><td colspan="4">Реабілітаційні послуги | Marshall</td></tr>
-<tr><td class="row-head">Реабілітація після операцій великих суглобів, розривів та надривів м'яких тканин</td><td>Валерій Каладні</td><td>60</td><td class="accent">1500</td></tr>
-<tr class="section-row"><td colspan="4">Корекція фігури</td></tr>
+<tr><td class="row-head">Реабілітація Marshall</td><td>Валерій Каладні</td><td>60</td><td class="accent">1500</td></tr>
 <tr><td class="row-head">Антицелюлітний масаж</td><td>Корекція фігури</td><td>40 / 60</td><td class="accent">800 / 950</td></tr>
 <tr><td class="row-head">Лімфодренажний масаж</td><td>Корекція фігури</td><td>60</td><td class="accent">950</td></tr>
-<tr><td class="row-head">Масаж для вагітних</td><td>Корекція фігури</td><td>60</td><td class="accent">1000</td></tr>
-<tr><td class="row-head">Медовий масаж</td><td>Корекція фігури</td><td>60</td><td class="accent">950</td></tr>
-<tr class="section-row"><td colspan="4">Релакс та оздоровчий</td></tr>
 <tr><td class="row-head">Загальний масаж</td><td>Релакс</td><td>60 / 90</td><td class="accent">950 / 1300</td></tr>
 <tr><td class="row-head">Спортивний масаж</td><td>Релакс</td><td>40</td><td class="accent">750</td></tr>
-<tr><td class="row-head">Масаж спини та шиї</td><td>Релакс</td><td>40</td><td class="accent">750</td></tr>
-<tr><td class="row-head">Антистрес масаж Stroom</td><td>Релакс</td><td>40</td><td class="accent">750</td></tr>
-<tr><td class="row-head">Прес-ролінг</td><td>Оздоровчий</td><td>60</td><td class="accent">950</td></tr>
-<tr><td class="row-head">Масаж обличчя, моліпластичний догляд</td><td>Оздоровчий</td><td>40</td><td class="accent">750</td></tr>
-<tr><td class="row-head">Масаж обличчя, моліпінговий догляд</td><td>Оздоровчий</td><td>40 / 60</td><td class="accent">750 / 800</td></tr>
-<tr><td class="row-head">Масаж стоп, тайський класичний</td><td>Оздоровчий</td><td>40</td><td class="accent">700</td></tr>
-<tr><td class="row-head">Міофасціальний масаж тіла</td><td>Оздоровчий</td><td>60</td><td class="accent">950</td></tr>
-<tr><td class="row-head">Тейпування</td><td>Додатково</td><td>20</td><td class="accent">300</td></tr>
 <tr><td class="row-head">Вакуумні банки</td><td>Додатково</td><td>20</td><td class="accent">200</td></tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="price-card p-5 md:p-6">
-<span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Мерч та додаткові опції</span>
-<h3 class="text-[30px] md:text-[42px] leading-none font-display-xl uppercase text-on-surface mt-2 mb-5">Все для режиму</h3>
+</details>
+<details class="price-accordion">
+<summary class="p-5 md:p-6 flex items-center justify-between gap-4">
+<span class="text-on-surface uppercase font-bold tracking-wide">Мерч та додаткові опції</span>
+<span class="chevron material-symbols-outlined text-primary-container">chevron_right</span>
+</summary>
+<div class="px-5 md:px-6 pb-6">
 <div class="price-scroll">
 <table class="price-table">
 <thead><tr><th>Позиція</th><th>Розмір / тривалість</th><th>Ціна</th></tr></thead>
 <tbody>
-<tr class="section-row"><td colspan="3">Фірмовий мерч</td></tr>
 <tr><td class="row-head">Футболка</td><td>S / M / L / XL</td><td class="accent">1050</td></tr>
 <tr><td class="row-head">Рушник</td><td>50x100 см / 70x140 см</td><td class="accent">550 / 850</td></tr>
 <tr><td class="row-head">Пляшка</td><td>0.8 л</td><td class="accent">900</td></tr>
 <tr><td class="row-head">Парасолька</td><td></td><td class="accent">700</td></tr>
 <tr><td class="row-head">Спортивна сумка</td><td>маленька / велика</td><td class="accent">1350 / 2250</td></tr>
-<tr><td class="row-head">Мішок для взуття</td><td></td><td class="accent">300</td></tr>
-<tr><td class="row-head">Шкарпетки</td><td>36-39 / 40-43</td><td class="accent">135</td></tr>
-<tr class="section-row"><td colspan="3">Додаткові опції</td></tr>
 <tr><td class="row-head">Оренда шафки</td><td>1 міс</td><td class="accent">300</td></tr>
-<tr><td class="row-head">Резинка для волосся</td><td></td><td class="accent">10</td></tr>
-<tr><td class="row-head">Шкарпетки</td><td></td><td class="accent">40</td></tr>
-<tr><td class="row-head">Капці</td><td></td><td class="accent">40</td></tr>
 <tr><td class="row-head">Маленький рушник</td><td>разове використання</td><td class="accent">50</td></tr>
 <tr><td class="row-head">Великий рушник</td><td>разове використання</td><td class="accent">80</td></tr>
-<tr class="section-row"><td colspan="3">Солярій / Appolo</td></tr>
-<tr><td class="row-head">1 хвилина</td><td></td><td class="accent">25</td></tr>
-<tr><td class="row-head">Стікіні / шапочка</td><td></td><td class="accent">3</td></tr>
+<tr><td class="row-head">Солярій</td><td>1 хвилина</td><td class="accent">25</td></tr>
 <tr><td class="row-head">Крем</td><td></td><td class="accent">від 85</td></tr>
 </tbody>
 </table>
 </div>
+</div>
+</details>
 </div>
 </div>
 </section>
@@ -640,35 +588,49 @@
 </section>
 <!-- Contact -->
 <section id="contact" class="relative z-20 px-container-margin py-section-gap bg-deep-void border-t border-outline-variant/20 scroll-mt-24">
-<div class="desktop-section grid md:grid-cols-3 gap-4">
-<div class="md:col-span-1 flex flex-col justify-between gap-6 border border-outline-variant/30 bg-surface-dim p-6 md:p-8 min-h-[260px]">
-<div>
+<div class="desktop-section">
+<div class="max-w-3xl mb-8">
 <div class="flex items-center gap-4 mb-6">
 <div class="h-px w-8 bg-primary-container drop-shadow-[0_0_5px_rgba(255,0,0,0.8)]"></div>
 <span class="text-label-sm font-label-sm text-tertiary uppercase tracking-widest">Контакт</span>
 </div>
-<h2 class="text-[34px] md:text-[44px] leading-none font-display-xl uppercase text-on-surface">
+<h2 class="text-[34px] md:text-[48px] leading-none font-display-xl uppercase text-on-surface mb-4">
                     Потрібна консультація?
                 </h2>
-</div>
 <p class="text-body-md font-body-md text-tertiary">
                 Напиши адміністратору - підкажуть актуальний прайс, розклад, формати тренувань і деталі по REGYM MARSHALL.
             </p>
 </div>
-<a class="focus-ring group border border-outline-variant/30 bg-graphite-surface p-6 md:p-8 min-h-[260px] flex flex-col justify-between hover:border-primary-container/80 transition-colors" href="https://www.instagram.com/regym.hub/">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<a class="focus-ring service-card group p-6 min-h-[190px] flex flex-col justify-between transition-colors" href="https://www.instagram.com/regym.hub/">
 <span class="material-symbols-outlined text-4xl text-primary-container" data-icon="photo_camera">photo_camera</span>
 <div>
-<h3 class="text-headline-lg-mobile font-headline-lg-mobile uppercase text-on-surface mb-2">Instagram</h3>
-<p class="text-tertiary text-sm">Перехід на профіль REGYM як робоча соціальна точка.</p>
+<h3 class="text-xl font-bold uppercase text-on-surface mb-2">Instagram</h3>
+<p class="text-tertiary text-sm">Профіль REGYM та актуальні сторіз.</p>
 </div>
 </a>
-<a class="focus-ring group border border-outline-variant/30 bg-graphite-surface p-6 md:p-8 min-h-[260px] flex flex-col justify-between hover:border-primary-container/80 transition-colors" href="#">
+<a class="focus-ring service-card group p-6 min-h-[190px] flex flex-col justify-between transition-colors" href="#">
 <span class="material-symbols-outlined text-4xl text-primary-container" data-icon="send">send</span>
 <div>
-<h3 class="text-headline-lg-mobile font-headline-lg-mobile uppercase text-on-surface mb-2">Telegram</h3>
+<h3 class="text-xl font-bold uppercase text-on-surface mb-2">Telegram</h3>
 <p class="text-tertiary text-sm">Швидкий зв'язок з адміністратором для консультації.</p>
 </div>
 </a>
+<a class="focus-ring service-card group p-6 min-h-[190px] flex flex-col justify-between transition-colors" href="#">
+<span class="material-symbols-outlined text-4xl text-primary-container" data-icon="chat">chat</span>
+<div>
+<h3 class="text-xl font-bold uppercase text-on-surface mb-2">Viber</h3>
+<p class="text-tertiary text-sm">Зручний формат для уточнення деталей.</p>
+</div>
+</a>
+<a class="focus-ring service-card group p-6 min-h-[190px] flex flex-col justify-between transition-colors" href="https://www.google.com/maps/place/REGYM+sport+hub+MARSHALL/@48.4160105,35.0696778,15z">
+<span class="material-symbols-outlined text-4xl text-primary-container" data-icon="location_on">location_on</span>
+<div>
+<h3 class="text-xl font-bold uppercase text-on-surface mb-2">Прокласти маршрут</h3>
+<p class="text-tertiary text-sm">Відкрити REGYM MARSHALL на карті.</p>
+</div>
+</a>
+</div>
 </div>
 </section>
 <!-- BottomNavBar (Mobile Only) -->
