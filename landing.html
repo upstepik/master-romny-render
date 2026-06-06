@@ -325,6 +325,85 @@
         .price-accordion:hover {
             border-color: rgba(255, 85, 64, .45);
         }
+        .direction-card {
+            isolation: isolate;
+            min-height: 190px;
+        }
+        .direction-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background:
+                radial-gradient(circle at 78% 18%, rgba(255, 85, 64, .18), transparent 30%),
+                linear-gradient(90deg, rgba(5, 5, 5, .94) 0%, rgba(5, 5, 5, .74) 42%, rgba(5, 5, 5, .44) 100%),
+                linear-gradient(0deg, rgba(5, 5, 5, .72), transparent 55%);
+            pointer-events: none;
+            transition: opacity .45s ease;
+        }
+        .direction-card::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 2px;
+            z-index: 3;
+            background: linear-gradient(90deg, #ff5540, rgba(255, 85, 64, 0));
+            opacity: .45;
+            transform: scaleX(.42);
+            transform-origin: left center;
+            transition: transform .55s cubic-bezier(.2, .82, .22, 1), opacity .35s ease;
+        }
+        .direction-media {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            background: #090909;
+        }
+        .direction-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: .58;
+            filter: saturate(.92) contrast(1.08) brightness(.86);
+            transform: scale(1.03);
+            transition:
+                transform .9s cubic-bezier(.2, .82, .22, 1),
+                opacity .45s ease,
+                filter .45s ease;
+        }
+        .direction-card:hover {
+            box-shadow: 0 24px 74px rgba(0, 0, 0, .48), 0 0 34px rgba(255, 85, 64, .08);
+        }
+        .direction-card:hover::before {
+            opacity: .9;
+        }
+        .direction-card:hover::after {
+            opacity: .9;
+            transform: scaleX(1);
+        }
+        .direction-card:hover .direction-media img {
+            opacity: .72;
+            filter: saturate(1) contrast(1.12) brightness(.96);
+            transform: scale(1.09);
+        }
+        .direction-content {
+            position: relative;
+            z-index: 2;
+        }
+        .direction-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform .35s ease, color .35s ease;
+        }
+        .direction-card:hover .direction-link {
+            transform: translateX(5px);
+            color: #ff6a55;
+        }
         .price-accordion {
             background: rgba(16, 17, 17, .9);
             border: 1px solid rgba(255, 255, 255, .11);
@@ -596,6 +675,12 @@
             .map-marker-core {
                 animation: none;
             }
+            .direction-media img,
+            .direction-card::after,
+            .direction-link {
+                transition: none;
+                transform: none;
+            }
             .reveal {
                 opacity: 1;
                 transform: none;
@@ -732,39 +817,53 @@
 <p class="text-body-md font-body-md text-tertiary">Обери формат під свою ціль: сила, витривалість, техніка, функціонал або відновлення.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
-<a class="service-card motion-card reveal group relative overflow-hidden md:col-span-2 md:row-span-2 min-h-[340px] p-6 md:p-8 flex flex-col justify-end transition-colors" href="#contact">
-<div class="absolute inset-0 bg-cover bg-center opacity-34 group-hover:opacity-46 transition-opacity duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3z2MIhMQnNWQWRgGjCM0NLRa4kMUH6eIg8jFLL1aUB9k2RXOBvLc4hNQykLghfUKS9F7u0ldTBD0DRA47Gi-6sV6iQuaq5UVkHn0c5uQmyFFc610U4ClmLrOFsCmXedQBMvY0uJnj-QnbgV4GC30RgXLHHUPC60FdsOiVsjEnbEIMkmFhVlslDeeyiIWDG_J7_uXdYg9QKo7xbrWOWRTkIWVrXmOlJw9awqKm7-jb6gsVQLrY7lRiaQoL8iX-0BbCUK3Jzm5YJ8Bj');"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-deep-void via-deep-void/75 to-transparent"></div>
-<div class="relative z-10 max-w-xl">
+<a class="service-card direction-card motion-card reveal group relative overflow-hidden md:col-span-2 md:row-span-2 min-h-[360px] p-6 md:p-8 flex flex-col justify-end transition-colors" href="#contact">
+<div class="direction-media" aria-hidden="true"><img src="assets/direction-gym.jpg" alt="" loading="lazy"/></div>
+<div class="direction-content max-w-xl">
 <h3 class="text-[30px] md:text-[44px] leading-none font-display-xl uppercase text-on-surface mb-3">Тренажерний зал</h3>
 <p class="text-tertiary text-sm md:text-base mb-5">Силова зона, кардіо, вільні ваги та тренажери для самостійних тренувань.</p>
-<span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
+<span class="direction-link text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
 </div>
 </a>
-<a class="service-card motion-card reveal min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
+<a class="service-card direction-card motion-card reveal group relative overflow-hidden min-h-[190px] p-5 md:p-6 flex flex-col justify-end transition-colors" href="#contact">
+<div class="direction-media" aria-hidden="true"><img src="assets/direction-group.jpg" alt="" loading="lazy"/></div>
+<div class="direction-content">
 <h3 class="text-on-surface uppercase font-bold text-lg mb-3">Групові класи</h3>
 <p class="text-tertiary text-sm mb-5">Тренування в ритмі команди, регулярність і різні формати навантаження.</p>
-<span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
+<span class="direction-link text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
+</div>
 </a>
-<a class="service-card motion-card reveal min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
+<a class="service-card direction-card motion-card reveal group relative overflow-hidden min-h-[190px] p-5 md:p-6 flex flex-col justify-end transition-colors" href="#contact">
+<div class="direction-media" aria-hidden="true"><img src="assets/direction-combat.jpg" alt="" loading="lazy"/></div>
+<div class="direction-content">
 <h3 class="text-on-surface uppercase font-bold text-lg mb-3">Єдиноборства</h3>
 <p class="text-tertiary text-sm mb-5">Бокс, техніка, координація, витривалість і робота з тренером.</p>
-<span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
+<span class="direction-link text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
+</div>
 </a>
-<a class="service-card motion-card reveal min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
+<a class="service-card direction-card motion-card reveal group relative overflow-hidden min-h-[190px] p-5 md:p-6 flex flex-col justify-end transition-colors" href="#contact">
+<div class="direction-media" aria-hidden="true"><img src="assets/direction-personal.jpg" alt="" loading="lazy"/></div>
+<div class="direction-content">
 <h3 class="text-on-surface uppercase font-bold text-lg mb-3">Персональні тренування</h3>
 <p class="text-tertiary text-sm mb-5">Індивідуальний підхід, контроль техніки та програма під ціль.</p>
-<span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
+<span class="direction-link text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
+</div>
 </a>
-<a class="service-card motion-card reveal min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
+<a class="service-card direction-card motion-card reveal group relative overflow-hidden min-h-[190px] p-5 md:p-6 flex flex-col justify-end transition-colors" href="#contact">
+<div class="direction-media" aria-hidden="true"><img src="assets/direction-functional.jpg" alt="" loading="lazy"/></div>
+<div class="direction-content">
 <h3 class="text-on-surface uppercase font-bold text-lg mb-3">Функціональні тренування</h3>
 <p class="text-tertiary text-sm mb-5">TRX, mobility, core і робота з власною вагою.</p>
-<span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
+<span class="direction-link text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
+</div>
 </a>
-<a class="service-card motion-card reveal min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
+<a class="service-card direction-card motion-card reveal group relative overflow-hidden min-h-[190px] p-5 md:p-6 flex flex-col justify-end transition-colors" href="#contact">
+<div class="direction-media" aria-hidden="true"><img src="assets/direction-recovery.jpg" alt="" loading="lazy"/></div>
+<div class="direction-content">
 <h3 class="text-on-surface uppercase font-bold text-lg mb-3">Відновлення</h3>
 <p class="text-tertiary text-sm mb-5">Сауна, масаж і релакс після навантажень.</p>
-<span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
+<span class="direction-link text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
+</div>
 </a>
 </div>
 </div>
