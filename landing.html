@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>REGYM MARSHALL</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400&amp;family=Montserrat:wght@700;800;900&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Montserrat:wght@700;800;900&amp;family=Sora:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
@@ -121,25 +121,20 @@
                 transform: translate3d(0, 0, 0) scale(1);
             }
         }
-        @keyframes brandSweep {
-            0%, 28% {
-                transform: translateX(-135%) skewX(-18deg);
-                opacity: 0;
-            }
-            38% {
-                opacity: .5;
-            }
-            52%, 100% {
-                transform: translateX(145%) skewX(-18deg);
-                opacity: 0;
-            }
-        }
         @keyframes redSignal {
             0%, 100% {
                 filter: drop-shadow(0 0 7px rgba(255, 31, 42, .28));
             }
             45% {
                 filter: drop-shadow(0 0 14px rgba(255, 31, 42, .5));
+            }
+        }
+        @keyframes logoPulse {
+            0%, 100% {
+                filter: drop-shadow(0 10px 22px rgba(0, 0, 0, .72)) brightness(1);
+            }
+            50% {
+                filter: drop-shadow(0 12px 28px rgba(255, 35, 48, .14)) brightness(1.08);
             }
         }
         @keyframes heroLift {
@@ -165,6 +160,24 @@
             66%, 100% {
                 transform: translateX(130%) skewX(-16deg);
                 opacity: 0;
+            }
+        }
+        @keyframes mapPulse {
+            0% {
+                transform: translate(-50%, -50%) scale(.7);
+                opacity: .65;
+            }
+            80%, 100% {
+                transform: translate(-50%, -50%) scale(1.75);
+                opacity: 0;
+            }
+        }
+        @keyframes mapMarkerFloat {
+            0%, 100% {
+                transform: translate(-50%, -50%) translateY(0);
+            }
+            50% {
+                transform: translate(-50%, -50%) translateY(-5px);
             }
         }
         @media (min-width: 768px) {
@@ -249,6 +262,12 @@
             min-width: 0;
             max-width: 100%;
             overflow: hidden;
+            transition: transform .55s cubic-bezier(.2, .82, .22, 1), border-color .35s ease, box-shadow .35s ease, background .35s ease;
+        }
+        .price-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 85, 64, .38);
+            box-shadow: 0 24px 76px rgba(0, 0, 0, .45), 0 0 32px rgba(255, 85, 64, .08);
         }
         .price-scroll {
             width: 100%;
@@ -260,7 +279,7 @@
             width: 100%;
             min-width: 680px;
             border-collapse: collapse;
-            font-family: "JetBrains Mono", monospace;
+            font-family: "Sora", "Hanken Grotesk", sans-serif;
             font-size: 12px;
             text-transform: uppercase;
         }
@@ -274,6 +293,7 @@
             color: #050505;
             background: #f2f2f2;
             font-weight: 800;
+            letter-spacing: .03em;
             white-space: nowrap;
         }
         .price-table td {
@@ -286,6 +306,8 @@
         .price-table .accent {
             color: #ff5540;
             font-weight: 900;
+            font-family: "Sora", sans-serif;
+            letter-spacing: .01em;
         }
         .price-table .section-row td,
         .price-table .section-row th {
@@ -322,8 +344,42 @@
             transform: rotate(90deg);
         }
         .summary-card {
-            background: rgba(12, 12, 12, .9);
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(145deg, rgba(20, 20, 20, .96), rgba(8, 8, 8, .94));
             border: 1px solid rgba(255, 255, 255, .12);
+            transition: transform .55s cubic-bezier(.2, .82, .22, 1), border-color .35s ease, box-shadow .35s ease;
+        }
+        .summary-card::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            background: radial-gradient(circle at var(--mx, 50%) var(--my, 30%), rgba(255, 85, 64, .24), transparent 34%);
+            opacity: 0;
+            transition: opacity .35s ease;
+            pointer-events: none;
+        }
+        .summary-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 85, 64, .44);
+            box-shadow: 0 24px 76px rgba(0, 0, 0, .5), 0 0 36px rgba(255, 85, 64, .09);
+        }
+        .summary-card:hover::before {
+            opacity: 1;
+        }
+        .summary-label {
+            position: relative;
+            z-index: 1;
+            font-family: "Hanken Grotesk", sans-serif;
+            font-weight: 700;
+        }
+        .summary-price {
+            position: relative;
+            z-index: 1;
+            font-family: "Sora", "Montserrat", sans-serif;
+            font-weight: 800;
+            letter-spacing: -.035em;
+            text-shadow: 0 0 18px rgba(255, 85, 64, .22);
         }
         .brand-lockup {
             position: relative;
@@ -331,24 +387,22 @@
             width: clamp(236px, 62vw, 284px);
             color: #f5f5f5;
             overflow: hidden;
-            animation: brandReveal .9s cubic-bezier(.2, .85, .2, 1) .08s both;
+            animation: brandReveal .9s cubic-bezier(.2, .85, .2, 1) .08s both, logoPulse 5.8s ease-in-out 1.4s infinite;
             filter: drop-shadow(0 10px 22px rgba(0, 0, 0, .72));
             transform-origin: left center;
-        }
-        .brand-lockup::after {
-            content: "";
-            position: absolute;
-            inset: -18% -10%;
-            width: 36%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .42), transparent);
-            mix-blend-mode: screen;
-            pointer-events: none;
-            animation: brandSweep 7.5s cubic-bezier(.2, .75, .3, 1) 1.2s infinite;
         }
         .brand-logo {
             display: block;
             width: 100%;
             height: auto;
+        }
+        .brand-white,
+        .brand-branch {
+            transition: fill .35s ease, opacity .35s ease;
+        }
+        .brand-lockup:hover .brand-white,
+        .brand-lockup:hover .brand-branch {
+            fill: #fff;
         }
         .brand-red-bar {
             animation: redSignal 4.8s ease-in-out infinite;
@@ -391,16 +445,125 @@
             position: relative;
             z-index: 1;
         }
+        .reveal {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            filter: blur(0);
+            transition:
+                opacity .9s cubic-bezier(.2, .82, .22, 1),
+                transform .9s cubic-bezier(.2, .82, .22, 1),
+                filter .9s cubic-bezier(.2, .82, .22, 1);
+            transition-delay: var(--reveal-delay, 0ms);
+            will-change: opacity, transform, filter;
+        }
+        .js-motion .reveal:not(.is-visible) {
+            opacity: 0;
+            transform: translate3d(0, 34px, 0);
+            filter: blur(10px);
+        }
+        .reveal.reveal-left {
+            transform: translate3d(0, 0, 0);
+        }
+        .js-motion .reveal.reveal-left:not(.is-visible) {
+            transform: translate3d(-28px, 22px, 0);
+        }
+        .reveal.reveal-right {
+            transform: translate3d(0, 0, 0);
+        }
+        .js-motion .reveal.reveal-right:not(.is-visible) {
+            transform: translate3d(28px, 22px, 0);
+        }
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            filter: blur(0);
+        }
+        .motion-card {
+            transition:
+                opacity .85s cubic-bezier(.2, .82, .22, 1),
+                transform .85s cubic-bezier(.2, .82, .22, 1),
+                filter .85s cubic-bezier(.2, .82, .22, 1),
+                border-color .35s ease,
+                box-shadow .35s ease,
+                background .35s ease;
+        }
+        .map-frame {
+            position: relative;
+            min-height: 340px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .14);
+            background: #101010;
+        }
+        .map-frame iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(1) invert(.9) contrast(.95) brightness(.72);
+            opacity: .76;
+        }
+        .map-frame::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 58% 46%, rgba(255, 85, 64, .16), transparent 23%),
+                linear-gradient(180deg, rgba(5, 5, 5, .1), rgba(5, 5, 5, .66));
+            pointer-events: none;
+        }
+        .map-marker-pulse,
+        .map-marker-core {
+            position: absolute;
+            left: 58%;
+            top: 48%;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .map-marker-pulse {
+            width: 74px;
+            height: 74px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 85, 64, .74);
+            background: rgba(255, 85, 64, .1);
+            animation: mapPulse 2.8s ease-out infinite;
+        }
+        .map-marker-core {
+            width: 46px;
+            height: 46px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #050505;
+            background: #ff5540;
+            box-shadow: 0 0 28px rgba(255, 85, 64, .5);
+            animation: mapMarkerFloat 3.4s ease-in-out infinite;
+        }
+        .map-link-panel {
+            position: absolute;
+            left: 24px;
+            right: 24px;
+            bottom: 24px;
+            z-index: 3;
+        }
         @media (prefers-reduced-motion: reduce) {
             .brand-lockup,
-            .brand-lockup::after,
             .brand-red-bar,
             .hero-motion > h1,
             .hero-motion > p,
             .hero-motion > div,
             .hero-motion > a,
-            .premium-cta::after {
+            .premium-cta::after,
+            .map-marker-pulse,
+            .map-marker-core {
                 animation: none;
+            }
+            .reveal {
+                opacity: 1;
+                transform: none;
+                filter: none;
+                transition: none;
             }
         }
         @media (max-width: 767px) {
@@ -421,14 +584,14 @@
 <header class="desktop-topbar absolute top-0 z-50 w-full flex justify-between items-center px-container-margin py-gutter bg-transparent">
 <a class="brand-lockup focus-ring" href="#" aria-label="REGYM MARSHALL">
 <svg class="brand-logo" viewBox="0 0 1240 220" aria-hidden="true" focusable="false">
-<text x="20" y="165" fill="#f4f4f4" font-family="Montserrat, Arial, sans-serif" font-size="154" font-weight="900">R</text>
+<text class="brand-white" x="20" y="165" fill="#f4f4f4" font-family="Montserrat, Arial, sans-serif" font-size="154" font-weight="900">R</text>
 <g class="brand-red-bar" fill="#ff2330">
 <polygon points="180,50 330,50 315,84 180,84"></polygon>
 <polygon points="180,96 304,96 291,130 180,130"></polygon>
 <polygon points="180,142 336,142 324,176 180,176"></polygon>
 </g>
-<text x="352" y="165" fill="#f4f4f4" font-family="Montserrat, Arial, sans-serif" font-size="154" font-weight="900">GYM</text>
-<text x="735" y="143" fill="#f1f1f1" font-family="Montserrat, Arial, sans-serif" font-size="56" font-weight="800" letter-spacing="14">MARSHALL</text>
+<text class="brand-white" x="352" y="165" fill="#f4f4f4" font-family="Montserrat, Arial, sans-serif" font-size="154" font-weight="900">GYM</text>
+<text class="brand-branch" x="735" y="143" fill="#f1f1f1" font-family="Montserrat, Arial, sans-serif" font-size="56" font-weight="800" letter-spacing="14">MARSHALL</text>
 </svg>
 </a>
 <nav class="hidden md:flex items-center gap-6 text-label-sm font-label-sm uppercase tracking-widest text-tertiary">
@@ -474,7 +637,7 @@
 </div>
 </section>
 <!-- Why REGYM -->
-<section class="relative z-20 px-container-margin py-section-gap bg-[#080808] border-t border-outline-variant/20">
+<section class="reveal relative z-20 px-container-margin py-section-gap bg-[#080808] border-t border-outline-variant/20">
 <div class="desktop-section">
 <div class="max-w-3xl mb-8">
 <div class="flex items-center gap-4 mb-5">
@@ -485,22 +648,22 @@
 <p class="text-body-md font-body-md text-tertiary">Спортхаб для тих, хто хоче тренуватись у своєму ритмі: самостійно, у групі або з тренером.</p>
 </div>
 <div class="grid md:grid-cols-4 gap-4">
-<div class="price-card p-5 md:p-6">
+<div class="price-card motion-card reveal p-5 md:p-6">
 <span class="text-primary-container text-label-sm font-label-sm uppercase tracking-widest">01</span>
 <h3 class="text-on-surface uppercase font-bold mt-4 mb-3">Все в одному просторі</h3>
 <p class="text-tertiary text-sm">Силова зона, групові тренування, єдиноборства та відновлення без зайвих переходів.</p>
 </div>
-<div class="price-card p-5 md:p-6">
+<div class="price-card motion-card reveal p-5 md:p-6">
 <span class="text-primary-container text-label-sm font-label-sm uppercase tracking-widest">02</span>
 <h3 class="text-on-surface uppercase font-bold mt-4 mb-3">Для різного рівня</h3>
 <p class="text-tertiary text-sm">Можна почати з бази або тренуватись інтенсивно - формат підбирається під ціль.</p>
 </div>
-<div class="price-card p-5 md:p-6">
+<div class="price-card motion-card reveal p-5 md:p-6">
 <span class="text-primary-container text-label-sm font-label-sm uppercase tracking-widest">03</span>
 <h3 class="text-on-surface uppercase font-bold mt-4 mb-3">Ритм без хаосу</h3>
 <p class="text-tertiary text-sm">Обирай напрям, дивись прайс і зв'язуйся з адміністратором без зайвих кроків.</p>
 </div>
-<div class="price-card p-5 md:p-6">
+<div class="price-card motion-card reveal p-5 md:p-6">
 <span class="text-primary-container text-label-sm font-label-sm uppercase tracking-widest">04</span>
 <h3 class="text-on-surface uppercase font-bold mt-4 mb-3">Атмосфера спортхабу</h3>
 <p class="text-tertiary text-sm">Темний інтер'єр, динаміка тренувань і простір, який мотивує повертатись.</p>
@@ -509,7 +672,7 @@
 </div>
 </section>
 <!-- Training Directions -->
-<section id="services" class="relative z-20 px-container-margin py-section-gap bg-deep-void border-t border-outline-variant/20 scroll-mt-24">
+<section id="services" class="reveal relative z-20 px-container-margin py-section-gap bg-deep-void border-t border-outline-variant/20 scroll-mt-24">
 <div class="desktop-section">
 <div class="max-w-3xl mb-10">
 <div class="flex items-center gap-4 mb-5">
@@ -520,7 +683,7 @@
 <p class="text-body-md font-body-md text-tertiary">Обери формат під свою ціль: сила, витривалість, техніка, функціонал або відновлення.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
-<a class="service-card group relative overflow-hidden md:col-span-2 md:row-span-2 min-h-[340px] p-6 md:p-8 flex flex-col justify-end transition-colors" href="#contact">
+<a class="service-card motion-card reveal group relative overflow-hidden md:col-span-2 md:row-span-2 min-h-[340px] p-6 md:p-8 flex flex-col justify-end transition-colors" href="#contact">
 <div class="absolute inset-0 bg-cover bg-center opacity-34 group-hover:opacity-46 transition-opacity duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3z2MIhMQnNWQWRgGjCM0NLRa4kMUH6eIg8jFLL1aUB9k2RXOBvLc4hNQykLghfUKS9F7u0ldTBD0DRA47Gi-6sV6iQuaq5UVkHn0c5uQmyFFc610U4ClmLrOFsCmXedQBMvY0uJnj-QnbgV4GC30RgXLHHUPC60FdsOiVsjEnbEIMkmFhVlslDeeyiIWDG_J7_uXdYg9QKo7xbrWOWRTkIWVrXmOlJw9awqKm7-jb6gsVQLrY7lRiaQoL8iX-0BbCUK3Jzm5YJ8Bj');"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-deep-void via-deep-void/75 to-transparent"></div>
 <div class="relative z-10 max-w-xl">
@@ -529,27 +692,27 @@
 <span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
 </div>
 </a>
-<a class="service-card min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
+<a class="service-card motion-card reveal min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
 <h3 class="text-on-surface uppercase font-bold text-lg mb-3">Групові класи</h3>
 <p class="text-tertiary text-sm mb-5">Тренування в ритмі команди, регулярність і різні формати навантаження.</p>
 <span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
 </a>
-<a class="service-card min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
+<a class="service-card motion-card reveal min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
 <h3 class="text-on-surface uppercase font-bold text-lg mb-3">Єдиноборства</h3>
 <p class="text-tertiary text-sm mb-5">Бокс, техніка, координація, витривалість і робота з тренером.</p>
 <span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
 </a>
-<a class="service-card min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
+<a class="service-card motion-card reveal min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
 <h3 class="text-on-surface uppercase font-bold text-lg mb-3">Персональні тренування</h3>
 <p class="text-tertiary text-sm mb-5">Індивідуальний підхід, контроль техніки та програма під ціль.</p>
 <span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
 </a>
-<a class="service-card min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
+<a class="service-card motion-card reveal min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
 <h3 class="text-on-surface uppercase font-bold text-lg mb-3">Функціональні тренування</h3>
 <p class="text-tertiary text-sm mb-5">TRX, mobility, core і робота з власною вагою.</p>
 <span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
 </a>
-<a class="service-card min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
+<a class="service-card motion-card reveal min-h-[165px] p-5 md:p-6 flex flex-col justify-between transition-colors" href="#contact">
 <h3 class="text-on-surface uppercase font-bold text-lg mb-3">Відновлення</h3>
 <p class="text-tertiary text-sm mb-5">Сауна, масаж і релакс після навантажень.</p>
 <span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Детальніше →</span>
@@ -558,7 +721,7 @@
 </div>
 </section>
 <!-- Prices -->
-<section id="price" class="relative z-20 px-container-margin py-section-gap bg-[#090909] border-t border-outline-variant/20 scroll-mt-24">
+<section id="price" class="reveal relative z-20 px-container-margin py-section-gap bg-[#090909] border-t border-outline-variant/20 scroll-mt-24">
 <div class="desktop-section space-y-8">
 <div class="max-w-3xl">
 <div class="flex items-center gap-4 mb-5">
@@ -569,13 +732,13 @@
 <p class="text-body-md font-body-md text-tertiary">Короткий вибір зверху, детальні умови — у розділах нижче. Таблиці можна гортати горизонтально на телефоні.</p>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-<div class="summary-card p-5 md:p-6"><span class="text-tertiary text-label-sm font-label-sm uppercase tracking-widest">Разове відвідування</span><div class="text-primary-container text-2xl md:text-3xl font-black mt-3">300 грн</div></div>
-<div class="summary-card p-5 md:p-6"><span class="text-tertiary text-label-sm font-label-sm uppercase tracking-widest">Абонементи</span><div class="text-primary-container text-2xl md:text-3xl font-black mt-3">від 1850 грн</div></div>
-<div class="summary-card p-5 md:p-6"><span class="text-tertiary text-label-sm font-label-sm uppercase tracking-widest">Персональні</span><div class="text-primary-container text-2xl md:text-3xl font-black mt-3">від 450 грн</div></div>
-<div class="summary-card p-5 md:p-6"><span class="text-tertiary text-label-sm font-label-sm uppercase tracking-widest">Масаж та реабілітація</span><div class="text-primary-container text-2xl md:text-3xl font-black mt-3">від 200 грн</div></div>
+<div class="summary-card motion-card reveal p-5 md:p-6"><span class="summary-label text-tertiary text-label-sm uppercase tracking-widest">Разове відвідування</span><div class="summary-price text-primary-container text-2xl md:text-3xl mt-3">300 грн</div></div>
+<div class="summary-card motion-card reveal p-5 md:p-6"><span class="summary-label text-tertiary text-label-sm uppercase tracking-widest">Абонементи</span><div class="summary-price text-primary-container text-2xl md:text-3xl mt-3">від 1850 грн</div></div>
+<div class="summary-card motion-card reveal p-5 md:p-6"><span class="summary-label text-tertiary text-label-sm uppercase tracking-widest">Персональні</span><div class="summary-price text-primary-container text-2xl md:text-3xl mt-3">від 450 грн</div></div>
+<div class="summary-card motion-card reveal p-5 md:p-6"><span class="summary-label text-tertiary text-label-sm uppercase tracking-widest">Масаж та реабілітація</span><div class="summary-price text-primary-container text-2xl md:text-3xl mt-3">від 200 грн</div></div>
 </div>
 <div class="space-y-4">
-<details class="price-accordion" open>
+<details class="price-accordion motion-card reveal" open>
 <summary class="p-5 md:p-6 flex items-center justify-between gap-4">
 <span class="text-on-surface uppercase font-bold tracking-wide">Основні абонементи</span>
 <span class="chevron material-symbols-outlined text-primary-container">chevron_right</span>
@@ -597,7 +760,7 @@
 <p class="text-tertiary text-xs mt-4 uppercase">Додаткові знижки на персональні заняття, солярій та масаж доступні в окремих пакетах Activity 12.</p>
 </div>
 </details>
-<details class="price-accordion">
+<details class="price-accordion motion-card reveal">
 <summary class="p-5 md:p-6 flex items-center justify-between gap-4">
 <span class="text-on-surface uppercase font-bold tracking-wide">Персональні тренування</span>
 <span class="chevron material-symbols-outlined text-primary-container">chevron_right</span>
@@ -617,7 +780,7 @@
 <p class="text-tertiary text-xs mt-4 uppercase">Разова вартість 1 і 2 категорії діє за наявності абонементу на відвідування залу.</p>
 </div>
 </details>
-<details class="price-accordion">
+<details class="price-accordion motion-card reveal">
 <summary class="p-5 md:p-6 flex items-center justify-between gap-4">
 <span class="text-on-surface uppercase font-bold tracking-wide">Групові тренування</span>
 <span class="chevron material-symbols-outlined text-primary-container">chevron_right</span>
@@ -636,7 +799,7 @@
 </div>
 </div>
 </details>
-<details class="price-accordion">
+<details class="price-accordion motion-card reveal">
 <summary class="p-5 md:p-6 flex items-center justify-between gap-4">
 <span class="text-on-surface uppercase font-bold tracking-wide">Реабілітація та масаж</span>
 <span class="chevron material-symbols-outlined text-primary-container">chevron_right</span>
@@ -665,7 +828,7 @@
 </div>
 </div>
 </details>
-<details class="price-accordion">
+<details class="price-accordion motion-card reveal">
 <summary class="p-5 md:p-6 flex items-center justify-between gap-4">
 <span class="text-on-surface uppercase font-bold tracking-wide">Мерч та додаткові опції</span>
 <span class="chevron material-symbols-outlined text-primary-container">chevron_right</span>
@@ -694,9 +857,9 @@
 </div>
 </section>
 <!-- Location -->
-<section id="location" class="relative z-20 px-container-margin py-section-gap bg-deep-void border-t border-outline-variant/20 scroll-mt-24">
+<section id="location" class="reveal relative z-20 px-container-margin py-section-gap bg-deep-void border-t border-outline-variant/20 scroll-mt-24">
 <div class="desktop-section grid md:grid-cols-[.9fr_1.1fr] gap-6 md:gap-8 items-stretch">
-<div class="price-card p-6 md:p-8 flex flex-col justify-between gap-8">
+<div class="price-card motion-card reveal p-6 md:p-8 flex flex-col justify-between gap-8">
 <div>
 <div class="flex items-center gap-4 mb-6">
 <div class="h-px w-8 bg-primary-container drop-shadow-[0_0_5px_rgba(255,0,0,0.8)]"></div>
@@ -713,29 +876,27 @@
 <div class="border border-outline-variant/30 bg-deep-void p-4">
 <span class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest">Дніпро · REGYM MARSHALL</span>
 </div>
-<a class="focus-ring bg-primary-container hover:bg-red-600 text-deep-void text-cta-text font-cta-text uppercase tracking-widest py-4 px-6 transition-all duration-300 hover:box-glow active:scale-95 flex items-center justify-center gap-2" href="https://www.google.com/maps/place/REGYM+sport+hub+MARSHALL/@48.4160105,35.0696778,15z">
+<a class="premium-cta focus-ring bg-primary-container hover:bg-red-600 text-deep-void text-cta-text font-cta-text uppercase tracking-widest py-4 px-6 transition-all duration-300 hover:box-glow active:scale-95 flex items-center justify-center gap-2" href="https://www.google.com/maps/place/REGYM+sport+hub+MARSHALL/@48.4151221,35.0679054,16.25z/data=!4m10!1m2!2m1!1sregym!3m6!1s0x40dbfd58326d5b05:0xa1e220135b320c08!8m2!3d48.4160105!4d35.0696778!15sCgVyZWd5bZIBA2d5beABAA!16s%2Fg%2F11xt2_b5c0?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
                     Прокласти маршрут
                     <span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
 </a>
 </div>
 </div>
-<div class="relative min-h-[340px] overflow-hidden border border-outline-variant/30 bg-[#101010]">
-<div class="absolute inset-0 opacity-70" style="background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 42px 42px;"></div>
-<div class="absolute left-[18%] top-[22%] h-px w-[70%] bg-primary-container/60 rotate-[-18deg] drop-shadow-[0_0_10px_rgba(255,0,0,.8)]"></div>
-<div class="absolute left-[36%] top-[12%] h-px w-[52%] bg-white/20 rotate-[28deg]"></div>
-<div class="absolute left-[58%] top-[48%] h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary-container/70 bg-primary-container/10 drop-shadow-[0_0_18px_rgba(255,0,0,.8)]"></div>
-<div class="absolute left-[58%] top-[48%] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center rounded-full bg-primary-container text-deep-void w-11 h-11">
+<a class="map-frame motion-card reveal block" href="https://www.google.com/maps/place/REGYM+sport+hub+MARSHALL/@48.4151221,35.0679054,16.25z/data=!4m10!1m2!2m1!1sregym!3m6!1s0x40dbfd58326d5b05:0xa1e220135b320c08!8m2!3d48.4160105!4d35.0696778!15sCgVyZWd5bZIBA2d5beABAA!16s%2Fg%2F11xt2_b5c0?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" aria-label="Відкрити REGYM MARSHALL на Google Maps">
+<iframe title="REGYM sport hub MARSHALL на Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=REGYM%20sport%20hub%20MARSHALL%2C%20Dnipro%4048.4160105%2C35.0696778&z=16&output=embed"></iframe>
+<div class="map-marker-pulse"></div>
+<div class="map-marker-core">
 <span class="material-symbols-outlined" data-icon="location_on">location_on</span>
 </div>
-<div class="absolute bottom-6 left-6 right-6 flex items-center justify-between gap-4 border border-outline-variant/30 bg-deep-void/80 backdrop-blur-md p-4">
+<div class="map-link-panel flex items-center justify-between gap-4 border border-outline-variant/30 bg-deep-void/80 backdrop-blur-md p-4">
 <span class="text-label-sm font-label-sm text-tertiary uppercase tracking-widest">Карта локації</span>
 <span class="text-label-sm font-label-sm text-on-surface uppercase tracking-widest">Marshall</span>
 </div>
-</div>
+</a>
 </div>
 </section>
 <!-- Contact -->
-<section id="contact" class="relative z-20 px-container-margin py-section-gap bg-deep-void border-t border-outline-variant/20 scroll-mt-24">
+<section id="contact" class="reveal relative z-20 px-container-margin py-section-gap bg-deep-void border-t border-outline-variant/20 scroll-mt-24">
 <div class="desktop-section">
 <div class="max-w-3xl mb-8">
 <div class="flex items-center gap-4 mb-6">
@@ -771,7 +932,7 @@
 <p class="text-tertiary text-sm">Зручний формат для уточнення деталей.</p>
 </div>
 </a>
-<a class="focus-ring service-card group p-6 min-h-[190px] flex flex-col justify-between transition-colors" href="https://www.google.com/maps/place/REGYM+sport+hub+MARSHALL/@48.4160105,35.0696778,15z">
+<a class="focus-ring service-card motion-card reveal group p-6 min-h-[190px] flex flex-col justify-between transition-colors" href="https://www.google.com/maps/place/REGYM+sport+hub+MARSHALL/@48.4151221,35.0679054,16.25z/data=!4m10!1m2!2m1!1sregym!3m6!1s0x40dbfd58326d5b05:0xa1e220135b320c08!8m2!3d48.4160105!4d35.0696778!15sCgVyZWd5bZIBA2d5beABAA!16s%2Fg%2F11xt2_b5c0?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
 <span class="material-symbols-outlined text-4xl text-primary-container" data-icon="location_on">location_on</span>
 <div>
 <h3 class="text-xl font-bold uppercase text-on-surface mb-2">Прокласти маршрут</h3>
@@ -816,6 +977,51 @@
             © 2026 REGYM MARSHALL. URBAN ENERGY HUB.
         </p>
 </footer>
+<script>
+(() => {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const revealItems = Array.from(document.querySelectorAll(".reveal"));
+  revealItems.forEach((item, index) => {
+    const group = item.parentElement ? Array.from(item.parentElement.children).filter((child) => child.classList && child.classList.contains("reveal")) : [];
+    const localIndex = Math.max(0, group.indexOf(item));
+    item.style.setProperty("--reveal-delay", `${Math.min(localIndex * 85, 420)}ms`);
+  });
+  if (reduceMotion) {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+  } else {
+    document.documentElement.classList.add("js-motion");
+    let ticking = false;
+    const revealCheck = () => {
+      const threshold = window.innerHeight * .88;
+      revealItems.forEach((item) => {
+        if (item.classList.contains("is-visible")) return;
+        if (item.getBoundingClientRect().top < threshold) {
+          item.classList.add("is-visible");
+        }
+      });
+      ticking = false;
+    };
+    const requestReveal = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(revealCheck);
+    };
+    revealCheck();
+    window.addEventListener("scroll", requestReveal, { passive: true });
+    window.addEventListener("resize", requestReveal);
+    window.setTimeout(revealCheck, 350);
+    window.setTimeout(revealCheck, 1200);
+  }
+
+  document.querySelectorAll(".summary-card").forEach((card) => {
+    card.addEventListener("pointermove", (event) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty("--mx", `${event.clientX - rect.left}px`);
+      card.style.setProperty("--my", `${event.clientY - rect.top}px`);
+    });
+  });
+})();
+</script>
 <script>
 (() => {
   const video = document.querySelector(".hero-bg-video");
