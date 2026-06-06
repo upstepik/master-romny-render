@@ -717,6 +717,11 @@
   };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start, { once: true });
   else start();
+  video.addEventListener("loadeddata", start);
+  video.addEventListener("canplay", start);
+  window.setTimeout(start, 250);
+  window.setTimeout(start, 1000);
+  window.setTimeout(start, 2200);
   window.addEventListener("pageshow", start);
   document.addEventListener("visibilitychange", () => { if (!document.hidden) start(); });
   document.addEventListener("touchstart", start, { once: true, passive: true });
