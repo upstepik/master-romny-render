@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>REGYM MARSHALL</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Montserrat:wght@700;800;900&amp;family=Sora:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Montserrat:wght@700;800;900&amp;family=Russo+One&amp;family=Sora:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
@@ -220,8 +220,8 @@
                 padding-right: 0 !important;
             }
             .desktop-hero-content h1 {
-                font-size: clamp(58px, 5.15vw, 80px) !important;
-                line-height: .92 !important;
+                font-size: clamp(62px, 5.35vw, 86px) !important;
+                line-height: .98 !important;
             }
             .desktop-topbar {
                 left: 50%;
@@ -229,7 +229,7 @@
                 max-width: 1180px;
             }
             .brand-lockup {
-                width: clamp(310px, 29vw, 450px);
+                width: clamp(230px, 21vw, 318px);
             }
             .desktop-section {
                 max-width: 1180px;
@@ -463,7 +463,7 @@
         .brand-lockup {
             position: relative;
             display: block;
-            width: clamp(205px, 54vw, 248px);
+            width: clamp(132px, 35vw, 170px);
             color: #f5f5f5;
             overflow: hidden;
             animation: brandReveal .9s cubic-bezier(.2, .85, .2, 1) .08s both, logoPulse 5.8s ease-in-out 1.4s infinite;
@@ -475,12 +475,20 @@
             width: 100%;
             height: auto;
         }
+        .brand-red,
         .brand-white,
         .brand-branch {
             transition: fill .35s ease, opacity .35s ease;
         }
+        .brand-red {
+            fill: #ff301f;
+            filter: drop-shadow(0 0 12px rgba(255, 48, 31, .26));
+        }
         .brand-branch {
-            opacity: .72;
+            opacity: .86;
+        }
+        .brand-lockup:hover .brand-red {
+            fill: #ff4a37;
         }
         .brand-lockup:hover .brand-white,
         .brand-lockup:hover .brand-branch {
@@ -489,6 +497,17 @@
         }
         .brand-red-bar {
             animation: redSignal 4.8s ease-in-out infinite;
+        }
+        .hero-title {
+            font-family: "Russo One", "Montserrat", Arial, sans-serif;
+            font-weight: 400;
+            letter-spacing: 0;
+            text-transform: uppercase;
+            text-shadow: 0 12px 34px rgba(0, 0, 0, .7), 0 0 18px rgba(255, 255, 255, .05);
+        }
+        .hero-title-accent {
+            color: #ff301f;
+            text-shadow: 0 0 18px rgba(255, 48, 31, .58), 0 8px 28px rgba(0, 0, 0, .7);
         }
         .hero-motion > h1,
         .hero-motion > p,
@@ -630,6 +649,13 @@
             bottom: 24px;
             z-index: 3;
         }
+        .mobile-menu-toggle {
+            width: 54px;
+            height: 54px;
+            border-radius: 999px;
+            border-color: rgba(255, 48, 31, .72) !important;
+            box-shadow: inset 0 0 18px rgba(255, 48, 31, .08), 0 0 20px rgba(255, 48, 31, .08);
+        }
         .mobile-menu-panel {
             position: absolute;
             top: calc(100% + 8px);
@@ -689,13 +715,18 @@
             }
         }
         @media (max-width: 767px) {
+            .desktop-hero {
+                height: 100svh !important;
+                min-height: 720px !important;
+                padding-bottom: 88px !important;
+            }
             .desktop-hero-content {
                 margin-bottom: 34px !important;
                 gap: 14px !important;
             }
             .desktop-hero-content h1 {
-                font-size: clamp(42px, 11.5vw, 46px) !important;
-                line-height: .94 !important;
+                font-size: clamp(39px, 10.4vw, 45px) !important;
+                line-height: 1 !important;
             }
             .desktop-hero-video {
                 top: 0;
@@ -713,15 +744,24 @@
 <!-- TopAppBar -->
 <header class="desktop-topbar absolute top-0 z-50 w-full flex justify-between items-center px-container-margin py-gutter bg-transparent">
 <a class="brand-lockup focus-ring" href="#hero" aria-label="REGYM MARSHALL">
-<svg class="brand-logo" viewBox="0 0 1240 220" aria-hidden="true" focusable="false">
-<text class="brand-white" x="20" y="165" fill="#f4f4f4" font-family="Montserrat, Arial, sans-serif" font-size="154" font-weight="900">R</text>
-<g class="brand-red-bar" fill="#ff2330">
-<polygon points="180,50 330,50 315,84 180,84"></polygon>
-<polygon points="180,96 304,96 291,130 180,130"></polygon>
-<polygon points="180,142 336,142 324,176 180,176"></polygon>
+<svg class="brand-logo" viewBox="0 0 720 245" aria-hidden="true" focusable="false">
+<text class="brand-red" x="12" y="122" font-family="Russo One, Montserrat, Arial, sans-serif" font-size="116" font-weight="400">R</text>
+<g class="brand-red-bar" fill="#ff301f">
+<polygon points="142,42 288,42 274,70 142,70"></polygon>
+<polygon points="142,82 262,82 249,110 142,110"></polygon>
+<polygon points="142,122 294,122 281,150 142,150"></polygon>
 </g>
-<text class="brand-white" x="352" y="165" fill="#f4f4f4" font-family="Montserrat, Arial, sans-serif" font-size="154" font-weight="900">GYM</text>
-<text class="brand-branch" x="735" y="141" fill="#d8d8d8" font-family="Montserrat, Arial, sans-serif" font-size="48" font-weight="800" letter-spacing="13">MARSHALL</text>
+<text class="brand-red" x="312" y="122" font-family="Russo One, Montserrat, Arial, sans-serif" font-size="116" font-weight="400">GYM</text>
+<g class="brand-branch" fill="#f4f4f4" font-family="Montserrat, Arial, sans-serif" font-size="44" font-weight="800">
+<text x="18" y="209">M</text>
+<text x="104" y="209">A</text>
+<text x="188" y="209">R</text>
+<text x="272" y="209">S</text>
+<text x="354" y="209">H</text>
+<text x="440" y="209">A</text>
+<text x="524" y="209">L</text>
+<text x="604" y="209">L</text>
+</g>
 </svg>
 </a>
 <nav class="hidden md:flex items-center gap-6 text-label-sm font-label-sm uppercase tracking-widest text-tertiary">
@@ -752,8 +792,8 @@
 </div>
 <!-- Content -->
 <div class="desktop-hero-content hero-motion relative z-10 px-container-margin flex flex-col gap-4 md:gap-6 md:w-2/3 lg:w-1/2 mb-5 md:mb-8">
-<h1 class="text-[48px] sm:text-display-xl font-display-xl text-on-surface uppercase leading-[0.92] sm:leading-none drop-shadow-2xl">
-Обери свій <br/><span class="text-primary-container text-glow">режим</span> тренувань
+<h1 class="hero-title text-[48px] sm:text-display-xl text-on-surface leading-[0.98] drop-shadow-2xl">
+Обери свій <br/><span class="hero-title-accent">режим</span> тренувань
 </h1>
 <p class="text-body-md font-body-md text-tertiary max-w-md border-l-2 border-primary-container pl-4">
 Тренажерний зал, групові класи, єдиноборства та відновлення в одному спортхабі.
